@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb3372501379e9234f9c5d77a8c7ac26",
+    "content-hash": "ed7ad33ee37b3d81be517d586a5dfae6",
     "packages": [
         {
             "name": "brick/math",
@@ -2334,16 +2334,16 @@
         },
         {
             "name": "nwidart/laravel-modules",
-            "version": "v11.0.8",
+            "version": "v11.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nWidart/laravel-modules.git",
-                "reference": "775af99752b1640261dd435988db3e058f770573"
+                "reference": "f70f91e0d0d1f6bf16c62c9b17be3eaa3763f7cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/775af99752b1640261dd435988db3e058f770573",
-                "reference": "775af99752b1640261dd435988db3e058f770573",
+                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/f70f91e0d0d1f6bf16c62c9b17be3eaa3763f7cb",
+                "reference": "f70f91e0d0d1f6bf16c62c9b17be3eaa3763f7cb",
                 "shasum": ""
             },
             "require": {
@@ -2404,7 +2404,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nWidart/laravel-modules/issues",
-                "source": "https://github.com/nWidart/laravel-modules/tree/v11.0.8"
+                "source": "https://github.com/nWidart/laravel-modules/tree/v11.0.9"
             },
             "funding": [
                 {
@@ -2416,7 +2416,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-29T16:10:00+00:00"
+            "time": "2024-04-30T00:31:39+00:00"
         },
         {
             "name": "phpoption/phpoption",
