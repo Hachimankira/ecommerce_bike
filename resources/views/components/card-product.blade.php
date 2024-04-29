@@ -1,4 +1,4 @@
-<div class="col-md-6 col-lg-4 col-xl-3">
+<div class="{{ $gridClasses }}">
     <div class="rounded position-relative fruite-item">
         <div class="fruite-img">
             <img src="img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">

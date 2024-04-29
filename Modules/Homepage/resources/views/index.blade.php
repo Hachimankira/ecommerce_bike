@@ -63,14 +63,12 @@
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="row g-4">
-                                        <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
                                     </div>
                                 </div>
                             </div>
@@ -79,10 +77,15 @@
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="row g-4">
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-3"/>
+                                        {{-- <x-card-product/>
                                         <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
+                                        <x-card-product/> --}}
                                     </div>
                                 </div>
                             </div>
@@ -91,10 +94,8 @@
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="row g-4">
-                                        <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-4"/>
+
                                     </div>
                                 </div>
                             </div>
@@ -103,9 +104,8 @@
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="row g-4">
-                                        <x-card-product/>
-                                        <x-card-product/>
-                                        <x-card-product/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-4"/>
+
                                     </div>
                                 </div>
                             </div>
@@ -114,8 +114,8 @@
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="row g-4">
-                                        <x-card-product/>
-                                        <x-card-product/>
+                                        <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-4"/>
+
                                     </div>
                                 </div>
                             </div>
