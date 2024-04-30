@@ -12,21 +12,22 @@
         <div class="container-fluid featurs py-5">
             <div class="container py-5">
                 <div class="row g-4">
-                    <x-card-feature />
-                    <x-card-feature />
-                    <x-card-feature />
-                    <x-card-feature />
+                    <x-card-feature icon="fas fa-car-side " feature="Secure Shipment" desc="Secure Shipment"/>
+                    <x-card-feature icon="fas fa-user-shield " feature="Security Payment" desc="100% security payment"/>
+                    <x-card-feature icon="fas fa-exchange-alt" feature="30 Day Return" desc="30 day money guarantee"/>
+                    <x-card-feature icon="fas fa-phone-alt " feature="24/7 Support" desc="Support every time fast<"/>
                 </div>
             </div>
         </div>
         <!-- Featurs Section End -->
-        <!-- Fruits Shop Start-->
+
+        <!-- Bike Shop Start-->
         <div class="container-fluid fruite py-5">
             <div class="container py-5">
                 <div class="tab-class text-center">
                     <div class="row g-4">
                         <div class="col-lg-4 text-start">
-                            <h1>Our Organic Products</h1>
+                            <h1>Featured Bikes</h1>
                         </div>
                         <div class="col-lg-8 text-end">
                             <ul class="nav nav-pills d-inline-flex text-center mb-5">
@@ -37,22 +38,17 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
-                                        <span class="text-dark" style="width: 130px;">Vegetables</span>
+                                        <span class="text-dark" style="width: 130px;">Sports</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
-                                        <span class="text-dark" style="width: 130px;">Fruits</span>
+                                        <span class="text-dark" style="width: 130px;">Street</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">
-                                        <span class="text-dark" style="width: 130px;">Bread</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
-                                        <span class="text-dark" style="width: 130px;">Meat</span>
+                                        <span class="text-dark" style="width: 130px;">Cruiser</span>
                                     </a>
                                 </li>
                             </ul>
@@ -124,11 +120,11 @@
                 </div>      
             </div>
         </div>
-        <!-- Fruits Shop End-->
+        <!-- Bike Shop End-->
 
 
         <!-- Featurs Start -->
-        <div class="container-fluid service py-5">
+        {{-- <div class="container-fluid service py-5">
             <div class="container py-5">
                 <div class="row g-4 justify-content-center">
                     <div class="col-md-6 col-lg-4">
@@ -172,14 +168,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Featurs End -->
 
 
-        <!-- Vesitable Shop Start-->
+        <!-- Scooter Shop Start-->
         <div class="container-fluid vesitable py-5">
             <div class="container py-5">
-                <h1 class="mb-0">Fresh Organic Vegetables</h1>
+                <h1 class="mb-0">Featured Scooter</h1>
                 <div class="owl-carousel vegetable-carousel justify-content-center">
                     <x-card-carousel/>
                     <x-card-carousel/>
@@ -192,7 +188,7 @@
                 </div>
             </div>
         </div>
-        <!-- Vesitable Shop End -->
+        <!-- Scooter Shop End -->
 
 
         <!-- Banner Section Start-->
@@ -201,7 +197,7 @@
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6">
                         <div class="py-4">
-                            <h1 class="display-3 text-white">Fresh Exotic Fruits</h1>
+                            <h1 class="display-3 text-white">The Best Deals</h1>
                             <p class="fw-normal display-3 text-dark mb-4">in Our Store</p>
                             <p class="mb-4 text-dark">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
                             <a href="#" class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">BUY</a>
@@ -209,13 +205,13 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="position-relative">
-                            <img src="img/baner-1.png" class="img-fluid w-100 rounded" alt="">
-                            <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute" style="width: 140px; height: 140px; top: 0; left: 0;">
-                                <h1 style="font-size: 100px;">1</h1>
-                                <div class="d-flex flex-column">
-                                    <span class="h2 mb-0">50$</span>
-                                    <span class="h4 text-muted mb-0">kg</span>
-                                </div>
+                            <img src="img/bike-banner.png" class="img-fluid w-100 rounded" alt="">
+                            <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute" style="width: 150px; height: 150px; bottom: 0; right: 0;">
+                                <h3 style="">Rs.249999</h3>
+                                {{-- <div class="d-flex flex-column">
+                                    <span class="h4 mb-0">.99</span>
+                                    <span class="h4 text-muted mb-0">.99</span>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

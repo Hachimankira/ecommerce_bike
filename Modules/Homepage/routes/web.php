@@ -13,7 +13,6 @@ use Modules\Homepage\Http\Controllers\HomepageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::group([], function () {
     Route::resource('homepage', HomepageController::class)->names('homepage');
 });
