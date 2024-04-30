@@ -1,4 +1,5 @@
-<form class="row g-3">
+<form class="row g-3" action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
     <h3>Bike Details</h3>
     <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Brand</label>
@@ -20,6 +21,14 @@
     <div class="col-md-6">
         <label for="type" class="form-label">Type</label>
         <select id="type" name="type" class="form-select" aria-label="Default select example">
+            <option selected>Bike</option>
+            <option value="1">Scooter</option>
+            <option value="2">Cycle</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label for="body_type" class="form-label">Body type</label>
+        <select id="body_type" name="body_type" class="form-select" aria-label="Default select example">
             <option selected>Type</option>
             <option value="1">Street</option>
             <option value="2">Sport</option>
@@ -30,23 +39,23 @@
         </select>
     </div>
     <div class="col-md-6">
-      <label class="form-check-label" for="distance">
-          Distance Covered
-      </label>
-      <div class="input-group mb-3">
-          <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="distance"
-              name="distance" />
-          <span class="input-group-text">km</span>
+        <label class="form-check-label" for="distance">
+            Distance Covered
+        </label>
+        <div class="input-group mb-3">
+            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="distance"
+                name="distance" />
+            <span class="input-group-text">km</span>
 
-      </div>
-  </div>
+        </div>
+    </div>
     <div class="col-md-6">
         <label for="colour" class="form-label">Colour</label>
         <input type="text" class="form-control" id="colour" name="colour" />
     </div>
     <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Condition</label>
-        <select class="form-select" aria-label="Default select example">
+        <label for="condition" class="form-label">Condition</label>
+        <select id="condition" name="condition" class="form-select" aria-label="Default select example">
             <option selected>Excellent</option>
             <option value="1">Good</option>
             <option value="2">Fair</option>
@@ -73,7 +82,8 @@
         <label for="owner" class="form-label">Owner</label>
         <div class="d-flex">
             <div class="form-check mr-3">
-                <input class="form-check-input" type="radio" name="owner" id="owner1" value="first" checked />
+                <input class="form-check-input" type="radio" name="owner" id="owner1" value="first"
+                    checked />
                 <label class="form-check-label" for="owner1">
                     First
                 </label>
@@ -132,15 +142,15 @@
         </select>
     </div>
     <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Banner Image</label>
+        <label for="banner_img" class="form-label">Banner Image</label>
         <input class="form-control" type="file" id="formFile" name="banner_img" />
     </div>
     <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Other Images</label>
+        <label for="other_img" class="form-label">Other Images</label>
         <input class="form-control" type="file" id="formFile" name="other_img" multiple />
     </div>
     <div class="col-md-12">
-        <label for="inputPassword4" class="form-label">Description</label>
+        <label for="description" class="form-label">Description</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="5"></textarea>
     </div>
     <div class="col-12">
