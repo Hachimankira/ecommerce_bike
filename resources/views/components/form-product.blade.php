@@ -5,8 +5,8 @@
         <input type="text" class="form-control" id="brand" name="brand" />
     </div>
     <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Model</label>
-        <input type="password" class="form-control" id="model" name="model" />
+        <label for="model" class="form-label">Model</label>
+        <input type="text" class="form-control" id="model" name="model" />
     </div>
     <div class="col-md-6">
         <label for="year" class="form-label">Year</label>
@@ -18,8 +18,8 @@
         </select>
     </div>
     <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Type</label>
-        <select class="form-select" aria-label="Default select example">
+        <label for="type" class="form-label">Type</label>
+        <select id="type" name="type" class="form-select" aria-label="Default select example">
             <option selected>Type</option>
             <option value="1">Street</option>
             <option value="2">Sport</option>
@@ -41,8 +41,8 @@
       </div>
   </div>
     <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Colour</label>
-        <input type="password" class="form-control" id="colour" name="colour" />
+        <label for="colour" class="form-label">Colour</label>
+        <input type="text" class="form-control" id="colour" name="colour" />
     </div>
     <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Condition</label>
@@ -62,12 +62,12 @@
         </select>
     </div>
     <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Suspension Type</label>
-        <input type="password" class="form-control" id="suspension" name="suspension" />
+        <label for="suspension" class="form-label">Suspension Type</label>
+        <input type="text" class="form-control" id="suspension" name="suspension" />
     </div>
     <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Break Type</label>
-        <input type="password" class="form-control" id="break" name="break" />
+        <label for="break" class="form-label">Break Type</label>
+        <input type="break" class="form-control" id="break" name="break" />
     </div>
     <div class="col-md-6">
         <label for="owner" class="form-label">Owner</label>
@@ -120,8 +120,8 @@
     </div>
     <h3>Other info</h3>
     <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Address</label>
-        <input type="password" class="form-control" id="address" name="address" />
+        <label for="address" class="form-label">Address</label>
+        <input type="address" class="form-control" id="address" name="address" />
     </div>
 
     <div class="col-md-6">
