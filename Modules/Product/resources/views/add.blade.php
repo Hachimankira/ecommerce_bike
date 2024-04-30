@@ -4,7 +4,7 @@
             {{ __('Add Product') }}
         </h2>
     </x-slot>
-    <div class="container-fluid fruite py-5">
+    <div class="container-fluid fruite py-5 bg-white">
         <div class="container py-5">
             <x-form-product />
         </div>

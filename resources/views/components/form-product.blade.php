@@ -1,175 +1,149 @@
 <form class="row g-3">
-    <h2>Bike Details</h2>
+    <h3>Bike Details</h3>
     <div class="col-md-6">
-      <label for="inputEmail4" class="form-label">Brand</label>
-      <input type="email" class="form-control" id="inputEmail4" />
+        <label for="inputEmail4" class="form-label">Brand</label>
+        <input type="text" class="form-control" id="brand" name="brand" />
     </div>
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Model</label>
-      <input type="password" class="form-control" id="inputPassword4" />
+        <label for="inputPassword4" class="form-label">Model</label>
+        <input type="password" class="form-control" id="model" name="model" />
     </div>
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Year</label>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>2024</option>
-        <option value="1">2023</option>
-        <option value="2">2022</option>
-        <option value="3">2023</option>
-      </select>
+        <label for="year" class="form-label">Year</label>
+        <select id="year" name="year" class="form-select" aria-label="Default select example">
+            @for ($year = date('Y'); $year >= date('Y') - 10; $year--)
+                <option value="{{ $year }}" {{ $year == date('Y') ? 'selected' : '' }}>{{ $year }}
+                </option>
+            @endfor
+        </select>
     </div>
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Type</label>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Type</option>
-        <option value="1">Street</option>
-        <option value="2">Sport</option>
-        <option value="3">Sport Naked</option>
-        <option value="3">Sport</option>
-        <option value="3">Cross</option>
-        <option value="3">Cruiser</option>
-      </select>
+        <label for="inputPassword4" class="form-label">Type</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Type</option>
+            <option value="1">Street</option>
+            <option value="2">Sport</option>
+            <option value="3">Sport Naked</option>
+            <option value="3">Sport</option>
+            <option value="3">Cross</option>
+            <option value="3">Cruiser</option>
+        </select>
     </div>
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Distance Covered</label>
-      <input type="number" class="form-control" id="inputPassword4" />
-    </div>
-    <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Colour</label>
-      <input type="password" class="form-control" id="inputPassword4" />
-    </div>
-    <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Condition</label>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Excellent</option>
-        <option value="1">Good</option>
-        <option value="2">Fair</option>
-        <option value="3">Bad</option>
-      </select>
-    </div>
-    <h2>Additional Feature</h2>
-    <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Gear</label>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Five</option>
-        <option value="1">Six</option>
-      </select>
-    </div>
-    <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Suspension Type</label>
-      <input type="password" class="form-control" id="inputPassword4" />
-    </div>
-    <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Break Type</label>
-      <input type="password" class="form-control" id="inputPassword4" />
-    </div>
-    <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Owner</label>
-      <div class="d-flex">
-        <div class="form-check mr-3">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="flexRadioDefault"
-            id="flexRadioDefault2"
-            checked
-          />
-          <label class="form-check-label" for="flexRadioDefault2">
-            First
-          </label>
-        </div>
-        <div class="form-check mr-3">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="flexRadioDefault"
-            id="flexRadioDefault2"
-          />
-          <label class="form-check-label" for="flexRadioDefault2">
-            Second
-          </label>
-        </div>
-        <div class="form-check mr-3">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="flexRadioDefault"
-            id="flexRadioDefault2"
-          />
-          <label class="form-check-label" for="flexRadioDefault2">
-            Third
-          </label>
-        </div>
-      </div>
-    </div>
-    <h2>Price</h2>
-    <div class="col-md-6">
-      <label class="form-check-label" for="flexRadioDefault2">
-        Asking Price
+      <label class="form-check-label" for="distance">
+          Distance Covered
       </label>
       <div class="input-group mb-3">
-        <span class="input-group-text">Rs.</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Amount (to the nearest dollar)"
-        />
+          <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="distance"
+              name="distance" />
+          <span class="input-group-text">km</span>
+
       </div>
+  </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Colour</label>
+        <input type="password" class="form-control" id="colour" name="colour" />
     </div>
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Negotibale?</label>
-      <div class="d-flex">
-        <div class="form-check mr-3">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="flexRadio"
-            id="flexRadioDefault"
-            checked
-          />
-          <label class="form-check-label" for="flexRadioDefault"> yes </label>
+        <label for="inputPassword4" class="form-label">Condition</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Excellent</option>
+            <option value="1">Good</option>
+            <option value="2">Fair</option>
+            <option value="3">Bad</option>
+        </select>
+    </div>
+    <h3>Additional Feature</h3>
+    <div class="col-md-6">
+        <label for="gear" class="form-label">Gear</label>
+        <select id="gear" name="gear" class="form-select" aria-label="Default select example">
+            <option selected>Five</option>
+            <option value="1">Six</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Suspension Type</label>
+        <input type="password" class="form-control" id="suspension" name="suspension" />
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Break Type</label>
+        <input type="password" class="form-control" id="break" name="break" />
+    </div>
+    <div class="col-md-6">
+        <label for="owner" class="form-label">Owner</label>
+        <div class="d-flex">
+            <div class="form-check mr-3">
+                <input class="form-check-input" type="radio" name="owner" id="owner1" value="first" checked />
+                <label class="form-check-label" for="owner1">
+                    First
+                </label>
+            </div>
+            <div class="form-check mr-3">
+                <input class="form-check-input" type="radio" name="owner" id="owner2" value="second" />
+                <label class="form-check-label" for="owner2">
+                    Second
+                </label>
+            </div>
+            <div class="form-check mr-3">
+                <input class="form-check-input" type="radio" name="owner" id="owner3" value="third" />
+                <label class="form-check-label" for="owner3">
+                    Third
+                </label>
+            </div>
         </div>
-        <div class="form-check mr-3">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="flexRadio"
-            id="flexRadioDefault"
-          />
-          <label class="form-check-label" for="flexRadioDefault"> no </label>
+    </div>
+    <h3>Price</h3>
+    <div class="col-md-6">
+        <label class="form-check-label" for="flexRadioDefault2">
+            Asking Price
+        </label>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Rs.</span>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="price"
+                name="price" />
         </div>
-      </div>
-    </div>
-    <h2>Other info</h2>
-    <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Description</label>
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
     </div>
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Address</label>
-      <input type="password" class="form-control" id="inputPassword4" />
+        <label for="negotiable" class="form-label">Negotiable?</label>
+        <div class="d-flex">
+            <div class="form-check mr-3">
+                <input class="form-check-input" type="radio" name="negotiable" id="negotiableYes" value="yes"
+                    checked />
+                <label class="form-check-label" for="negotiableYes">Yes</label>
+            </div>
+            <div class="form-check mr-3">
+                <input class="form-check-input" type="radio" name="negotiable" id="negotiableNo"
+                    value="no" />
+                <label class="form-check-label" for="negotiableNo">No</label>
+            </div>
+        </div>
+    </div>
+    <h3>Other info</h3>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Address</label>
+        <input type="password" class="form-control" id="address" name="address" />
     </div>
 
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Delivery Option</label>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Home Delivery</option>
-        <option value="1">Pick Up</option>
-      </select>
+        <label for="deliveryOption" class="form-label">Delivery Option</label>
+        <select id="deliveryOption" name="deliveryOption" class="form-select" aria-label="Default select example">
+            <option value="home" selected>Home Delivery</option>
+            <option value="pickup">Pick Up</option>
+        </select>
     </div>
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Banner Image</label>
-      <input class="form-control" type="file" id="formFile" />
+        <label for="inputPassword4" class="form-label">Banner Image</label>
+        <input class="form-control" type="file" id="formFile" name="banner_img" />
     </div>
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Other Images</label>
-      <input class="form-control" type="file" id="formFile" multiple />
+        <label for="inputPassword4" class="form-label">Other Images</label>
+        <input class="form-control" type="file" id="formFile" name="other_img" multiple />
     </div>
-
+    <div class="col-md-12">
+        <label for="inputPassword4" class="form-label">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="5"></textarea>
+    </div>
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary">Add</button>
     </div>
-  </form>
+</form>
