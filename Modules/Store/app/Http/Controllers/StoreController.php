@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Product\Models\Product;
 
 class StoreController extends Controller
 {
@@ -14,7 +15,8 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return view('store::index');
+        $products = Product::all();
+        return view('store::index' , compact('products'));
     }
 
     /**
