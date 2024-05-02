@@ -25,7 +25,7 @@
                         <div class="col-lg-6">
                             <div class="border rounded">
                                 <a href="#">
-                                    <img src="img/bike-hero.jpg" class="img-fluid rounded" alt="Image">
+                                    <img src="{{$product->banner_img}}" class="img-fluid rounded" alt="Image">
                                 </a>
                             </div>
                         </div>
