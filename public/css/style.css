@@ -178,8 +178,8 @@
 
 /*** Hero Header ***/
 .hero-header {
-    background: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1)), url(../img/hero-img.jpg);
-    background-position: center center;
+    background: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1)), url(../img/cover.jpg);
+    background-position: end end;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -219,10 +219,11 @@
 
 .page-header {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/cart-page-header-img.jpg);
-    background-position: center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/bike-hero.jpg);
+    background-position: center 25%;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 300px;
 }
 
 @media (min-width: 992px) {
