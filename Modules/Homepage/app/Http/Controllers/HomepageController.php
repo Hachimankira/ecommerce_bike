@@ -30,6 +30,21 @@ class HomepageController extends Controller
         return view('homepage::create');
     }
 
+    public function addToCart($id)
+    {
+        if(auth()->user()){
+            $data = [
+                'user_id' => auth()->user()->id,
+                'product_id' => $id,
+            ];
+            \Modules\Cart\Models\Cart::updateOrCreate($data);
+            session()->flash('message', 'Product added to cart successfully');
+        }
+        else{
+            return redirect()->route('login');
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      */

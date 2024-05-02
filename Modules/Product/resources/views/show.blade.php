@@ -13,6 +13,7 @@
             <li class="breadcrumb-item active text-white">Shop Detail</li>
         </ol>
     </div>
+    
     <!-- Single Page Header End -->
 
 
@@ -288,7 +289,10 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
                             <div class="d-flex justify-content-between flex-lg-wrap">
                                 <p class="text-dark fs-5 fw-bold">$4.99 / kg</p>
-                                <x-cart />
+                                <button  class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
+                                    class="fa fa-shopping-bag me-2 text-primary"
+                                    wire:click="addToCart({{$product->id}})"
+                                    ></i> Add to cart</button>
                             </div>
                         </div>
                     </div>
