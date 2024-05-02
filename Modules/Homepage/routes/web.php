@@ -14,5 +14,5 @@ use Modules\Homepage\Http\Controllers\HomepageController;
 |
 */
 Route::group([], function () {
-    Route::resource('homepage', HomepageController::class)->names('homepage');
+    Route::resource('home', HomepageController::class)->names('home');
 });

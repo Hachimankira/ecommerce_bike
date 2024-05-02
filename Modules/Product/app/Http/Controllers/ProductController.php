@@ -30,12 +30,12 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      */
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request , $file): RedirectResponse
     {
         if ($request->hasFile('banner_img')) {
-            $bannerImageName = time() . '_banner.' . $request->file('banner_img')->getClientOriginalExtension();
-            $request->file('banner_img')->storeAs('public/images/', $bannerImageName);
-            $request['banner_img'] = 'storage/images/' . $bannerImageName;
+            $bannerImageName = time() . '_banner.' . $file('banner_img')->getClientOriginalExtension();
+            $file('banner_img')->storeAs('public/images/', $bannerImageName);
+            $request['banner_img'] = 'public/images/' . $bannerImageName;
         }
 
         if ($request->hasFile('other_img')) {

@@ -170,7 +170,7 @@
 
 
     <!-- Scooter Shop Start-->
-    <div class="container-fluid vesitable py-5">
+    {{-- <div class="container-fluid vesitable py-5">
         <div class="container py-5">
             <h1 class="mb-0">Featured Scooter</h1>
             <div class="owl-carousel vegetable-carousel justify-content-center">
@@ -184,7 +184,7 @@
                 <x-card-carousel />
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Scooter Shop End -->
 
 
@@ -281,6 +281,6 @@
 
 
     <!--testimonial Start-->
-    <x-testimonial />
+    {{-- <x-testimonial /> --}}
     <!--testimonial End-->
 </x-app-layout>
