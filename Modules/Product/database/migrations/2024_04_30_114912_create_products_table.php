@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('top_speed');
             $table->string('break');
             $table->string('suspension');
-            $table->string('price');
+            $table->integer('price');
             $table->string('colour');
             $table->string('negotiable');
             $table->string('address');

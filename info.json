@@ -14,7 +14,7 @@
         "Images": ["Image1", "Image2", "Image3"]
       },
       "Price": {
-        "AskingPrice": "$600"
+        "AskingPrice": "600"
       },
       "Description": "Excellent condition, recently serviced, upgraded saddle",
       "ContactInformation": {
@@ -49,7 +49,7 @@
         "Images": ["Image1", "Image2", "Image3"]
       },
       "Price": {
-        "AskingPrice": "$400"
+        "AskingPrice": "400"
       },
       "Description": "Good commuter bike, some wear and tear, new tires",
       "ContactInformation": {
@@ -84,7 +84,7 @@
         "Images": ["Image1", "Image2", "Image3"]
       },
       "Price": {
-        "AskingPrice": "$1500"
+        "AskingPrice": "1500"
       },
       "Description": "Well-maintained, carbon frame, upgraded wheels",
       "ContactInformation": {
@@ -119,7 +119,7 @@
         "Images": ["Image1", "Image2", "Image3"]
       },
       "Price": {
-        "AskingPrice": "$800"
+        "AskingPrice": "800"
       },
       "Description": "Few scratches, recently tuned up, great for long rides",
       "ContactInformation": {
@@ -154,7 +154,7 @@
         "Images": ["Image1", "Image2", "Image3"]
       },
       "Price": {
-        "AskingPrice": "$700"
+        "AskingPrice": "700"
       },
       "Description": "Well-used mountain bike, minor scratches, new chain",
       "ContactInformation": {
@@ -189,7 +189,7 @@
         "Images": ["Image1", "Image2", "Image3"]
       },
       "Price": {
-        "AskingPrice": "$300"
+        "AskingPrice": "300"
       },
       "Description": "Lightweight, some rust, needs new tires",
       "ContactInformation": {

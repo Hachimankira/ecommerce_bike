@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Cart\Http\Controllers;
+namespace Modules\Checkout\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Cart\Models\Cart;
 
-class CartController extends Controller
+class CheckoutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class CartController extends Controller
     public function index()
     {
         $cartItems = Cart::where('user_id', auth()->user()->id)->get();
-        return view('cart::index' , compact('cartItems'));
+        return view('checkout::index' , compact('cartItems'));
     }
 
     /**
@@ -24,7 +24,7 @@ class CartController extends Controller
      */
     public function create()
     {
-        return view('cart::create');
+        return view('checkout::create');
     }
 
     /**
@@ -32,11 +32,7 @@ class CartController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $item = new Cart();
-        $item->user_id = auth()->user()->id;
-        $item->product_id = $request->product_id;
-        $item->save();
-        return redirect()->route('cart.index')->with('success', 'Product added to cart successfully');
+        //
     }
 
     /**
@@ -44,7 +40,7 @@ class CartController extends Controller
      */
     public function show($id)
     {
-        return view('cart::show');
+        return view('checkout::show');
     }
 
     /**
@@ -52,7 +48,7 @@ class CartController extends Controller
      */
     public function edit($id)
     {
-        return view('cart::edit');
+        return view('checkout::edit');
     }
 
     /**
@@ -68,7 +64,6 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        Cart::destroy($id);
-        return redirect()->route('cart.index')->with('success', 'Product removed from cart successfully');
+        //
     }
 }
