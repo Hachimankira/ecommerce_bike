@@ -13,8 +13,8 @@
         <label for="year" class="form-label">Year</label>
         <select id="year" name="year" class="form-select" aria-label="Default select example">
             @for ($year = date('Y'); $year >= date('Y') - 10; $year--)
-                <option value="{{ $year }}" {{ $year == date('Y') ? 'selected' : '' }}>{{ $year }}
-                </option>
+            <option value="{{ $year }}" {{ $year == date('Y') ? 'selected' : '' }}>{{ $year }}
+            </option>
             @endfor
         </select>
     </div>
@@ -43,16 +43,12 @@
             Distance Covered
         </label>
         <div class="input-group mb-3">
-            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="distance"
-                name="distance" />
+            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="distance" name="distance" />
             <span class="input-group-text">km</span>
 
         </div>
     </div>
-    <div class="col-md-6">
-        <label for="colour" class="form-label">Colour</label>
-        <input type="text" class="form-control" id="colour" name="colour" />
-    </div>
+
     <div class="col-md-6">
         <label for="condition" class="form-label">Condition</label>
         <select id="condition" name="condition" class="form-select" aria-label="Default select example">
@@ -62,7 +58,47 @@
             <option value="3">Bad</option>
         </select>
     </div>
+    <div class="col-md-6">
+        <label for="owner" class="form-label">Owner</label>
+        <div class="d-flex">
+            <div class="form-check mx-3">
+                <input class="form-check-input" type="radio" name="owner" id="owner1" value="first" checked />
+                <label class="form-check-label pl-4" for="owner1">
+                    First
+                </label>
+            </div>
+            <div class="form-check mx-3 ">
+                <input class="form-check-input" type="radio" name="owner" id="owner2" value="second" />
+                <label class="form-check-label pl-4" for="owner2">
+                    Second
+                </label>
+            </div>
+            <div class="form-check mx-3">
+                <input class="form-check-input" type="radio" name="owner" id="owner3" value="third" />
+                <label class="form-check-label pl-4" for="owner3">
+                    Third
+                </label>
+            </div>
+        </div>
+    </div>
     <h3>Additional Feature</h3>
+    <div class="col-md-6">
+        <label for="break" class="form-label">Engine</label>
+        <input type="text" class="form-control" id="engine" name="engine" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="text" class="form-label">Battery Capacity</label>
+        <input type="text" class="form-control" id="battery" name="battery" />
+    </div>
+    <div class="col-md-6">
+        <label for="text" class="form-label">Fuel Capacity</label>
+        <input type="text" class="form-control" id="fuel_capacity" name="fuel_capacity" />
+    </div>
+    <div class="col-md-6">
+        <label for="text" class="form-label">Mileage</label>
+        <input type="text" class="form-control" id="mileage" name="mileage" />
+    </div>
     <div class="col-md-6">
         <label for="gear" class="form-label">Gear</label>
         <select id="gear" name="gear" class="form-select" aria-label="Default select example">
@@ -71,37 +107,22 @@
         </select>
     </div>
     <div class="col-md-6">
+        <label for="break" class="form-label">Top Speed</label>
+        <input type="text" class="form-control" id="top_speed" name="top_speed" />
+    </div>
+    <div class="col-md-6">
+        <label for="break" class="form-label">Breaks</label>
+        <input type="text" class="form-control" id="break" name="break" />
+    </div>
+    <div class="col-md-6">
         <label for="suspension" class="form-label">Suspension Type</label>
         <input type="text" class="form-control" id="suspension" name="suspension" />
-    </div>
+    </div>    
     <div class="col-md-6">
-        <label for="break" class="form-label">Break Type</label>
-        <input type="break" class="form-control" id="break" name="break" />
+        <label for="colour" class="form-label">Colour</label>
+        <input type="text" class="form-control" id="colour" name="colour" />
     </div>
-    <div class="col-md-6">
-        <label for="owner" class="form-label">Owner</label>
-        <div class="d-flex">
-            <div class="form-check mr-3">
-                <input class="form-check-input" type="radio" name="owner" id="owner1" value="first"
-                    checked />
-                <label class="form-check-label" for="owner1">
-                    First
-                </label>
-            </div>
-            <div class="form-check mr-3">
-                <input class="form-check-input" type="radio" name="owner" id="owner2" value="second" />
-                <label class="form-check-label" for="owner2">
-                    Second
-                </label>
-            </div>
-            <div class="form-check mr-3">
-                <input class="form-check-input" type="radio" name="owner" id="owner3" value="third" />
-                <label class="form-check-label" for="owner3">
-                    Third
-                </label>
-            </div>
-        </div>
-    </div>
+
     <h3>Price</h3>
     <div class="col-md-6">
         <label class="form-check-label" for="flexRadioDefault2">
@@ -109,21 +130,18 @@
         </label>
         <div class="input-group mb-3">
             <span class="input-group-text">Rs.</span>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="price"
-                name="price" />
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="price" name="price" />
         </div>
     </div>
     <div class="col-md-6">
         <label for="negotiable" class="form-label">Negotiable?</label>
         <div class="d-flex">
-            <div class="form-check mr-3">
-                <input class="form-check-input" type="radio" name="negotiable" id="negotiableYes" value="yes"
-                    checked />
+            <div class="form-check mx-3">
+                <input class="form-check-input" type="radio" name="negotiable" id="negotiableYes" value="yes" checked />
                 <label class="form-check-label" for="negotiableYes">Yes</label>
             </div>
-            <div class="form-check mr-3">
-                <input class="form-check-input" type="radio" name="negotiable" id="negotiableNo"
-                    value="no" />
+            <div class="form-check mx-3">
+                <input class="form-check-input" type="radio" name="negotiable" id="negotiableNo" value="no" />
                 <label class="form-check-label" for="negotiableNo">No</label>
             </div>
         </div>
@@ -131,7 +149,7 @@
     <h3>Other info</h3>
     <div class="col-md-6">
         <label for="address" class="form-label">Address</label>
-        <input type="address" class="form-control" id="address" name="address" />
+        <input type="text" class="form-control" id="address" name="address" />
     </div>
 
     <div class="col-md-6">
