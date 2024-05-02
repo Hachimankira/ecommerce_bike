@@ -14,10 +14,7 @@
             <h5>{{ Str::limit("$product->year $product->brand $product->model", 18) }}</h5>
             <p class="text-dark fs-8 mb-0">{{ $product->distance }}km &bull; {{ $product->body_type }} &bull; {{ $product->owner }}</p>                                                <div class="d-flex justify-content-between flex-lg-wrap">
                 <p class="text-dark fs-5 fw-bold mb-0">{{ $product->price }}</p>
-                <a href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a>
+                <x-cart />
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 {
     "Homepage": true,
     "Store": true,
-    "Product": true
+    "Product": true,
+    "Cart": true
 }
