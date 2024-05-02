@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Product\Models\Product;
+use Symfony\Component\Console\Input\Input;
 
 class ProductController extends Controller
 {
@@ -32,28 +33,38 @@ class ProductController extends Controller
 
     public function store(Request $request , $file): RedirectResponse
     {
+        $input = $request->all(); // Get all input data
+
+        // Handling the banner image upload
         if ($request->hasFile('banner_img')) {
-            $bannerImageName = time() . '_banner.' . $file('banner_img')->getClientOriginalExtension();
-            $file('banner_img')->storeAs('public/images/', $bannerImageName);
-            $request['banner_img'] = 'public/images/' . $bannerImageName;
+            $bannerImageFile = $request->file('banner_img');
+            $bannerImageName = uniqid() . '_banner.' . $bannerImageFile->getClientOriginalExtension();
+            $bannerImageFile->storeAs('public/images', $bannerImageName);
+            $input['banner_img'] = 'storage/images/' . $bannerImageName; // Modify the input array
         }
 
+        // Handling other images upload
         if ($request->hasFile('other_img')) {
             $otherImages = $request->file('other_img');
             $otherImageNames = [];
             foreach ($otherImages as $image) {
-                $imageName = time() . '_other.' . $image->getClientOriginalExtension();
-                $image->storeAs('public/images/', $imageName);
-                $otherImageNames[] = 'storage/images/' . $imageName;
+                if ($image->isValid()) {
+                    $imageName = uniqid() . '_other.' . $image->getClientOriginalExtension();
+                    $image->storeAs('public/otherimages', $imageName);
+                    $otherImageNames[] = 'storage/otherimages/' . $imageName;
+                }
             }
-            $request['other_img'] = json_encode($otherImageNames); // Store paths as JSON
+            $input['other_img'] = json_encode($otherImageNames); // Storing JSON encoded array of image paths
         }
-
-        $product = Product::create($request->all());
+       
+        // Create product using the modified input array
+        $product = Product::create($input);
 
         return redirect()->route('product.index')
             ->with('success', 'Product added successfully.');
     }
+
+
 
 
     /**
@@ -62,7 +73,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return view('product::show' , compact('product'));
+        return view('product::show', compact('product'));
     }
 
     /**
