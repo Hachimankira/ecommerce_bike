@@ -24,9 +24,7 @@
                     <div class="row g-4">
                         <div class="col-lg-6">
                             <div class="border rounded">
-                                <a href="#">
-                                    <img src="img/bike-hero.jpg" class="img-fluid rounded" alt="Image">
-                                </a>
+                                <img src="img/bajaj.jpg" class="img-fluid rounded" alt="Image">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -80,7 +78,7 @@
 
                                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4 py-3">
                                             <div class="col d-flex align-items-start">
-                                                <img src="/img/icon/engine.png" alt="engine" width="48" height="48">
+                                                <span class="icon-[material-symbols--10k]"></span>
                                                 <div class="px-3">
                                                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Engine</h3>
                                                     <p>250 CC</p>
@@ -290,9 +288,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
                             <div class="d-flex justify-content-between flex-lg-wrap">
                                 <p class="text-dark fs-5 fw-bold">$4.99 / kg</p>
-                                <a href="#"
-                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
-                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                <x-cart />
                             </div>
                         </div>
                     </div>
