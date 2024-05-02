@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Str;
+@endphp
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -189,17 +192,14 @@
                                             More</a>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="col-lg-9">
                             <div class="row g-4 justify-content-center">
-                                <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-4" />
-                                <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-4" />
-                                <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-4" />
-                                <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-4" />
-                                <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-4" />
-                                <x-card-product gridClasses="col-md-6 col-lg-6 col-xl-4" />
+                                @foreach ($products as $product)
+                                    <x-card-shop :product="$product" />
+                                @endforeach
 
                                 <div class="col-12">
                                     <div class="pagination d-flex justify-content-center mt-5">

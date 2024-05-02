@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Product\Models\Product;
 
 class HomepageController extends Controller
 {
@@ -14,7 +15,11 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        return view('homepage::index');
+        $products = Product::all();
+        $sports = Product::where('body_type', 'sport')->get();
+        $streets = Product::where('body_type', 'street')->get();
+        $cruisers = Product::where('body_type', 'cruiser')->get();
+        return view('homepage::index' , compact('products' , 'sports' , 'streets' , 'cruisers'));
     }
 
     /**
