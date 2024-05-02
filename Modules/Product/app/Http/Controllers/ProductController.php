@@ -31,7 +31,7 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      */
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request , $file): RedirectResponse
     {
         $input = $request->all(); // Get all input data
 
