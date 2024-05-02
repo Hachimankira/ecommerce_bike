@@ -2,11 +2,11 @@
     use Illuminate\Support\Str;
 @endphp
 <x-app-layout>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Store
         </h2>
-    </x-slot>
+    </x-slot> --}}
     <!-- Single Page Header start -->
     <div class="container-fluid page-header py-5">
         <h1 class="text-center text-white display-6">Shop</h1>
@@ -52,40 +52,40 @@
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <h4>Categories</h4>
+                                        <h4>Popular Brand</h4>
                                         <ul class="list-unstyled fruite-categorie">
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Apples</a>
+                                                    <a href="#">Bajaj</a>
                                                     <span>(3)</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Oranges</a>
+                                                    <a href="#">TVS</a>
                                                     <span>(5)</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Strawbery</a>
+                                                    <a href="#">Honda</a>
                                                     <span>(2)</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Banana</a>
+                                                    <a href="#">Yamaha</a>
                                                     <span>(8)</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>Pumpkin</a>
+                                                    <a href="#">Royal Enfield</a>
                                                     <span>(5)</span>
                                                 </div>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> 
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="mb-3">
@@ -97,7 +97,7 @@
                                             for="rangeInput">0</output>
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
+                                {{-- <div class="col-lg-12">
                                     <div class="mb-3">
                                         <h4>Additional</h4>
                                         <div class="mb-2">
@@ -126,8 +126,8 @@
                                             <label for="Categories-5"> Expired</label>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-12">
+                                </div> --}}
+                                {{-- <div class="col-lg-12">
                                     <h4 class="mb-3">Featured products</h4>
                                     <div class="d-flex align-items-center justify-content-start">
                                         <div class="rounded me-4" style="width: 100px; height: 100px;">
@@ -191,7 +191,7 @@
                                             class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100">Vew
                                             More</a>
                                     </div>
-                                </div>
+                                </div> --}}
 
                             </div>
                         </div>

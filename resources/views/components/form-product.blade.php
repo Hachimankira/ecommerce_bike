@@ -143,11 +143,16 @@
     </div>
     <div class="col-md-6">
         <label for="banner_img" class="form-label">Banner Image</label>
-        <input class="form-control" type="file" id="formFile" name="banner_img" />
+        <!-- <input class="form-control" type="file" id="formFile" name="banner_img" />                                        <input type="file" class="dropify" data-default-file="" name="image"> -->
+        <input type="file" class="dropify" data-default-file="" name="banner_img" id="formFile">
+
+
     </div>
     <div class="col-md-6">
         <label for="other_img" class="form-label">Other Images</label>
-        <input class="form-control" type="file" id="formFile" name="other_img" multiple />
+        <!-- <input class="form-control" type="file" id="formFile" name="other_img" multiple /> -->
+        <input type="file" class="dropify" data-default-file="" name="other_img" id="formFile" multiple>
+
     </div>
     <div class="col-md-12">
         <label for="description" class="form-label">Description</label>

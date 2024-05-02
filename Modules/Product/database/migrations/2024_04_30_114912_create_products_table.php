@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('deliveryOption');
             $table->string('banner_img');
-            $table->json('other_img');
+            $table->string('other_img');
             $table->string('description');
             $table->timestamps();
         });
