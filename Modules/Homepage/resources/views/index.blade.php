@@ -64,6 +64,7 @@
                                         <x-card-product :product="$product" />
                                     @endforeach
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -207,7 +208,7 @@
                         <img src="img/bike-banner.png" class="img-fluid w-100 rounded" alt="">
                         <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute"
                             style="width: 150px; height: 150px; bottom: 0; right: 0;">
-                            <h3 style="">Rs.249999</h3>
+                            <h3>Rs.249999</h3>
                             {{-- <div class="d-flex flex-column">
                                     <span class="h4 mb-0">.99</span>
                                     <span class="h4 text-muted mb-0">.99</span>
