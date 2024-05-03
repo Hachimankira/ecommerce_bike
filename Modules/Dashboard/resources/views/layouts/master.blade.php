@@ -40,141 +40,199 @@
     @stack('styles')
     @livewireStyles
     <style>
-        .bd-placeholder-img {
-          font-size: 1.125rem;
-          text-anchor: middle;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          user-select: none;
+        /*
+    DEMO STYLE
+*/
+
+        @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafafa;
         }
-  
-        @media (min-width: 768px) {
-          .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-          }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            font-weight: 300;
+            line-height: 1.7em;
+            color: #999;
         }
-  
-        .b-example-divider {
-          width: 100%;
-          height: 3rem;
-          background-color: rgba(0, 0, 0, .1);
-          border: solid rgba(0, 0, 0, .15);
-          border-width: 1px 0;
-          box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+
+        a,
+        a:hover,
+        a:focus {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
         }
-  
-        .b-example-vr {
-          flex-shrink: 0;
-          width: 1.5rem;
-          height: 100vh;
+
+        .navbar {
+            padding: 15px 10px;
+            background: #fff;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 40px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
-  
-        .bi {
-          vertical-align: -.125em;
-          fill: currentColor;
+
+        .navbar-btn {
+            box-shadow: none;
+            outline: none !important;
+            border: none;
         }
-  
-        .nav-scroller {
-          position: relative;
-          z-index: 2;
-          height: 2.75rem;
-          overflow-y: hidden;
+
+        .line {
+            width: 100%;
+            height: 1px;
+            border-bottom: 1px dashed #ddd;
+            margin: 40px 0;
         }
-  
-        .nav-scroller .nav {
-          display: flex;
-          flex-wrap: nowrap;
-          padding-bottom: 1rem;
-          margin-top: -1px;
-          overflow-x: auto;
-          text-align: center;
-          white-space: nowrap;
-          -webkit-overflow-scrolling: touch;
+
+        /* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
         }
-  
-        .btn-bd-primary {
-          --bd-violet-bg: #712cf9;
-          --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-  
-          --bs-btn-font-weight: 600;
-          --bs-btn-color: var(--bs-white);
-          --bs-btn-bg: var(--bd-violet-bg);
-          --bs-btn-border-color: var(--bd-violet-bg);
-          --bs-btn-hover-color: var(--bs-white);
-          --bs-btn-hover-bg: #6528e0;
-          --bs-btn-hover-border-color: #6528e0;
-          --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-          --bs-btn-active-color: var(--bs-btn-hover-color);
-          --bs-btn-active-bg: #5a23c8;
-          --bs-btn-active-border-color: #5a23c8;
+
+        #sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            background: #7386D5;
+            color: #fff;
+            transition: all 0.3s;
         }
-  
-        .bd-mode-toggle {
-          z-index: 1500;
+
+        #sidebar.active {
+            margin-left: -250px;
         }
-  
-        .bd-mode-toggle .dropdown-menu .active .bi {
-          display: block !important;
+
+        #sidebar .sidebar-header {
+            padding: 20px;
+            background: #6d7fcc;
         }
-      </style>
+
+        #sidebar ul.components {
+            padding: 20px 0;
+        }
+
+        #sidebar ul p {
+            color: #fff;
+            padding: 10px;
+        }
+
+        #sidebar ul li a {
+            padding: 10px;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        #sidebar ul li a:hover {
+            color: #7386D5;
+            background: #fff;
+        }
+
+        #sidebar ul li.active>a,
+        a[aria-expanded="true"] {
+            color: #fff;
+            background: #6d7fcc;
+        }
+
+        a[data-toggle="collapse"] {
+            position: relative;
+        }
+
+        .dropdown-toggle::after {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #6d7fcc;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        ul.CTAs {
+            border-top: 1px solid #47748b;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        ul.CTAs a {
+            text-align: center;
+            font-size: 0.9em !important;
+            display: block;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        a.download {
+            background: #fff;
+            color: #7386D5;
+        }
+
+        a.article,
+        a.article:hover {
+            background: #6d7fcc !important;
+            color: #fff !important;
+        }
+
+        /* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+        #content {
+            width: 100%;
+            padding: 20px;
+            min-height: 100vh;
+            transition: all 0.3s;
+        }
+
+        /* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+        @media (max-width: 768px) {
+            #sidebar {
+                margin-left: -250px;
+            }
+
+            #sidebar.active {
+                margin-left: 0;
+            }
+
+            #sidebarCollapse span {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        <!-- Spinner End -->
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-            <span class="fs-4">Sidebar</span>
-          </a>
-          <hr>
-          <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-              <a href="#" class="nav-link active" aria-current="page">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-                Orders
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                Products
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-                Customers
-              </a>
-            </li>
-          </ul>
-          <hr>
-          <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-              <strong>mdo</strong>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-          </div>
+        <x-admin-navbar />
+
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
         </div>
+        <!-- Spinner End -->
+
 
         <!-- Page Heading -->
         @if (isset($header))
@@ -190,12 +248,12 @@
             {{-- {{ $slot }} --}}
         </main>
     </div>
-    <x-footer />
+    {{-- <x-footer /> --}}
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> --}}
-    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('lib/lightbox/js/lightbox.min.js') }}"></script>
@@ -204,6 +262,13 @@
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
     <!-- Custom Scripts -->
+    <script>
+        $(document).ready(function() {
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
     @stack('scripts')
     @livewireScripts
 </body>
