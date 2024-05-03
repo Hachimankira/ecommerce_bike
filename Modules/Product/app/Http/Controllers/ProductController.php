@@ -24,10 +24,10 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($brandId)
+    public function create()
     {
         // $brands = Brand::all();
-        $brands = Brand::with('models')->find($brandId);
+        $brands = Brand::with('models');
         return view('product::add', compact('brands'));
     }
 
