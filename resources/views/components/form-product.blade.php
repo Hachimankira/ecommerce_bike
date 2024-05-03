@@ -5,36 +5,19 @@
         <label for="inputEmail4" class="form-label">Brand</label>
         <select type="text" class="form-control" id="brand" name="brand">
             <option value="">select brand</option>
-            <!-- <option value="yatri">Yatri</option>
-            <option value="yamaha">Yamaha</option>
-            <option value="hero">Hero</option>
-            <option value="bajaj">Bajaj</option>
-            <option value="honda">Honda</option>
-            <option value="tvs">TVS</option> -->
             @foreach($brands as $brand)
-            <option value="{{ $brand->id}}" >{{ $brand->name }}</option>
+            <option value="{{ $brand->id}}">{{ $brand->name }}</option>
             @endforeach
-            <!-- <option value="">BMW</option>
-            <option value="">Benelli</option>
-            <option value="">CF MOTO</option>
-            <option value="">Ducati</option>
-            <option value="">Harley Davidson</option>
-            <option value="">Jawa</option>
-            <option value="">Toyal Enfield</option>
-            <option value="">KTM</option>
-            <option value="">Suzuki</option>
-            <option value="">Kawasaki</option>
-            <option value="">Italjet</option>
-            <option value="">Husqvarne</option>
-            <option value="">Hartford</option>
-            <option value="">Cross X Bike</option>
-            <option value="">Crossfire</option>
-            <option value="">Mahindra</option> -->
+
         </select>
     </div>
     <div class="col-md-6">
         <label for="model" class="form-label">Model</label>
-        <input type="text" class="form-control" id="model" name="model" />
+        <!-- <input type="text" class="form-control" id="model" name="model" /> -->
+        <select class="form-control" id="bikeModel" name="model">
+            <option value="">Select model</option>
+            <!-- Options will be added dynamically based on the selected brand -->
+        </select>
     </div>
     <div class="col-md-6">
         <label for="year" class="form-label">Year</label>
@@ -207,3 +190,4 @@
         <button type="submit" class="btn btn-primary">Add</button>
     </div>
 </form>
+
