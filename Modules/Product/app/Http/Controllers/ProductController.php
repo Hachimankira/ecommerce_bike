@@ -26,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product::add');
+        $brands = Brand::all();
+        return view('product::add', compact('brands'));
     }
 
     /**

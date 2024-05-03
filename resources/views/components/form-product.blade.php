@@ -5,12 +5,15 @@
         <label for="inputEmail4" class="form-label">Brand</label>
         <select type="text" class="form-control" id="brand" name="brand">
             <option value="">select brand</option>
-            <option value="yatri">Yatri</option>
+            <!-- <option value="yatri">Yatri</option>
             <option value="yamaha">Yamaha</option>
             <option value="hero">Hero</option>
             <option value="bajaj">Bajaj</option>
             <option value="honda">Honda</option>
-            <option value="tvs">TVS</option>
+            <option value="tvs">TVS</option> -->
+            @foreach($brands as $brand)
+            <option value="{{ $brand->id}}" >{{ $brand->name }}</option>
+            @endforeach
             <!-- <option value="">BMW</option>
             <option value="">Benelli</option>
             <option value="">CF MOTO</option>
@@ -141,7 +144,7 @@
     <div class="col-md-6">
         <label for="suspension" class="form-label">Suspension Type</label>
         <input type="text" class="form-control" id="suspension" name="suspension" />
-    </div>    
+    </div>
     <div class="col-md-6">
         <label for="colour" class="form-label">Colour</label>
         <input type="text" class="form-control" id="colour" name="colour" />
