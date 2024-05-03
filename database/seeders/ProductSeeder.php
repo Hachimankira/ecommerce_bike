@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $data = File::get(('info.json'));
-    $products = json_decode($data, true);
+        $products = json_decode($data, true);
 
     foreach ($products as $product) {
         Product::create([
