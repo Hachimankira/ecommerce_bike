@@ -1,22 +1,20 @@
 <?php
 
-namespace Modules\Store\Http\Controllers;
+namespace Modules\Dashboard\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Modules\Product\Models\Product;
 
-class StoreController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::paginate(9);
-        return view('store::index' , compact('products'));
+        return view('dashboard::index');
     }
 
     /**
@@ -24,7 +22,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('store::create');
+        return view('dashboard::create');
     }
 
     /**
@@ -40,7 +38,7 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        return view('store::show');
+        return view('dashboard::show');
     }
 
     /**
@@ -48,7 +46,7 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        return view('store::edit');
+        return view('dashboard::edit');
     }
 
     /**
