@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('models', function (Blueprint $table) {
+        Schema::create('bike_models', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->foreignId('brand_id')->constrained();
             $table->timestamps();
         });
