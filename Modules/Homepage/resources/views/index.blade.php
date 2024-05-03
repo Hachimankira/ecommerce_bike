@@ -125,45 +125,15 @@
                 <div class="text-start">
                     <h1>Shop By Brand</h1>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                @foreach($brands as $brand)
+                <div class="col-md-6 col-lg-3">
                     <a href="#">
-                        <div class="service-item bg-dark rounded border border-dark">
-                            <img src="img/bajaj.jpg" class="img-fluid rounded-top w-100" alt="">
-                            <div class="px-4 rounded-bottom">
-                                <div class="service-content bg-light text-center p-4 rounded">
-                                    <h5 class="text-primary">Bajaj</h5>
-                                    <h3 class="mb-0">2% Discount</h3>
-                                </div>
-                            </div>
+                        <div class="service-item rounded">
+                            <img src="{{$brand->image}}" class="img-fluid rounded-top w-100" alt="img">
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="#">
-                        <div class="service-item bg-dark rounded border border-dark">
-                            <img src="img/tvs.jpg" class="img-fluid rounded-top w-100" alt="">
-                            <div class="px-4 rounded-bottom">
-                                <div class="service-content bg-light text-center p-4 rounded">
-                                    <h5 class="text-primary">TVS</h5>
-                                    <h3 class="mb-0">Free Servicing</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="#">
-                        <div class="service-item bg-dark rounded border border-dark">
-                            <img src="img/honda.jpeg" class="img-fluid rounded-top w-100" alt="">
-                            <div class="px-4 rounded-bottom">
-                                <div class="service-content bg-light text-center p-4 rounded">
-                                    <h5 class="text-primary">Bajaj</h5>
-                                    <h3 class="mb-0">30$ Cashback</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

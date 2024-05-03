@@ -75,7 +75,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        $product->other_img = json_decode($product->other_img, true);  // Decode JSON to an array
+        // $product->other_img = json_decode($product->other_img, true);  // Decode JSON to an array
         return view('product::show', compact('product'));
     }
 

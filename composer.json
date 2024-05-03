@@ -9,7 +9,7 @@
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
-        "nwidart/laravel-modules": "^11.0",
+        "nwidart/laravel-modules": "*",
         "twbs/bootstrap": "5.3.3"
     },
     "require-dev": {
