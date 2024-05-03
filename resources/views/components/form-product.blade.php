@@ -3,7 +3,31 @@
     <h3>Bike Details</h3>
     <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Brand</label>
-        <input type="text" class="form-control" id="brand" name="brand" />
+        <select type="text" class="form-control" id="brand" name="brand">
+            <option value="">select brand</option>
+            <option value="yatri">Yatri</option>
+            <option value="yamaha">Yamaha</option>
+            <option value="hero">Hero</option>
+            <option value="bajaj">Bajaj</option>
+            <option value="honda">Honda</option>
+            <option value="tvs">TVS</option>
+            <!-- <option value="">BMW</option>
+            <option value="">Benelli</option>
+            <option value="">CF MOTO</option>
+            <option value="">Ducati</option>
+            <option value="">Harley Davidson</option>
+            <option value="">Jawa</option>
+            <option value="">Toyal Enfield</option>
+            <option value="">KTM</option>
+            <option value="">Suzuki</option>
+            <option value="">Kawasaki</option>
+            <option value="">Italjet</option>
+            <option value="">Husqvarne</option>
+            <option value="">Hartford</option>
+            <option value="">Cross X Bike</option>
+            <option value="">Crossfire</option>
+            <option value="">Mahindra</option> -->
+        </select>
     </div>
     <div class="col-md-6">
         <label for="model" class="form-label">Model</label>

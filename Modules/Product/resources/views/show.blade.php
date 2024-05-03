@@ -25,10 +25,18 @@
                     <div class="row g-4">
                         <div class="col-lg-6">
                             <div class="border rounded">
+                                @if($product->other_img && is_array($product->other_img))
+                                @foreach($product->other_img as $img)
                                 <a href="#">
-                                    <img src="{{$product->banner_img}}" class="img-fluid rounded" alt="Image">
+                                    <img src="{{ asset('storage/' . $img) }}" class="img-fluid rounded" alt="Product Image">
                                 </a>
+                                @endforeach
+                                @else
+                                <p>No images available.</p>
+                                @endif
+                           
                             </div>
+                            
                         </div>
                         <div class="col-lg-6">
                             <h4 class="fw-bold mb-3">{{ $product->brand }} {{ $product->model }}</h4>

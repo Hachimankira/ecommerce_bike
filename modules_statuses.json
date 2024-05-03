@@ -3,5 +3,9 @@
     "Store": true,
     "Product": true,
     "Cart": true,
+<<<<<<< HEAD
     "Checkout": true
+=======
+    "Brand": true
+>>>>>>> biraj
 }
