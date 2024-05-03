@@ -87,9 +87,7 @@
                                         <th scope="col">Products</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Price</th>
-                                        {{-- <th scope="col">Quantity</th> --}}
                                         <th scope="col">Total</th>
-                                        <th scope="col">Handle</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -99,7 +97,7 @@
                                                 <div class="d-flex align-items-center">
                                                     <img src="{{ $cartItem->product->banner_img }}"
                                                         class="img-fluid me-5 rounded-circle"
-                                                        style="width: 80px; height: 80px;" alt="img">
+                                                        style="width: 60px; height: 60px;" alt="img">
                                                 </div>
                                             </th>
                                             <td>
@@ -117,17 +115,6 @@
                                             @php
                                                 $total += $cartItem->product->price;
                                             @endphp
-                                            <td>
-                                                <form action="{{ route('cart.destroy', $cartItem->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-md rounded-circle bg-light border mt-4">
-                                                        <i class="fa fa-times text-danger"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
-
                                         </tr>
                                     @endforeach
                                     </tr>

@@ -189,8 +189,8 @@
             rgba(248, 223, 173, 0.1),
             rgba(248, 223, 173, 0.1)
         ),
-        url(../img/cover.jpg);
-    background-position: end end;
+        url(../img/hero.jpg);
+    background-position: 90% 30% ;
     background-repeat: no-repeat;
     background-size: cover;
 }
