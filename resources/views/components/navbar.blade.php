@@ -17,7 +17,7 @@
     </div>
     <div class="container px-0">
         <nav class="navbar navbar-light bg-white navbar-expand-xl">
-            <a href="index.html" class="navbar-brand">
+            <a href="{{url('/home')}}" class="navbar-brand">
                 {{-- <h1 class="text-primary display-6">Bike Hub</h1> --}}
                 <img src="{{ asset('img/logo1.png') }}" alt="logo" class="img-fluid" style="width: 35%;">
             </a>

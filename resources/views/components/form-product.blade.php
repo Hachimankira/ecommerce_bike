@@ -191,3 +191,22 @@
     </div>
 </form>
 
+<script>
+    document.getElementById('brand').addEventListener('change', function() {
+        var brandId = this.value;
+        var modelSelect = document.getElementById('bikeModel');
+        modelSelect.innerHTML = '<option value="">Select Model</option>'; // Reset on change
+
+        if (brandId) {
+            fetch(`/get-bike-models/${brandId}`)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(function(model) {
+                        var option = new Option(model.name, model.id);
+                        modelSelect.add(option);
+                    });
+                })
+                .catch(error => console.error('Error loading the bike models:', error));
+        }
+    });
+</script>

@@ -6,10 +6,10 @@
     </x-slot>
     <div class="container-fluid fruite py-5 bg-white">
         <div class="product-container py-5">
-            <x-form-product :brands="$brands" />
+            <x-form-product :brands="$brands"/>
         </div>
     </div>
-    @push('scripts')
+    <!-- @push('scripts')
     <script>
         document.getElementById('brand').addEventListener('change', function() {
             var brandId = this.value;
@@ -26,5 +26,5 @@
                 .catch(error => console.error('Error loading the bike models:', error));
         });
     </script>
-    @endpush
+    @endpush -->
 </x-app-layout>
