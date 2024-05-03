@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Brand\Models;
+namespace Modules\Product\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\Brand\Database\Factories\ModelFactory;
+use Modules\Product\Database\Factories\BikeModelsFactory;
 
-class Models extends Model
+class BikeModels extends Model
 {
     use HasFactory;
 
@@ -14,14 +14,12 @@ class Models extends Model
      * The attributes that are mass assignable.
      */
     protected $fillable = [];
-
     public function brand(){
         return $this->belongsTo(Brand::class);
     }
 
-    // protected static function newFactory(): ModelFactory
-    // {
-    //     // return ModelFactory::new();
-       
-    // }
+    protected static function newFactory(): BikeModelsFactory
+    {
+        //return BikeModelsFactory::new();
+    }
 }

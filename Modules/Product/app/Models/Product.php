@@ -13,26 +13,26 @@ class Product extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = [
-        'brand',
-        'model',
-        'year',
-        'type',
-        'body_type',
-        'distance',
-        'colour',
-        'condition',
-        'gear',
-        'suspension',
-        'break',
-        'owner',
-        'price',
-        'negotiable',
-        'address',
-        'deliveryOption',
-        'banner_img',
-        'other_img',
-        'description',
+    protected $guarded = [
+        // 'brand',
+        // 'model',
+        // 'year',
+        // 'type',
+        // 'body_type',
+        // 'distance',
+        // 'colour',
+        // 'condition',
+        // 'gear',
+        // 'suspension',
+        // 'break',
+        // 'owner',
+        // 'price',
+        // 'negotiable',
+        // 'address',
+        // 'deliveryOption',
+        // 'banner_img',
+        // 'other_img',
+        // 'description',
     ];
 
     protected static function newFactory(): ProductFactory

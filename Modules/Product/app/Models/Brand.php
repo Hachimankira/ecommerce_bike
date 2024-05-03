@@ -1,10 +1,11 @@
 <?php
 
-namespace Modules\Brand\Models;
+namespace Modules\Product\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Brand\Database\Factories\BrandFactory;
+use Modules\Brand\Models\Models;
 
 class Brand extends Model
 {
@@ -15,7 +16,7 @@ class Brand extends Model
      */
     protected $fillable = [];
     public function models(){
-        return $this->hasMany(Models::class);
+        return $this->hasMany(BikeModels::class);
     }
 
     // protected static function newFactory(): BrandFactory

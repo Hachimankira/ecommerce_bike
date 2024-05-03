@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('models', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('brand_id')->references('id')->on('brand');
-            $table->string('name');
+            $table->foreignId('brand_id')->constrained();
             $table->timestamps();
         });
     }
