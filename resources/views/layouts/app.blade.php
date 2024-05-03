@@ -38,6 +38,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- Custom Styles -->
     @stack('styles')
+    @livewireStyles
 </head>
 
 <body class="font-sans antialiased">
@@ -80,6 +81,7 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <!-- Custom Scripts -->
     @stack('scripts')
+    @livewireScripts
 </body>
 
 </html>

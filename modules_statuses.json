@@ -3,5 +3,5 @@
     "Store": true,
     "Product": true,
     "Cart": true,
-    "Brand": true
+    "Checkout": true
 }
