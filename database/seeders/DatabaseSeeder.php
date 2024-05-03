@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Modules\Product\Models\BikeModels;
 use Modules\Product\Models\Brand;
 
 class DatabaseSeeder extends Seeder
@@ -57,6 +58,15 @@ class DatabaseSeeder extends Seeder
         ];
         foreach ($brands as $brand) {
             Brand::create($brand);
+        }
+
+        $models = [
+            ['name' => 'Pulsar', 'brand_id' => '1'],
+            ['name' => 'NS', 'brand_id' => '1'],
+            ['name' => 'Aviator', 'brand_id' => '1'],
+        ];
+        foreach ($models as $model) {
+            BikeModels::create($model);
         }
     }
 }

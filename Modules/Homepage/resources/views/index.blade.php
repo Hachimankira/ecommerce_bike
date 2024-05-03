@@ -64,7 +64,7 @@
                                         <x-card-product :product="$product" />
                                     @endforeach
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -125,14 +125,16 @@
                 <div class="text-start">
                     <h1>Shop By Brand</h1>
                 </div>
-                @foreach($brands as $brand)
-                <div class="col-md-6 col-lg-3">
-                    <a href="#">
-                        <div class="service-item rounded">
-                            <img src="{{$brand->image}}" class="img-fluid rounded-top w-100" alt="img">
-                        </div>
-                    </a>
-                </div>
+                @foreach ($brands as $brand)
+                    <div class="col-md-6 col-lg-3">
+                        <a href="">
+                            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                                    <img src="{{ $brand->image }}" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 @endforeach
             </div>
         </div>
