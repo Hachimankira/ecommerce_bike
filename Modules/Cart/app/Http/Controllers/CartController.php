@@ -16,7 +16,8 @@ class CartController extends Controller
     public function index()
     {
         $cartItems = Cart::where('user_id', auth()->user()->id)->get();
-        return view('cart::index' , compact('cartItems'));
+        $cartItemIds = $cartItems->pluck('product_id')->toArray();
+        return view('cart::index' , compact('cartItems' , 'cartItemIds'));
     }
 
     /**

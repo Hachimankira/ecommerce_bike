@@ -1,134 +1,206 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" type="image/x-icon" href="https://assets.edlin.app/favicon/favicon.ico">
-
-  <link rel="stylesheet" href="https://assets.edlin.app/bootstrap/v5.3/bootstrap.css">
-
-  <script src="https://www.paypal.com/sdk/js?client-id={{config('paypal.client_id')}}&currency=GBP&intent=capture"></script>
-
-  <!-- Title -->
-  <title>PayPal Laravel</title>
-</head>
-<body>
-<div class="container text-center">
-  <div class="row mt-3">
-    <div class="col-12">
-      <img src="https://assets.edlin.app/logo/codewithross/logo-symbol-dark.png" height='100' alt="Ross Edlin Logo"/>
+<x-app-layout>
+    @php
+        $total = 0;
+    @endphp
+    <!-- Single Page Header start -->
+    <div class="container-fluid page-header py-5">
+        <h1 class="text-center text-white display-6">Checkout</h1>
+        <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+            <li class="breadcrumb-item active text-white">Checkout</li>
+        </ol>
     </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <h1>PayPal Laravel</h1>
-    </div>
-  </div>
-  <div class="row mt-2">
-    <div class="col-12">
-      <div class="links h5">
-        <a class="text-decoration-none mx-3" href="https://edlin.xyz/website" target="_blank">Home</a>
-        <a class="text-decoration-none mx-3" href="https://edlin.xyz/portfolio" target="_blank">Portfolio</a>
-        <a class="text-decoration-none mx-3" href="https://edlin.xyz/contact" target="_blank">Contact</a>
-        <a class="text-decoration-none mx-3" href="https://edlin.xyz/linkedin" target="_blank">LinkedIn</a>
-        <a class="text-decoration-none mx-3" href="https://edlin.xyz/github/paypal-laravel" target="_blank">GitHub</a>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12 col-lg-6 offset-lg-3">
-          <p>Hey there, I'm a PayPal Payment Page.</p>
+    <!-- Single Page Header End -->
 
-          <p>Click the button below and you'll be taken to a <a href="https://developer.paypal.com/docs/checkout/"
-                                                                target="_blank">PayPal</a>
-            checkout form where you can enter real credit / debit card details and send me money.</p>
 
-          <p>My purpose is to demonstrate building a <a href="https://laravel.com/docs/10.x/"
-                                                        target="_blank">Laravel</a> / <a
-              href="https://developer.paypal.com/docs/checkout/" target="_blank">PayPal</a> app in 5 minutes.</p>
+    <!-- Checkout Page Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <h1 class="mb-4">Billing details</h1>
+            <form action="{{route ('checkout.store')}}" method="POST">
+              @csrf
+                <div class="row g-5">
+                    <div class="col-md-12 col-lg-6 col-xl-6">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Products</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($cartItems as $cartItem)
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="{{ $cartItem->product->banner_img }}"
+                                                        class="img-fluid me-5 rounded-circle"
+                                                        style="width: 60px; height: 60px;" alt="img">
+                                                </div>
+                                            </th>
+                                            <td>
+                                                <p class="mb-0 mt-4">{{ $cartItem->product->year }}
+                                                    {{ $cartItem->product->brand }}
+                                                    {{ $cartItem->product->model }}
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0 mt-4">${{ $cartItem->product->price }}</p>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0 mt-4">${{ $cartItem->product->price }}</p>
+                                            </td>
+                                            @php
+                                                $total += $cartItem->product->price;
+                                            @endphp
+                                        </tr>
+                                    @endforeach
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                        </th>
+                                        <td class="py-5"></td>
+                                        <td class="py-5"></td>
+                                        <td class="py-5">
+                                            <p class="mb-0 text-dark py-3">Subtotal</p>
+                                        </td>
+                                        <td class="py-5">
+                                            <div class="py-3 border-bottom border-top">
+                                                <p class="mb-0 text-dark">${{ $total }}</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                        </th>
+                                        <td class="py-5">
+                                            <p class="mb-0 text-dark py-4">Shipping</p>
+                                        </td>
+                                        <td colspan="3" class="py-5">
+                                            <div class="form-check text-start">
+                                                <input type="checkbox" class="form-check-input bg-primary border-0"
+                                                    id="Shipping-1" name="Shipping-1" value="Shipping">
+                                                <label class="form-check-label" for="Shipping-1">Free Shipping</label>
+                                            </div>
+                                            <div class="form-check text-start">
+                                                <input type="checkbox" class="form-check-input bg-primary border-0"
+                                                    id="Shipping-2" name="Shipping-1" value="Shipping">
+                                                <label class="form-check-label" for="Shipping-2">Flat rate:
+                                                    $15.00</label>
+                                            </div>
+                                            <div class="form-check text-start">
+                                                <input type="checkbox" class="form-check-input bg-primary border-0"
+                                                    id="Shipping-3" name="Shipping-1" value="Shipping">
+                                                <label class="form-check-label" for="Shipping-3">Local Pickup:
+                                                    $8.00</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                        </th>
+                                        <td class="py-5">
+                                            <p class="mb-0 text-dark text-uppercase py-3">TOTAL</p>
+                                        </td>
+                                        <td class="py-5"></td>
+                                        <td class="py-5"></td>
+                                        <td class="py-5">
+                                            <div class="py-3 border-bottom border-top">
+                                                <p class="mb-0 text-dark">{{ $total }}</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-          <p>You can see me building this app on <a href="https://edlin.xyz/youtube/paypal-laravel"
-                                                    target="_blank">YouTube</a>
-            and view the <a href="https://edlin.xyz/github/paypal-laravel"
-                            target="_blank">source code</a>.</p>
+                    </div>
+                    <div class="col-md-12 col-lg-6 col-xl-6">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <div class="form-item w-100">
+                                    <label class="form-label my-3">First Name<sup>*</sup></label>
+                                    <input type="text" class="form-control" name="first_name">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <div class="form-item w-100">
+                                    <label class="form-label my-3">Last Name<sup>*</sup></label>
+                                    <input type="text" class="form-control" name="last_name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label class="form-label my-3">Address <sup>*</sup></label>
+                            <input type="text" class="form-control" placeholder="House Number Street Name" name="address">
+                        </div>
+                        <div class="form-item">
+                            <label class="form-label my-3">Town/City<sup>*</sup></label>
+                            <input type="text" class="form-control" name="city">
+                        </div>
+                        <div class="form-item">
+                            <label class="form-label my-3">Mobile<sup>*</sup></label>
+                            <input type="tel" class="form-control" name="phone">
+                        </div>
+                        <div class="form-item">
+                            <label class="form-label my-3">Email Address<sup>*</sup></label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <input type="hidden" name="total" id="total" value="{{ $total }}">
 
-          <p class="text-danger">
-            WARNING!!!<br/>
-            This is set to LIVE mode, so real money is used.<br/>
-            No refunds, use at your own risk.
-          </p>
+                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                            <h3>Payment Method</h3>
+                            <div class="row g-4 text-center align-items-center justify-content-center pt-4">
+                                <button type="submit" 
+                                class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">Place
+                                Order</button>
+                                {{-- <div>
+                                    <div id="paypal-payment-button" type="submit"></div>
+                                </div> --}}
+                            </div>
+                        </div>
+                    </div>
+
+            </form>
         </div>
-      </div>
-
-      <div class="row mt-3" id="paypal-success" style="display: none;">
-        <div class="col-12 col-lg-6 offset-lg-3">
-          <div class="alert alert-success" role="alert">
-            You have successfully sent me money! Thank you!
-          </div>
-        </div>
-      </div>
-
-      <div class="row mt-3">
-        <div class="col-12 col-lg-6 offset-lg-3">
-          <div class="input-group">
-            <span class="input-group-text">£</span>
-            <input type="text"
-                   class="form-control"
-                   id="paypal-amount"
-                   value="10"
-                   aria-label="Amount (to the nearest pound)">
-            <span class="input-group-text">.00</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="row mt-3">
-        <div class="col-12 col-lg-6 offset-lg-3" id="payment_options"></div>
-      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12 mt-3 mb-3">
-      Made with love, by <a href="https://www.rossedlin.com/" target="_blank">Ross Edlin</a> from <a
-        href="https://www.codewithross.com/" target="_blank">Code with Ross</a>.
+    <!-- Checkout Page End -->
+    <!-- Modal -->
+    <div class="modal fade" id="submissionModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Confirm Submission</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to submit the form?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmSubmit">Submit</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-</body>
-<script>
-  paypal.Buttons({
-    createOrder: function () {
-      return fetch("/create/" + document.getElementById("paypal-amount").value)
-        .then((response) => response.text())
-        .then((id) => {
-          return id;
-        });
-    },
 
-    onApprove: function () {
-      return fetch("/complete", {method: "post", headers: {"X-CSRF-Token": '{{csrf_token()}}'}})
-        .then((response) => response.json())
-        .then((order_details) => {
-          console.log(order_details);
-          document.getElementById("paypal-success").style.display = 'block';
-          //paypal_buttons.close();
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-
-    onCancel: function (data) {
-      //todo
-    },
-
-    onError: function (err) {
-      //todo
-      console.log(err);
-    }
-  }).render('#payment_options');
-</script>
-</html>
+    {{-- @push('scripts')
+        <script
+            src="https://www.paypal.com/sdk/js?client-id=AbijuJZ3znQTbK0DGkmaZaEnAb3RaONpYjebW__1DRklZwC6b8x6ON6ELCS2lf2AltEwJtCHKoXH57y3&components=buttons">
+        </script>
+        <script src="{{ asset('js/index.js') }}"></script>
+        <script>
+            window.routes = {
+                success: "{{ route('cart.success') }}"
+                // cancel: "{{ route('cart.cancel') }}"
+            };
+            total = {{ $total + 3 }};
+        </script>
+    @endpush --}}
+</x-app-layout>
