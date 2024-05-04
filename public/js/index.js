@@ -7,7 +7,7 @@ paypal.Buttons({
         return actions.order.create({
             purchase_units : [{
                 amount: {
-                    value: 10
+                    value: total
                 },
             }]
         });
@@ -15,7 +15,8 @@ paypal.Buttons({
     onApprove: function (data, actions) {
         return actions.order.capture().then(function (details) {
             console.log(details)
-            window.location.replace(window.routes.success)
+            document.getElementById('orderNowBtn').disabled = false;
+            // window.location.replace(window.routes.success)
         })
     },
     // onCancel: function (data) {

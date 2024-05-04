@@ -18,8 +18,8 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <h1 class="mb-4">Billing details</h1>
-            <form action="{{route ('checkout.store')}}" method="POST">
-              @csrf
+            <form action="{{ route('checkout.store') }}" method="POST" id="myForm">
+                @csrf
                 <div class="row g-5">
                     <div class="col-md-12 col-lg-6 col-xl-6">
                         <div class="table-responsive">
@@ -136,7 +136,8 @@
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Address <sup>*</sup></label>
-                            <input type="text" class="form-control" placeholder="House Number Street Name" name="address">
+                            <input type="text" class="form-control" placeholder="House Number Street Name"
+                                name="address">
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Town/City<sup>*</sup></label>
@@ -155,9 +156,13 @@
                         <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
                             <h3>Payment Method</h3>
                             <div class="row g-4 text-center align-items-center justify-content-center pt-4">
-                                <button type="submit" 
+                                {{-- <button type="submit" 
                                 class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">Place
-                                Order</button>
+                                Order</button> --}}
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Pay Now
+                                </button>
                                 {{-- <div>
                                     <div id="paypal-payment-button" type="submit"></div>
                                 </div> --}}
@@ -170,27 +175,27 @@
     </div>
     <!-- Checkout Page End -->
     <!-- Modal -->
-    <div class="modal fade" id="submissionModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalLabel">Confirm Submission</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Payment</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to submit the form?
+                    <div class="container-fluid featurs py-10 top-10">
+                        <div id="paypal-payment-button" class="container py-10"></div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="confirmSubmit">Submit</button>
-                </div>
+                    {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+                    <button type="button" id="orderNowBtn" class="btn btn-primary" disabled>Order Now</button>                </div>
             </div>
         </div>
     </div>
 
-    {{-- @push('scripts')
+    @push('scripts')
         <script
             src="https://www.paypal.com/sdk/js?client-id=AbijuJZ3znQTbK0DGkmaZaEnAb3RaONpYjebW__1DRklZwC6b8x6ON6ELCS2lf2AltEwJtCHKoXH57y3&components=buttons">
         </script>
@@ -202,5 +207,12 @@
             };
             total = {{ $total + 3 }};
         </script>
-    @endpush --}}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('orderNowBtn').addEventListener('click', function() {
+                    document.getElementById('myForm').submit();
+                });
+            });
+        </script>
+    @endpush
 </x-app-layout>

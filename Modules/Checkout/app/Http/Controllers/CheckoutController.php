@@ -36,7 +36,7 @@ class CheckoutController extends Controller
         $item->total = request('total');
         $item->save();
 
-        return redirect()->route('checkout.payment')->with('success', 'Order has been placed successfully');
+        return redirect()->route('home.index')->with('success', 'Order has been placed successfully');
     }
     // public function payment()
     // {
