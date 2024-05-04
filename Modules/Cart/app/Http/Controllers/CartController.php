@@ -27,6 +27,16 @@ class CartController extends Controller
         return view('cart::create');
     }
 
+    public function success()
+    {
+        return view('cart::success');
+    }
+
+    public function cancel()
+    {
+        return view('cart::cancel');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -44,7 +54,7 @@ class CartController extends Controller
      */
     public function show($id)
     {
-        return view('cart::show');
+        return view('cart::success');
     }
 
     /**
