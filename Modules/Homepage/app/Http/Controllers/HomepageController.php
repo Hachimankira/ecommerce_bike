@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Product\Models\Brand;
+use Modules\Product\Models\Product;
 
 class HomepageController extends Controller
 {
@@ -14,7 +16,12 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        return view('homepage::index');
+        $products = Product::all();
+        $sports = Product::where('body_type', 'sport')->get();
+        $streets = Product::where('body_type', 'street')->get();
+        $cruisers = Product::where('body_type', 'cruiser')->get();
+        $brands = Brand::all();
+        return view('homepage::index' , compact('products' , 'sports' , 'streets' , 'cruisers', 'brands'));
     }
 
     /**
@@ -25,10 +32,25 @@ class HomepageController extends Controller
         return view('homepage::create');
     }
 
+    public function addToCart($id)
+    {
+        if(auth()->user()){
+            $data = [
+                'user_id' => auth()->user()->id,
+                'product_id' => $id,
+            ];
+            \Modules\Cart\Models\Cart::updateOrCreate($data);
+            session()->flash('message', 'Product added to cart successfully');
+        }
+        else{
+            return redirect()->route('login');
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         //
     }
@@ -52,9 +74,9 @@ class HomepageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request, $id)
     {
-        //
+       
     }
 
     /**

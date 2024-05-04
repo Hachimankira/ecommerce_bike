@@ -1,0 +1,424 @@
+
+[
+    {
+      "BikeDetails": {
+        "Brand": "Trek",
+        "Model": "Marlin 7",
+        "Year": 2018,
+        "Type": "Mountain",
+        "DistanceCovered": 5000,
+        "Colour": "Red",
+        "Condition": "Good",
+        "Owner": "First",
+        "BodyType": "Sport",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "600"
+      },
+      "Description": "Excellent condition, recently serviced, upgraded saddle",
+      "ContactInformation": {
+        "Name": "John Smith",
+        "Email": "john@example.com",
+        "PhoneNumber": "1234567890"
+      },
+      "Location": {
+        "City": "New York",
+        "StateProvince": "NY",
+        "ZipCode": "10001"
+      },
+      "AdditionalFeatures": {
+        "Gears": 21,
+        "SuspensionType": "Front Suspension",
+        "BrakeType": "Disc",
+        "TireSize": "29\"",
+        "DeliveryOptions": "Local Pickup"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Giant",
+        "Model": "Escape 2",
+        "Year": 2019,
+        "Type": "Hybrid",
+        "DistanceCovered": 3000,
+        "Colour": "Black",
+        "Condition": "Fair",
+        "Owner": "Second",
+        "BodyType": "Street",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "400"
+      },
+      "Description": "Good commuter bike, some wear and tear, new tires",
+      "ContactInformation": {
+        "Name": "Sarah Jones",
+        "Email": "sarah@example.com",
+        "PhoneNumber": "9876543210"
+      },
+      "Location": {
+        "City": "Los Angeles",
+        "StateProvince": "CA",
+        "ZipCode": "90001"
+      },
+      "AdditionalFeatures": {
+        "Gears": 24,
+        "SuspensionType": "Front Suspension",
+        "BrakeType": "V-brake",
+        "TireSize": "700C",
+        "DeliveryOptions": "Local Pickup"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Specialized",
+        "Model": "Roubaix Comp",
+        "Year": 2017,
+        "Type": "Road",
+        "DistanceCovered": 7000,
+        "Colour": "Blue",
+        "Condition": "Excellent",
+        "Owner": "First",
+        "BodyType": "Sport",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "1500"
+      },
+      "Description": "Well-maintained, carbon frame, upgraded wheels",
+      "ContactInformation": {
+        "Name": "Michael Brown",
+        "Email": "michael@example.com",
+        "PhoneNumber": "4567890123"
+      },
+      "Location": {
+        "City": "Chicago",
+        "StateProvince": "IL",
+        "ZipCode": "60007"
+      },
+      "AdditionalFeatures": {
+        "Gears": 22,
+        "SuspensionType": "Front & Rear",
+        "BrakeType": "Disc",
+        "TireSize": "700C",
+        "DeliveryOptions": "Local Pickup"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Cannondale",
+        "Model": "Synapse",
+        "Year": 2016,
+        "Type": "Road",
+        "DistanceCovered": 6000,
+        "Colour": "White",
+        "Condition": "Good",
+        "Owner": "Third",
+        "BodyType": "Sport",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "800"
+      },
+      "Description": "Few scratches, recently tuned up, great for long rides",
+      "ContactInformation": {
+        "Name": "Emily Davis",
+        "Email": "emily@example.com",
+        "PhoneNumber": "7890123456"
+      },
+      "Location": {
+        "City": "Houston",
+        "StateProvince": "TX",
+        "ZipCode": "77001"
+      },
+      "AdditionalFeatures": {
+        "Gears": 20,
+        "SuspensionType": "Front & Rear",
+        "BrakeType": "Disc",
+        "TireSize": "700C",
+        "DeliveryOptions": "Shipping"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Scott",
+        "Model": "Scale 970",
+        "Year": 2020,
+        "Type": "Mountain",
+        "DistanceCovered": 2000,
+        "Colour": "Green",
+        "Condition": "Fair",
+        "Owner": "Second",
+        "BodyType": "Sport",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "700"
+      },
+      "Description": "Well-used mountain bike, minor scratches, new chain",
+      "ContactInformation": {
+        "Name": "David Wilson",
+        "Email": "david@example.com",
+        "PhoneNumber": "2345678901"
+      },
+      "Location": {
+        "City": "Phoenix",
+        "StateProvince": "AZ",
+        "ZipCode": "85001"
+      },
+      "AdditionalFeatures": {
+        "Gears": 18,
+        "SuspensionType": "Front Suspension",
+        "BrakeType": "Disc",
+        "TireSize": "29\"",
+        "DeliveryOptions": "Local Pickup"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Fuji",
+        "Model": "Feather",
+        "Year": 2015,
+        "Type": "Road",
+        "DistanceCovered": 8000,
+        "Colour": "Yellow",
+        "Condition": "Fair",
+        "Owner": "First",
+        "BodyType": "Street",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "300"
+      },
+      "Description": "Lightweight, some rust, needs new tires",
+      "ContactInformation": {
+        "Name": "Amanda Lee",
+        "Email": "amanda@example.com",
+        "PhoneNumber": "3456789012"
+      },
+      "Location": {
+        "City": "Philadelphia",
+        "StateProvince": "PA",
+        "ZipCode": "19103"
+      },
+      "AdditionalFeatures": {
+        "Gears": 16,
+        "SuspensionType": "None",
+        "BrakeType": "Caliper",
+        "TireSize": "700C",
+        "DeliveryOptions": "Shipping"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Trek",
+        "Model": "Marlin 7",
+        "Year": 2018,
+        "Type": "Mountain",
+        "DistanceCovered": 5000,
+        "Colour": "Red",
+        "Condition": "Good",
+        "Owner": "First",
+        "BodyType": "Sport",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "600"
+      },
+      "Description": "Excellent condition, recently serviced, upgraded saddle",
+      "ContactInformation": {
+        "Name": "John Smith",
+        "Email": "john@example.com",
+        "PhoneNumber": "1234567890"
+      },
+      "Location": {
+        "City": "New York",
+        "StateProvince": "NY",
+        "ZipCode": "10001"
+      },
+      "AdditionalFeatures": {
+        "Gears": 21,
+        "SuspensionType": "Front Suspension",
+        "BrakeType": "Disc",
+        "TireSize": "29\"",
+        "DeliveryOptions": "Local Pickup"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Giant",
+        "Model": "Escape 2",
+        "Year": 2019,
+        "Type": "Hybrid",
+        "DistanceCovered": 3000,
+        "Colour": "Black",
+        "Condition": "Fair",
+        "Owner": "Second",
+        "BodyType": "Street",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "400"
+      },
+      "Description": "Good commuter bike, some wear and tear, new tires",
+      "ContactInformation": {
+        "Name": "Sarah Jones",
+        "Email": "sarah@example.com",
+        "PhoneNumber": "9876543210"
+      },
+      "Location": {
+        "City": "Los Angeles",
+        "StateProvince": "CA",
+        "ZipCode": "90001"
+      },
+      "AdditionalFeatures": {
+        "Gears": 24,
+        "SuspensionType": "Front Suspension",
+        "BrakeType": "V-brake",
+        "TireSize": "700C",
+        "DeliveryOptions": "Local Pickup"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Specialized",
+        "Model": "Roubaix Comp",
+        "Year": 2017,
+        "Type": "Road",
+        "DistanceCovered": 7000,
+        "Colour": "Blue",
+        "Condition": "Excellent",
+        "Owner": "First",
+        "BodyType": "Sport",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "1500"
+      },
+      "Description": "Well-maintained, carbon frame, upgraded wheels",
+      "ContactInformation": {
+        "Name": "Michael Brown",
+        "Email": "michael@example.com",
+        "PhoneNumber": "4567890123"
+      },
+      "Location": {
+        "City": "Chicago",
+        "StateProvince": "IL",
+        "ZipCode": "60007"
+      },
+      "AdditionalFeatures": {
+        "Gears": 22,
+        "SuspensionType": "Front & Rear",
+        "BrakeType": "Disc",
+        "TireSize": "700C",
+        "DeliveryOptions": "Local Pickup"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Cannondale",
+        "Model": "Synapse",
+        "Year": 2016,
+        "Type": "Road",
+        "DistanceCovered": 6000,
+        "Colour": "White",
+        "Condition": "Good",
+        "Owner": "Third",
+        "BodyType": "Sport",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "800"
+      },
+      "Description": "Few scratches, recently tuned up, great for long rides",
+      "ContactInformation": {
+        "Name": "Emily Davis",
+        "Email": "emily@example.com",
+        "PhoneNumber": "7890123456"
+      },
+      "Location": {
+        "City": "Houston",
+        "StateProvince": "TX",
+        "ZipCode": "77001"
+      },
+      "AdditionalFeatures": {
+        "Gears": 20,
+        "SuspensionType": "Front & Rear",
+        "BrakeType": "Disc",
+        "TireSize": "700C",
+        "DeliveryOptions": "Shipping"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Scott",
+        "Model": "Scale 970",
+        "Year": 2020,
+        "Type": "Mountain",
+        "DistanceCovered": 2000,
+        "Colour": "Green",
+        "Condition": "Fair",
+        "Owner": "Second",
+        "BodyType": "Sport",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "700"
+      },
+      "Description": "Well-used mountain bike, minor scratches, new chain",
+      "ContactInformation": {
+        "Name": "David Wilson",
+        "Email": "david@example.com",
+        "PhoneNumber": "2345678901"
+      },
+      "Location": {
+        "City": "Phoenix",
+        "StateProvince": "AZ",
+        "ZipCode": "85001"
+      },
+      "AdditionalFeatures": {
+        "Gears": 18,
+        "SuspensionType": "Front Suspension",
+        "BrakeType": "Disc",
+        "TireSize": "29\"",
+        "DeliveryOptions": "Local Pickup"
+      }
+    },
+    {
+      "BikeDetails": {
+        "Brand": "Fuji",
+        "Model": "Feather",
+        "Year": 2015,
+        "Type": "Road",
+        "DistanceCovered": 8000,
+        "Colour": "Yellow",
+        "Condition": "Fair",
+        "Owner": "First",
+        "BodyType": "Street",
+        "Images": ["Image1", "Image2", "Image3"]
+      },
+      "Price": {
+        "AskingPrice": "300"
+      },
+      "Description": "Lightweight, some rust, needs new tires",
+      "ContactInformation": {
+        "Name": "Amanda Lee",
+        "Email": "amanda@example.com",
+        "PhoneNumber": "3456789012"
+      },
+      "Location": {
+        "City": "Philadelphia",
+        "StateProvince": "PA",
+        "ZipCode": "19103"
+      },
+      "AdditionalFeatures": {
+        "Gears": 16,
+        "SuspensionType": "None",
+        "BrakeType": "Caliper",
+        "TireSize": "700C",
+        "DeliveryOptions": "Shipping"
+      }
+    }
+  ]
+  
