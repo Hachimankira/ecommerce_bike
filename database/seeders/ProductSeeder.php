@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
+use Modules\Product\Models\Brand;
 use Modules\Product\Models\Product;
 
 class ProductSeeder extends Seeder
@@ -17,9 +18,13 @@ class ProductSeeder extends Seeder
         $data = File::get(('info.json'));
         $products = json_decode($data, true);
 
+      
+
     foreach ($products as $product) {
+          $brand = Brand::firstOrCreate(
+            ['name' => $product['BikeDetails']['Brand']],);
         Product::create([
-            'brand' => $product['BikeDetails']['Brand'],
+            'brand_id' => $brand->id,
             'model' => $product['BikeDetails']['Model'],
             'year' => $product['BikeDetails']['Year'],
             'type' => $product['BikeDetails']['Type'],

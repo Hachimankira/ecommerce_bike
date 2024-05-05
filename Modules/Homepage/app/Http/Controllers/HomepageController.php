@@ -64,10 +64,19 @@ class HomepageController extends Controller
     /**
      * Show the specified resource.
      */
-    public function show($id)
-    {
-        return view('homepage::show');
+    public function show($brandId)
+{
+    // Retrieve a single brand by ID
+    $brand = Brand::with('products')->find($brandId);
+    // Check if the brand was found
+    if (!$brand) {
+        // Handle the case where the brand is not found
+        abort(404);  // Or return a specific view or response
     }
+
+    // Return the show view with the brand data
+    return view('homepage::show', compact('brand'));
+}
 
     /**
      * Show the form for editing the specified resource.
