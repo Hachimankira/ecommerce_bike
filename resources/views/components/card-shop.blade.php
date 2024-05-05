@@ -29,7 +29,9 @@
                 </form>
                 <form action="{{ route('wishlist.create', ['id' => $product->id]) }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-primary">Add to Wishlist</button>
+                    <button type="submit" class="">
+                        <i class="fa fa-heart fa-2x me-2"></i> 
+                    </button>
                 </form>
             </div>
         </div>

@@ -85,7 +85,8 @@ class CartController extends Controller
     }
     public function wishlist()
     {
-        return view('cart::wishlist');
+        $wishlists = Wishlist::where('user_id', auth()->user()->id)->get();
+        return view('cart::wishlist' , compact('wishlists'));
     }
 
     public function addToWishlist($id)
@@ -94,6 +95,6 @@ class CartController extends Controller
         $item->user_id = auth()->user()->id;
         $item->product_id = $id;
         $item->save();
-        return redirect()->route('wishlist')->with('success', 'Product added to wishlist successfully');
+        return back()->with('success', 'Product added to wishlist successfully');
     }
 }
