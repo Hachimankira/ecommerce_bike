@@ -97,4 +97,9 @@ class CartController extends Controller
         $item->save();
         return back()->with('success', 'Product added to wishlist successfully');
     }
+    public function removeFromWishlist($id)
+    {
+        Wishlist::destroy($id);
+        return back()->with('success', 'Product removed from wishlist successfully');
+    }
 }

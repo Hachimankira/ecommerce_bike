@@ -48,7 +48,7 @@
                                                     class="fa fa-shopping-bag me-2 text-primary"></i> Add to
                                                 cart</button>
                                         </form>
-                                        <form action="{{ route('wishlist.create', ['id' => $wishlist->product->id]) }}"
+                                        <form action="{{ route('wishlist.delete', ['id' => $wishlist->product->id]) }}"
                                             method="POST">
                                             @csrf
                                             <button type="submit" class="">
