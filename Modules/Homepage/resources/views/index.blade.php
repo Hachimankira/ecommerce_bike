@@ -27,7 +27,7 @@
             <div class="tab-class text-center">
                 <div class="row g-4">
                     <div class="col-lg-4 text-start">
-                        <h1>Featured Bikes</h1>
+                        <h1>Recommended Bikes</h1>
                     </div>
                     <div class="col-lg-8 text-end">
                         <ul class="nav nav-pills d-inline-flex text-center mb-5">
@@ -55,7 +55,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="tab-content">
+                 <div class="tab-content">
                     <div id="tab-1" class="tab-pane fade show p-0 active">
                         <div class="row g-4">
                             <div class="col-lg-12">
@@ -127,7 +127,7 @@
                 </div>
                 @foreach ($brands as $brand)
                     <div class="col-md-6 col-lg-3">
-                        <a href="">
+                        <a href="{{ url('home/' . $brand->id) }}">
                             <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
                                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                                     <img src="{{ $brand->image }}" class="img-fluid" alt="">

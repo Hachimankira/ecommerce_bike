@@ -16,10 +16,16 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        $sports = Product::where('body_type', 'sport')->get();
-        $streets = Product::where('body_type', 'street')->get();
-        $cruisers = Product::where('body_type', 'cruiser')->get();
+        $products = Product::all()->where('rating', '5');
+        $sports = Product::where('body_type', 'sport')
+                            ->whereIn('rating',[3,4,5])
+                            ->get();
+        $streets = Product::where('body_type', 'street')
+                            ->whereIn('rating',[3,4,5])
+                            ->get();
+        $cruisers = Product::where('body_type', 'cruiser')
+                            ->whereIn('rating',[3,4,5]) 
+                            ->get();
         $brands = Brand::all();
         return view('homepage::index' , compact('products' , 'sports' , 'streets' , 'cruisers', 'brands'));
     }
