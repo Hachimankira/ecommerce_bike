@@ -129,8 +129,8 @@
                     <div class="col-md-6 col-lg-3">
                         <a href="{{ url('home/' . $brand->id) }}">
                             <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-                                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                                    <img src="{{ $brand->image }}" class="img-fluid" alt="">
+                                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 image-container">
+                                    <img src="{{ $brand->image }}" class="" alt="img">
                                 </div>
                             </div>
                         </a>

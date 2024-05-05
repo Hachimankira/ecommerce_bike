@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Cart\Models\Cart;
+use Modules\Cart\Models\Wishlist;
 
 class CartController extends Controller
 {
@@ -81,5 +82,24 @@ class CartController extends Controller
     {
         Cart::destroy($id);
         return redirect()->route('cart.index')->with('success', 'Product removed from cart successfully');
+    }
+    public function wishlist()
+    {
+        $wishlists = Wishlist::where('user_id', auth()->user()->id)->get();
+        return view('cart::wishlist' , compact('wishlists'));
+    }
+
+    public function addToWishlist($id)
+    {
+        $item = new Wishlist();
+        $item->user_id = auth()->user()->id;
+        $item->product_id = $id;
+        $item->save();
+        return back()->with('success', 'Product added to wishlist successfully');
+    }
+    public function removeFromWishlist($id)
+    {
+        Wishlist::destroy($id);
+        return back()->with('success', 'Product removed from wishlist successfully');
     }
 }

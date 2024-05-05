@@ -18,4 +18,6 @@ Route::group([], function () {
     Route::resource('cart', CartController::class)->except('show')->names('cart');});
 Route::view('cart/success', 'cart::success')->name('cart.success');
 Route::view('cart/cancel', 'cancel')->name('cart.cancel');
-
+Route::get('wishlist', [CartController::class , 'wishlist'])->name('wishlist');
+Route::post('wishlist/{id}/create', [CartController::class , 'addToWishlist'])->name('wishlist.create');
+Route::post('wishlist/{id}/delete', [CartController::class , 'removeFromWishlist'])->name('wishlist.delete');

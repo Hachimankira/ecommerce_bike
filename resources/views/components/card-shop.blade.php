@@ -1,3 +1,4 @@
+
 <div class="col-md-6 col-lg-6 col-xl-4">
     <div class="rounded position-relative fruite-item">
         <div class="fruite-img">
@@ -26,7 +27,12 @@
                         class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"><i
                             class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
                 </form>
-                <i class="fa fa-heart fa-lg" aria-hidden="true"></i> 
+                <form action="{{ route('wishlist.create', ['id' => $product->id]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="">
+                        <i class="fa fa-heart fa-2x me-2"></i> 
+                    </button>
+                </form>
             </div>
         </div>
     </div>
