@@ -18,68 +18,10 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <h1 class="mb-4">Billing details</h1>
-            <form action="#">
+            <form action="{{ route('checkout.store') }}" method="POST" id="myForm">
+                @csrf
                 <div class="row g-5">
-                    <div class="col-md-12 col-lg-6 col-xl-7">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-6">
-                                <div class="form-item w-100">
-                                    <label class="form-label my-3">First Name<sup>*</sup></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6">
-                                <div class="form-item w-100">
-                                    <label class="form-label my-3">Last Name<sup>*</sup></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label class="form-label my-3">Company Name<sup>*</sup></label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-item">
-                            <label class="form-label my-3">Address <sup>*</sup></label>
-                            <input type="text" class="form-control" placeholder="House Number Street Name">
-                        </div>
-                        <div class="form-item">
-                            <label class="form-label my-3">Town/City<sup>*</sup></label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-item">
-                            <label class="form-label my-3">Country<sup>*</sup></label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-item">
-                            <label class="form-label my-3">Postcode/Zip<sup>*</sup></label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-item">
-                            <label class="form-label my-3">Mobile<sup>*</sup></label>
-                            <input type="tel" class="form-control">
-                        </div>
-                        <div class="form-item">
-                            <label class="form-label my-3">Email Address<sup>*</sup></label>
-                            <input type="email" class="form-control">
-                        </div>
-                        <div class="form-check my-3">
-                            <input type="checkbox" class="form-check-input" id="Account-1" name="Accounts"
-                                value="Accounts">
-                            <label class="form-check-label" for="Account-1">Create an account?</label>
-                        </div>
-                        <hr>
-                        <div class="form-check my-3">
-                            <input class="form-check-input" type="checkbox" id="Address-1" name="Address"
-                                value="Address">
-                            <label class="form-check-label" for="Address-1">Ship to a different address?</label>
-                        </div>
-                        <div class="form-item">
-                            <textarea name="text" class="form-control" spellcheck="false" cols="30" rows="11"
-                                placeholder="Oreder Notes (Optional)"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6 col-xl-5">
+                    <div class="col-md-12 col-lg-6 col-xl-6">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -107,10 +49,10 @@
                                                 </p>
                                             </td>
                                             <td>
-                                                <p class="mb-0 mt-4">{{ $cartItem->product->price }}</p>
+                                                <p class="mb-0 mt-4">${{ $cartItem->product->price }}</p>
                                             </td>
                                             <td>
-                                                <p class="mb-0 mt-4">{{ $cartItem->product->price }}</p>
+                                                <p class="mb-0 mt-4">${{ $cartItem->product->price }}</p>
                                             </td>
                                             @php
                                                 $total += $cartItem->product->price;
@@ -128,7 +70,7 @@
                                         </td>
                                         <td class="py-5">
                                             <div class="py-3 border-bottom border-top">
-                                                <p class="mb-0 text-dark">{{ $total }}</p>
+                                                <p class="mb-0 text-dark">${{ $total }}</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -168,34 +110,109 @@
                                         <td class="py-5"></td>
                                         <td class="py-5">
                                             <div class="py-3 border-bottom border-top">
-                                                <p class="mb-0 text-dark">$135.00</p>
+                                                <p class="mb-0 text-dark">{{ $total }}</p>
                                             </div>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
-                            <h3>Payment Method</h3>
-                            <div
-                                class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
-                                <div class="col-12">
-                                    <div class="form-check text-start my-3">
-                                        <input type="checkbox" class="form-check-input bg-primary border-0"
-                                            id="Paypal-1" name="Paypal" value="Paypal">
-                                        <label class="form-check-label" for="Paypal-1">Paypal</label>
-                                    </div>
+
+                    </div>
+                    <div class="col-md-12 col-lg-6 col-xl-6">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <div class="form-item w-100">
+                                    <label class="form-label my-3">First Name<sup>*</sup></label>
+                                    <input type="text" class="form-control" name="first_name">
                                 </div>
                             </div>
+                            <div class="col-md-12 col-lg-6">
+                                <div class="form-item w-100">
+                                    <label class="form-label my-3">Last Name<sup>*</sup></label>
+                                    <input type="text" class="form-control" name="last_name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label class="form-label my-3">Address <sup>*</sup></label>
+                            <input type="text" class="form-control" placeholder="House Number Street Name"
+                                name="address">
+                        </div>
+                        <div class="form-item">
+                            <label class="form-label my-3">Town/City<sup>*</sup></label>
+                            <input type="text" class="form-control" name="city">
+                        </div>
+                        <div class="form-item">
+                            <label class="form-label my-3">Mobile<sup>*</sup></label>
+                            <input type="tel" class="form-control" name="phone">
+                        </div>
+                        <div class="form-item">
+                            <label class="form-label my-3">Email Address<sup>*</sup></label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <input type="hidden" name="total" id="total" value="{{ $total }}">
+
+                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                            <h3>Payment Method</h3>
                             <div class="row g-4 text-center align-items-center justify-content-center pt-4">
-                                <button type="button"
-                                    class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">Place
-                                    Order</button>
+                                {{-- <button type="submit" 
+                                class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">Place
+                                Order</button> --}}
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Pay Now
+                                </button>
+                                {{-- <div>
+                                    <div id="paypal-payment-button" type="submit"></div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
+
             </form>
         </div>
     </div>
     <!-- Checkout Page End -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Payment</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid featurs py-10 top-10">
+                        <div id="paypal-payment-button" class="container py-10"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+                    <button type="button" id="orderNowBtn" class="btn btn-primary" disabled>Order Now</button>                </div>
+            </div>
+        </div>
+    </div>
+
+    @push('scripts')
+        <script
+            src="https://www.paypal.com/sdk/js?client-id=AbijuJZ3znQTbK0DGkmaZaEnAb3RaONpYjebW__1DRklZwC6b8x6ON6ELCS2lf2AltEwJtCHKoXH57y3&components=buttons">
+        </script>
+        <script src="{{ asset('js/index.js') }}"></script>
+        <script>
+            window.routes = {
+                success: "{{ route('cart.success') }}"
+                // cancel: "{{ route('cart.cancel') }}"
+            };
+            total = {{ $total + 3 }};
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('orderNowBtn').addEventListener('click', function() {
+                    document.getElementById('myForm').submit();
+                });
+            });
+        </script>
+    @endpush
 </x-app-layout>

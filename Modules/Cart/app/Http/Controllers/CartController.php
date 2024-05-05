@@ -16,7 +16,8 @@ class CartController extends Controller
     public function index()
     {
         $cartItems = Cart::where('user_id', auth()->user()->id)->get();
-        return view('cart::index' , compact('cartItems'));
+        $cartItemIds = $cartItems->pluck('product_id')->toArray();
+        return view('cart::index' , compact('cartItems' , 'cartItemIds'));
     }
 
     /**
@@ -25,6 +26,16 @@ class CartController extends Controller
     public function create()
     {
         return view('cart::create');
+    }
+
+    public function success()
+    {
+        return view('cart::success');
+    }
+
+    public function cancel()
+    {
+        return view('cart::cancel');
     }
 
     /**
@@ -44,7 +55,7 @@ class CartController extends Controller
      */
     public function show($id)
     {
-        return view('cart::show');
+        return view('cart::success');
     }
 
     /**

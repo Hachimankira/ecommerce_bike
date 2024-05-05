@@ -17,3 +17,4 @@ use Modules\Checkout\Http\Controllers\CheckoutController;
 Route::group([], function () {
     Route::resource('checkout', CheckoutController::class)->names('checkout');
 });
+Route::get('checkout/payment', [CheckoutController::class, 'payment'])->name('checkout.payment');

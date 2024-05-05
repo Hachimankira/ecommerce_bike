@@ -66,9 +66,9 @@
                                 <td>
                                     <p class="mb-0 mt-4">{{ $cartItem->product->price }}</p>
                                 </td>
-                                    @php
-                                        $total += $cartItem->product->price;
-                                    @endphp
+                                @php
+                                    $total += $cartItem->product->price;
+                                @endphp
                                 <td>
                                     <form action="{{ route('cart.destroy', $cartItem->id) }}" method="POST">
                                         @csrf
@@ -97,7 +97,7 @@
                             <h1 class="display-6 mb-4">Cart <span class="fw-normal">Total</span></h1>
                             <div class="d-flex justify-content-between mb-4">
                                 <h5 class="mb-0 me-4">Subtotal:</h5>
-                                    <p class="mb-0">{{ $total }}</p>
+                                <p class="mb-0">{{ $total }}</p>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <h5 class="mb-0 me-4">Shipping</h5>
@@ -109,13 +109,31 @@
                         </div>
                         <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                             <h5 class="mb-0 ps-4 me-4">Total</h5>
-                            <p class="mb-0 pe-4">{{ $total + 3}}</p>
+                            <p class="mb-0 pe-4">{{ $total + 3 }}</p>
                         </div>
-                        <a href="{{ route('checkout.index') }}" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">Proceed Checkout</a>
+                        <a href="{{ route('checkout.index') }}"
+                            class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">Proceed
+                            Checkout</a>
+                        <div>
+                            <div id="paypal-payment-button"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Cart Page End -->
+    @push('scripts')
+        <script
+            src="https://www.paypal.com/sdk/js?client-id=AbijuJZ3znQTbK0DGkmaZaEnAb3RaONpYjebW__1DRklZwC6b8x6ON6ELCS2lf2AltEwJtCHKoXH57y3&components=buttons">
+        </script>
+        <script src="{{ asset('js/index.js') }}"></script>
+        <script>
+            window.routes = {
+                success: "{{ route('cart.success') }}"
+                // cancel: "{{ route('cart.cancel') }}"
+            };
+            total = {{ $total + 3 }};
+        </script>
+    @endpush
 </x-app-layout>

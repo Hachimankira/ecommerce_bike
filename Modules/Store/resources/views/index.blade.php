@@ -97,36 +97,26 @@
                                             for="rangeInput">0</output>
                                     </div>
                                 </div>
-                                {{-- <div class="col-lg-12">
+                                <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <h4>Additional</h4>
+                                        <h4>Engine</h4>
                                         <div class="mb-2">
                                             <input type="radio" class="me-2" id="Categories-1" name="Categories-1"
                                                 value="Beverages">
-                                            <label for="Categories-1"> Organic</label>
+                                            <label for="Categories-1"> Up to 150CC</label>
                                         </div>
                                         <div class="mb-2">
                                             <input type="radio" class="me-2" id="Categories-2" name="Categories-1"
                                                 value="Beverages">
-                                            <label for="Categories-2"> Fresh</label>
+                                            <label for="Categories-2"> 150 to 250CC</label>
                                         </div>
                                         <div class="mb-2">
                                             <input type="radio" class="me-2" id="Categories-3" name="Categories-1"
                                                 value="Beverages">
-                                            <label for="Categories-3"> Sales</label>
-                                        </div>
-                                        <div class="mb-2">
-                                            <input type="radio" class="me-2" id="Categories-4" name="Categories-1"
-                                                value="Beverages">
-                                            <label for="Categories-4"> Discount</label>
-                                        </div>
-                                        <div class="mb-2">
-                                            <input type="radio" class="me-2" id="Categories-5"
-                                                name="Categories-1" value="Beverages">
-                                            <label for="Categories-5"> Expired</label>
+                                            <label for="Categories-3"> 250CC and above</label>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
                                 {{-- <div class="col-lg-12">
                                     <h4 class="mb-3">Featured products</h4>
                                     <div class="d-flex align-items-center justify-content-start">
@@ -196,12 +186,13 @@
                             </div>
                         </div>
                         <div class="col-lg-9">
-                            <div class="row g-4 justify-content-center">
+                            <div class="row g-4 justify-content-start">
                                 @foreach ($products as $product)
                                     <x-card-shop :product="$product" />
                                 @endforeach
+                                {{ $products->links() }}
 
-                                <div class="col-12">
+                                {{-- <div class="col-12">
                                     <div class="pagination d-flex justify-content-center mt-5">
                                         <a href="#" class="rounded">&laquo;</a>
                                         <a href="#" class="active rounded">1</a>
@@ -212,7 +203,7 @@
                                         <a href="#" class="rounded">6</a>
                                         <a href="#" class="rounded">&raquo;</a>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

@@ -15,5 +15,7 @@ use Modules\Cart\Http\Controllers\CartController;
 */
 
 Route::group([], function () {
-    Route::resource('cart', CartController::class)->names('cart');
-});
+    Route::resource('cart', CartController::class)->except('show')->names('cart');});
+Route::view('cart/success', 'cart::success')->name('cart.success');
+Route::view('cart/cancel', 'cancel')->name('cart.cancel');
+
