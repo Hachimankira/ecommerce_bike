@@ -17,3 +17,9 @@ use Modules\Dashboard\Http\Controllers\DashboardController;
 Route::group([], function () {
     Route::resource('admin_dashboard', DashboardController::class)->names('dashboard');
 });
+Route::post('/product/{id}/status/{status}', [DashboardController::class, 'changeStatus'])->name('product.status');
+Route::post('/product/{id}/rating/{rating}', [DashboardController::class, 'changeRating'])->name('product.rating');
+
+// Route::get('dashboard/table', [DashboardController::class, 'table']);
+// Route::get('dashboard/pendings-product', [DashboardController::class,'pendingsRequest']);
+// Route::get('dashboard/approved-request', [DashboardController::class,'approvedRequest']);

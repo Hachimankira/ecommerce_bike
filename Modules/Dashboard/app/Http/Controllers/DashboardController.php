@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Product\Models\Product;
 
 class DashboardController extends Controller
 {
@@ -14,7 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard::index');
+        $products = Product::all();        
+        return view('dashboard::index', compact('products'));
     }
 
     /**
@@ -28,7 +30,7 @@ class DashboardController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         //
     }
@@ -52,7 +54,7 @@ class DashboardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request, $id)
     {
         //
     }
@@ -63,5 +65,32 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function changeStatus($id, $status)
+    {
+        $product = Product::find($id);
+
+        if ($product) {
+            $product->status = $status;
+            $product->save();
+
+            return redirect('/admin_dashboard')->with('success', 'Status changed successfully.');
+        } else {
+            return redirect('/admin_dashboard')->with('error', 'National ID Card not found.');
+        }
+    }
+    public function changeRating($id, $rating)
+    {
+        $product = Product::find($id);
+
+        if ($product) {
+            $product->rating = $rating;
+            $product->save();
+
+            return redirect('/admin_dashboard')->with('success', 'rating changed successfully.');
+        } else {
+            return redirect('/admin_dashboard')->with('error', 'National ID Card not found.');
+        }
     }
 }

@@ -37,6 +37,8 @@ return new class extends Migration
             $table->string('banner_img');
             $table->string('other_img');
             $table->string('description');
+            $table->string('status')->default('pending');
+            $table->float('rating')->default(0);
             $table->timestamps();
         });
     }

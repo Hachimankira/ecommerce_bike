@@ -15,7 +15,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(9);
+        $products = Product::where('status','approved')->paginate(9);
         return view('store::index' , compact('products'));
     }
 
