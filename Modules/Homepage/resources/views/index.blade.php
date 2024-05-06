@@ -126,13 +126,14 @@
                     <h1>Shop By Brand</h1>
                 </div>
                 @foreach ($brands as $brand)
-                    <div class="col-md-6 col-lg-3">
+                    <div class="col-md-6 col-lg-2">
                         <a href="{{ url('home/' . $brand->id) }}">
-                            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                            <img src="{{ $brand->image }}" class="h-50 w-50" alt="img">
+                            {{-- <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
                                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 image-container">
                                     <img src="{{ $brand->image }}" class="" alt="img">
                                 </div>
-                            </div>
+                            </div> --}}
                         </a>
                     </div>
                 @endforeach
