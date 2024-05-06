@@ -4,12 +4,19 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Modules\Cart\Models\Cart;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -44,4 +51,5 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+   
 }

@@ -21,10 +21,12 @@ class ProductSeeder extends Seeder
       
 
     foreach ($products as $product) {
-          $brand = Brand::firstOrCreate(
-            ['name' => $product['BikeDetails']['Brand']],);
+        $brand = Brand::firstOrCreate(
+            ['name' => $product['BikeDetails']['Brand']]
+        );
+        $brandId = $brand->exists ? $brand->id : null;
         Product::create([
-            'brand_id' => $brand->id,
+            'brand_id' => $brandId,
             'model' => $product['BikeDetails']['Model'],
             'year' => $product['BikeDetails']['Year'],
             'type' => $product['BikeDetails']['Type'],

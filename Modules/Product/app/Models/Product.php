@@ -4,6 +4,7 @@ namespace Modules\Product\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Checkout\Models\Order;
 use Modules\Product\Database\Factories\ProductFactory;
 
 class Product extends Model
@@ -35,8 +36,12 @@ class Product extends Model
         // 'description',
     ];
 
-    protected static function newFactory(): ProductFactory
+    // protected static function newFactory(): ProductFactory
+    // {
+    //     //return ProductFactory::new();
+    // }  
+    public function orders()
     {
-        //return ProductFactory::new();
+        return $this->belongsToMany(Order::class)->withPivot('quantity');
     }
 }
