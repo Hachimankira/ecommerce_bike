@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Cart\Models\Cart;
 use Modules\Homepage\Models\Contact;
 use Modules\Product\Models\Brand;
 use Modules\Product\Models\Product;
@@ -28,7 +29,11 @@ class HomepageController extends Controller
                             ->whereIn('rating',[3,4,5]) 
                             ->get();
         $brands = Brand::all();
-        return view('homepage::index' , compact('products' , 'sports' , 'streets' , 'cruisers', 'brands'));
+
+        // product already in cart
+        $productsInCart = Cart::where('user_id', auth()->id())->pluck('product_id');
+
+        return view('homepage::index' , compact('products' , 'sports' , 'streets' , 'cruisers', 'brands' , 'productsInCart'));
     }
 
     /**

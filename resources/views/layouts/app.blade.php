@@ -50,7 +50,15 @@
             <div class="spinner-grow text-primary" role="status"></div>
         </div>
         <!-- Spinner End -->
-        <x-navbar />
+        <!-- Authenticated users see this navbar -->
+        @auth
+            <x-navbar />
+        @endauth
+
+        <!-- Guests see this navbar -->
+        @guest
+            <x-navbar-guest />
+        @endguest
 
         <!-- Page Heading -->
         @if (isset($header))

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Cart\Models\Cart;
 use Modules\Cart\Models\Wishlist;
+use Modules\Product\Models\Product;
 
 class CartController extends Controller
 {
@@ -18,7 +19,7 @@ class CartController extends Controller
     {
         $cartItems = Cart::where('user_id', auth()->user()->id)->get();
         $cartItemIds = $cartItems->pluck('product_id')->toArray();
-        return view('cart::index' , compact('cartItems' , 'cartItemIds'));
+        return view('cart::index', compact('cartItems', 'cartItemIds'));
     }
 
     /**
@@ -44,6 +45,21 @@ class CartController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+        // Find the product
+        $product = Product::find($request->product_id);
+
+        // Check if the product is in stock
+        if ($product->stock <= 0) {
+            return redirect()->route('cart.index')->with('error', 'Product is out of stock');
+        }
+
+        // Decrease the stock of the product
+        $product->stock--;
+        $product->save();
+
         $item = new Cart();
         $item->user_id = auth()->user()->id;
         $item->product_id = $request->product_id;
@@ -86,11 +102,14 @@ class CartController extends Controller
     public function wishlist()
     {
         $wishlists = Wishlist::where('user_id', auth()->user()->id)->get();
-        return view('cart::wishlist' , compact('wishlists'));
+        return view('cart::wishlist', compact('wishlists'));
     }
 
     public function addToWishlist($id)
     {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
         $item = new Wishlist();
         $item->user_id = auth()->user()->id;
         $item->product_id = $id;
