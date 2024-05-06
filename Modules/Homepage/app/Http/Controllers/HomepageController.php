@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Homepage\Models\Contact;
 use Modules\Product\Models\Brand;
 use Modules\Product\Models\Product;
 
@@ -51,6 +52,23 @@ class HomepageController extends Controller
         else{
             return redirect()->route('login');
         }
+    }
+
+    public function contact()
+    {
+        return view('homepage::contact');
+    }
+
+    public function storeContact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+        Contact::create($request->all());
+        return redirect()->route('home.index');
     }
 
     /**
