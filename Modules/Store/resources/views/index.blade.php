@@ -2,12 +2,17 @@
     use Illuminate\Support\Str;
 @endphp
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Store
-        </h2>
-    </x-slot> --}}
-    <!-- Single Page Header start -->
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: "{{ session('success') }}",
+                timer: 3000,
+                showConfirmButton: false
+            });
+        </script>
+    @endif
     <div class="container-fluid page-header py-5">
         <h1 class="text-center text-white display-6">Shop</h1>
         <ol class="breadcrumb justify-content-center mb-0">
@@ -212,4 +217,21 @@
         </div>
     </div>
     <!-- Fruits Shop End-->
+    @push('scripts')
+        <script>
+            const rangeInput = document.getElementById('rangeInput');
+            const amount = document.getElementById('amount');
+            amount.value = rangeInput.value;
+            rangeInput.addEventListener('input', function () {
+                amount.value = rangeInput.value;
+            });
+
+        </script>
+        <script>
+            document.getElementById('add-to-cart-btn').addEventListener('click', function() {
+                this.textContent = 'In Cart';
+                this.disabled = true;
+            });
+        </script>
+    @endpush
 </x-app-layout>

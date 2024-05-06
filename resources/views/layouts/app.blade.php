@@ -36,6 +36,8 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    {{-- alert --}}
+    <link href="{{ asset('node_modules/toastr/toastr.min.css') }}" rel="stylesheet">
     <!-- Custom Styles -->
     @stack('styles')
     @livewireStyles
@@ -87,6 +89,11 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
+    {{-- alert --}}
+    <script src="{{ asset('node_modules/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+
+
     <!-- Custom Scripts -->
     @stack('scripts')
     @livewireScripts
