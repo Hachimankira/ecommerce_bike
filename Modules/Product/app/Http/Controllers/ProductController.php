@@ -26,7 +26,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product::add');
+        // $brands = Brand::all();
+        $brands = Brand::all();
+        // $models = BikeModels::all();
+        return view('product::add', compact('brands'));
     }
 
     /**
@@ -85,9 +88,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        $brands =Brand::all();
+        $brands = Brand::all();
         // $models = BikeModels::all();
-        return view('product::edit',compact('product', 'brands'));
+        return view('product::edit', compact('product', 'brands'));
     }
 
     /**
@@ -136,5 +139,16 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function getModelsByBrand($brandId)
+    {
+        // Fetch the brand with related bike models
+        $brand = Brand::with('models')->find($brandId);
+
+        if ($brand) {
+            return response()->json($brand->models);
+        } else {
+            return response()->json([]);
+        }
     }
 }

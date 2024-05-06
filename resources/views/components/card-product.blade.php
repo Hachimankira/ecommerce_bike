@@ -12,20 +12,30 @@
             style="top: 10px; left: 10px;">{{ $product->owner }}</div>
         <div class="p-4 border border-secondary border-top-0 rounded-bottom">
             <h5>{{ Str::limit("$product->year $product->brand $product->model", 18) }}</h5>
-            <p class="text-dark fs-8 mb-0">{{ $product->distance }}km &bull; {{ $product->body_type }} &bull; {{ $product->type }}</p>                                                <div class="d-flex justify-content-between flex-lg-wrap">
+            <p class="text-dark fs-8 mb-0">{{ $product->distance }}km &bull; {{ $product->body_type }} &bull; {{ $product->type }}</p> 
+            <div class="d-flex justify-content-between flex-lg-wrap">
                 <p class="text-dark fs-5 fw-bold mb-0">${{ $product->price }}</p>
-                {{-- <x-cart /> --}}
+            </div>                                               <div class="d-flex justify-content-between flex-lg-wrap">
                 <form action="{{ route('cart.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <input type="hidden" name="quantity" value="1">
-                    <button type="submit" name="addToCart" class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"><i
-                        class="fa fa-shopping-bag me-2 text-primary"
-                        ></i> Add to cart</button>
+                    @if($product->stock > 0)
+                        <button type="submit" name="addToCart" class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary">
+                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                        </button>
+                    @else
+                        <button type="submit" name="addToCart" class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary" disabled>
+                            <i class="fa fa-shopping-bag me-2 text-primary"></i> In Cart
+                        </button>
+                    @endif
                 </form>
-                {{-- <button type="submit" class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
-                    class="fa fa-shopping-bag me-2 text-primary"
-                    ></i> Add to cart</button> --}}
+                <form action="{{ route('wishlist.create', ['id' => $product->id]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="">
+                        <i class="fa fa-heart fa-2x me-2 text-primary"></i> 
+                    </button>
+                </form>
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('brand');
+            $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');            
             $table->string('model');
             $table->string('year');
             $table->string('type');
@@ -37,6 +37,9 @@ return new class extends Migration
             $table->string('banner_img');
             $table->string('other_img');
             $table->string('description');
+            $table->integer('stock')->default(1);
+            $table->string('status')->default('pending');
+            $table->float('rating')->default(0);
             $table->timestamps();
         });
     }

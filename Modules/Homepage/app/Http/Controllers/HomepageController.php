@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Cart\Models\Cart;
+use Modules\Homepage\Models\Contact;
 use Modules\Product\Models\Brand;
 use Modules\Product\Models\Product;
 
@@ -16,12 +18,22 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        $sports = Product::where('body_type', 'sport')->get();
-        $streets = Product::where('body_type', 'street')->get();
-        $cruisers = Product::where('body_type', 'cruiser')->get();
+        $products = Product::all()->where('rating', '5');
+        $sports = Product::where('body_type', 'sport')
+                            ->whereIn('rating',[3,4,5])
+                            ->get();
+        $streets = Product::where('body_type', 'street')
+                            ->whereIn('rating',[3,4,5])
+                            ->get();
+        $cruisers = Product::where('body_type', 'cruiser')
+                            ->whereIn('rating',[3,4,5]) 
+                            ->get();
         $brands = Brand::all();
-        return view('homepage::index' , compact('products' , 'sports' , 'streets' , 'cruisers', 'brands'));
+
+        // product already in cart
+        $productsInCart = Cart::where('user_id', auth()->id())->pluck('product_id');
+
+        return view('homepage::index' , compact('products' , 'sports' , 'streets' , 'cruisers', 'brands' , 'productsInCart'));
     }
 
     /**
@@ -47,6 +59,23 @@ class HomepageController extends Controller
         }
     }
 
+    public function contact()
+    {
+        return view('homepage::contact');
+    }
+
+    public function storeContact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+        Contact::create($request->all());
+        return redirect()->route('home.index');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -58,10 +87,19 @@ class HomepageController extends Controller
     /**
      * Show the specified resource.
      */
-    public function show($id)
-    {
-        return view('homepage::show');
+    public function show($brandId)
+{
+    // Retrieve a single brand by ID
+    $brand = Brand::with('products')->find($brandId);
+    // Check if the brand was found
+    if (!$brand) {
+        // Handle the case where the brand is not found
+        abort(404);  // Or return a specific view or response
     }
+
+    // Return the show view with the brand data
+    return view('homepage::show', compact('brand'));
+}
 
     /**
      * Show the form for editing the specified resource.

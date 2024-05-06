@@ -1,3 +1,4 @@
+
 <div class="col-md-6 col-lg-6 col-xl-4">
     <div class="rounded position-relative fruite-item">
         <div class="fruite-img">
@@ -22,11 +23,22 @@
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <input type="hidden" name="quantity" value="1">
-                    <button type="submit" name="addToCart"
-                        class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"><i
-                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                    @if($product->stock > 0)
+                        <button type="submit" name="addToCart" class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary">
+                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                        </button>
+                    @else
+                        <button type="submit" name="addToCart" class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary" disabled>
+                            <i class="fa fa-shopping-bag me-2 text-primary"></i> In Cart
+                        </button>
+                    @endif
                 </form>
-                <i class="fa fa-heart fa-lg" aria-hidden="true"></i> 
+                <form action="{{ route('wishlist.create', ['id' => $product->id]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="">
+                        <i class="fa fa-heart fa-2x me-2"></i> 
+                    </button>
+                </form>
             </div>
         </div>
     </div>

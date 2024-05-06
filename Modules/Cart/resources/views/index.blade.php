@@ -114,9 +114,6 @@
                         <a href="{{ route('checkout.index') }}"
                             class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">Proceed
                             Checkout</a>
-                        <div>
-                            <div id="paypal-payment-button"></div>
-                        </div>
                     </div>
                 </div>
             </div>
