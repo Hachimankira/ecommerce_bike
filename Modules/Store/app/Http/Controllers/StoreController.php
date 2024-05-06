@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Cart\Models\Cart;
 use Modules\Product\Models\Product;
 
 class StoreController extends Controller
@@ -16,7 +17,9 @@ class StoreController extends Controller
     public function index()
     {
         $products = Product::where('status','approved')->paginate(9);
-        return view('store::index' , compact('products'));
+        // product already in cart
+        $productsInCart = Cart::where('user_id', auth()->id())->pluck('product_id');
+        return view('store::index' , compact('products' , 'productsInCart'));
     }
 
     /**

@@ -96,13 +96,23 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
+        // Find the cart item
+        $cartItem = Cart::find($id);
+
+        // Increase the stock of the associated product
+        $product = Product::find($cartItem->product_id);
+        $product->stock++;
+        $product->save();
+        
         Cart::destroy($id);
         return redirect()->route('cart.index')->with('success', 'Product removed from cart successfully');
     }
     public function wishlist()
     {
         $wishlists = Wishlist::where('user_id', auth()->user()->id)->get();
-        return view('cart::wishlist', compact('wishlists'));
+        // product already in cart
+        $productsInCart = Cart::where('user_id', auth()->id())->pluck('product_id');
+        return view('cart::wishlist', compact('wishlists', 'productsInCart'));
     }
 
     public function addToWishlist($id)

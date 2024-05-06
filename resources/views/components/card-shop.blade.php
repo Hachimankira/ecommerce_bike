@@ -23,9 +23,15 @@
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <input type="hidden" name="quantity" value="1">
-                    <button type="submit" name="addToCart"
-                        class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"><i
-                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                    @if($product->stock > 0)
+                        <button type="submit" name="addToCart" class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary">
+                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                        </button>
+                    @else
+                        <button type="submit" name="addToCart" class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary" disabled>
+                            <i class="fa fa-shopping-bag me-2 text-primary"></i> In Cart
+                        </button>
+                    @endif
                 </form>
                 <form action="{{ route('wishlist.create', ['id' => $product->id]) }}" method="POST">
                     @csrf
