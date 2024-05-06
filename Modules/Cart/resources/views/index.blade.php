@@ -41,7 +41,7 @@
                                 </th>
                                 <td>
                                     <p class="mb-0 mt-4">{{ $cartItem->product->year }}
-                                        {{ $cartItem->product->brand }}
+                                        {{ $cartItem->product->brand->name }}
                                         {{ $cartItem->product->model }}
                                     </p>
                                 </td>

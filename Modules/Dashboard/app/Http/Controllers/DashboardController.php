@@ -3,9 +3,11 @@
 namespace Modules\Dashboard\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Checkout\Models\Order;
 use Modules\Product\Models\Product;
 
 class DashboardController extends Controller
@@ -15,7 +17,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $products = Product::with('brand')->paginate(10);       
+        $products = Product::with('brand')->paginate(10);
         return view('dashboard::index', compact('products'));
     }
 
@@ -92,5 +94,26 @@ class DashboardController extends Controller
         } else {
             return redirect('/admin_dashboard')->with('error', 'National ID Card not found.');
         }
+    }
+
+
+    public function orderStatus($id, $status)
+    {
+        $order = Order::find($id);
+
+        if ($order) {
+            $order->status = $status;
+            $order->save();
+
+            return redirect()->back()->with('success', 'Status changed successfully.');
+        } else {
+            return redirect()->back()->with('error', 'National ID Card not found.');
+        }
+    }
+
+    public function customerList()
+    {
+        $orders = Order::with('user','products.brand')->paginate(9);
+        return view('dashboard::customer_list', compact('orders'));
     }
 }

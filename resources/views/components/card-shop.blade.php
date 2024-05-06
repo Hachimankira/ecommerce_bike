@@ -12,7 +12,8 @@
             {{ $product->owner }}
         </div>
         <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-            <h5>{{ Str::limit("$product->year $product->brand $product->model", 18) }}</h5>
+            {{-- <h5>{{ Str::limit("$product->year $product->brand $product->model", 18) }}</h5> --}}
+            <h5>{{ Str::limit($product->year . ' ' . $product->brand->name . ' ' . $product->model, 18) }}</h5>
             <p class="text-dark fs-8 mb-0">{{ $product->distance }}km &bull; {{ $product->body_type }} &bull;
                 {{ $product->type }}</p>
             <div class="d-flex justify-content-between flex-lg-wrap">
