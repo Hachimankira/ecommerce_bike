@@ -31,7 +31,8 @@
                                 </div>
                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                     {{-- <h5>{{ Str::limit(" $wishlist->product->year $wishlist->product->brand $wishlist->product->model", 18) }}</h5> --}}
-                                    <h5>{{ $wishlist->product->year }} {{ $wishlist->product->brand }} {{ $wishlist->product->model }}</h5>
+                                    <h5>{{ $wishlist->product->year }} {{ $wishlist->product->brand }}
+                                        {{ $wishlist->product->model }}</h5>
                                     <p class="text-dark fs-8 mb-0">{{ $wishlist->product->distance }}km &bull;
                                         {{ $wishlist->product->body_type }} &bull;
                                         {{ $wishlist->product->type }}</p>
@@ -41,12 +42,21 @@
                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                         <form action="{{ route('cart.store') }}" method="post">
                                             @csrf
-                                            <input type="hidden" name="product_id" value="{{ $wishlist->product->id }}">
+                                            <input type="hidden" name="product_id"
+                                                value="{{ $wishlist->product->id }}">
                                             <input type="hidden" name="quantity" value="1">
-                                            <button type="submit" name="addToCart"
-                                                class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"><i
-                                                    class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                cart</button>
+                                            @if ($wishlist->stock > 0)
+                                                <button type="submit" name="addToCart"
+                                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary">
+                                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                </button>
+                                            @else
+                                                <button type="submit" name="addToCart"
+                                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"
+                                                    disabled>
+                                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> In Cart
+                                                </button>
+                                            @endif
                                         </form>
                                         <form action="{{ route('wishlist.delete', ['id' => $wishlist->product->id]) }}"
                                             method="POST">
