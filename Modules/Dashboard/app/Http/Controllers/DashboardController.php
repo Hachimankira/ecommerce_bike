@@ -15,7 +15,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $products = Product::all();        
+        $products = Product::with('brand')->paginate(10);       
         return view('dashboard::index', compact('products'));
     }
 

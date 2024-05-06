@@ -246,6 +246,12 @@
                         </li>
                         <li>
                             <a href="#">Table</a>
+                        </li>                        
+                        <li>
+                            <a href="#">Customer Lists</a>
+                        </li>
+                        <li>
+                            <a href="#">Order List</a>
                         </li>
                         <li>
                             <a href="#">Billing</a>

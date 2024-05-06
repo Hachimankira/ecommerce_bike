@@ -43,12 +43,12 @@ class CheckoutController extends Controller
         foreach ($cartItems as $item) {
             $order->products()->attach($item->product_id, ['quantity' => $item->quantity]);
         }
-        dd($order);
+        // dd($order);
 
         // Clear the cart
         $user->carts()->delete();
 
-        return redirect()->route('orders.success')->with('success', 'Order has been placed successfully!');
+        return redirect()->route('home.index')->with('success', 'Order has been placed successfully!');
     }
     public function show()
     {
