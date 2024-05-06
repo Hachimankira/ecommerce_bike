@@ -2,15 +2,15 @@
     @csrf
     <h3>Bike Details</h3>
     <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Brand</label>
-        <select type="text" class="form-control" id="brand" name="brand">
-            <option value="">select brand</option>
+        <label for="brand_id" class="form-label">Brand</label>
+        <select class="form-control" id="brand" name="brand_id">
+            <option value="">Select Brand</option>
             @foreach($brands as $brand)
-            <option value="{{ $brand->id}}">{{ $brand->name }}</option>
+            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
             @endforeach
-
         </select>
     </div>
+
     <div class="col-md-6">
         <label for="model" class="form-label">Model</label>
         <!-- <input type="text" class="form-control" id="model" name="model" /> -->
