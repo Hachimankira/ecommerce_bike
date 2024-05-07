@@ -21,3 +21,4 @@ Route::view('cart/cancel', 'cancel')->name('cart.cancel');
 Route::get('wishlist', [CartController::class , 'wishlist'])->name('wishlist');
 Route::post('wishlist/{id}/create', [CartController::class , 'addToWishlist'])->name('wishlist.create');
 Route::delete('wishlist/{id}/delete', [CartController::class , 'removeFromWishlist'])->name('wishlist.delete');
+Route::get('myorders', [CartController::class , 'order'])->name('myorders');

@@ -68,30 +68,6 @@ class CartController extends Controller
     }
 
     /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('cart::success');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('cart::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id): RedirectResponse
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy($id)
@@ -132,5 +108,9 @@ class CartController extends Controller
         $wishlist = Wishlist::find($id);
         $wishlist->delete();
         return back()->with('success', 'Product removed from wishlist successfully');
+    }
+    public function order()
+    {
+        return view('cart::order');
     }
 }
