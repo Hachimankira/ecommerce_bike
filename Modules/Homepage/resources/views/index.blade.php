@@ -1,12 +1,15 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot> --}}
+
+    @if (session('success'))
+        <script>
+            toastr.success("{{ session('success') }}");
+        </script>
+    @endif
+
     <!-- Hero Start -->
     <x-hero />
     <!-- Hero End -->
+
 
     <!-- Featurs Section Start -->
     <div class="container-fluid featurs py-5">
@@ -55,13 +58,13 @@
                         </ul>
                     </div>
                 </div>
-                 <div class="tab-content">
+                <div class="tab-content">
                     <div id="tab-1" class="tab-pane fade show p-0 active">
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach ($products as $product)
-                                        <x-card-product :product="$product" />
+                                        <x-card-shop :product="$product" />
                                     @endforeach
                                 </div>
 
