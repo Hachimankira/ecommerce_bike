@@ -40,8 +40,7 @@
                 <form action="{{ route('wishlist.create', ['id' => $product->id]) }}" method="POST">
                     @csrf
                     <button type="submit" class="" {{ $inWishlist ? 'disabled' : '' }}>
-                        <i class="fa fa-heart fa-2x me-2 text-secondary"></i>
-                    </button>
+                        <i class="fa fa-heart fa-2x {{ $inWishlist ? 'text-secondary' : '' }}"></i>                    </button>
                 </form>
             </div>
         </div>

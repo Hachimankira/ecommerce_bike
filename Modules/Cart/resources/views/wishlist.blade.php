@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <!-- Single Page Header start -->
     <div class="container-fluid page-header py-5">
         <h1 class="text-center text-white display-6">Wishlist</h1>
@@ -16,6 +17,11 @@
             <div class="col-lg-12">
                 <div class="row g-4 justify-content-start">
                     @foreach ($wishlists as $wishlist)
+                        @php
+                            $inCart = \Modules\Cart\Models\Cart::where('user_id', auth()->id())
+                                ->where('product_id', $wishlist->product->id)
+                                ->exists();
+                        @endphp
                         <div class="col-md-6 col-lg-6 col-xl-3">
                             <div class="rounded position-relative fruite-item">
                                 <div class="fruite-img">
@@ -45,22 +51,17 @@
                                             <input type="hidden" name="product_id"
                                                 value="{{ $wishlist->product->id }}">
                                             <input type="hidden" name="quantity" value="1">
-                                            @if ($wishlist->stock > 0)
-                                                <button type="submit" name="addToCart"
-                                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary">
-                                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
-                                                </button>
-                                            @else
-                                                <button type="submit" name="addToCart"
-                                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"
-                                                    disabled>
-                                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> In Cart
-                                                </button>
-                                            @endif
+                                            <button type="submit" name="addToCart"
+                                                class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"
+                                                {{ $inCart ? 'disabled' : '' }}>
+                                                <i class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                {{ $inCart ? 'In Cart' : 'Add to Cart' }}
+                                            </button>
                                         </form>
                                         <form action="{{ route('wishlist.delete', ['id' => $wishlist->product->id]) }}"
                                             method="POST">
                                             @csrf
+                                            @method('DELETE')
                                             <button type="submit" class="">
                                                 <i class="fa fa-times fa-2x me-2"></i>
                                             </button>
