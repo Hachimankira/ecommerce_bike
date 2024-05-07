@@ -76,6 +76,11 @@ class HomepageController extends Controller
         return redirect()->route('home.index');
     }
 
+    public function about()
+    {
+        return view('homepage::about');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
