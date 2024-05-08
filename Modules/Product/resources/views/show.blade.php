@@ -33,7 +33,7 @@
                                     <img src="{{ asset($product->banner_img) }}" class="img-fluid w-100 rounded-top"
                                         alt="">
                                 @else
-                                    <img src="{{ asset('img/bike.jpg') }}" class="img-fluid w-100 rounded-top"
+                                    <img src="{{ asset('img/bike.webp') }}" class="img-fluid w-100 rounded-top"
                                         alt="">
                                 @endif
                             </div>
@@ -265,7 +265,7 @@
                     @foreach ($relatedProducts as $relatedProduct)
                         <div class="border border-primary rounded position-relative vesitable-item">
                             <div class="vesitable-img">
-                                <img src="{{ asset('img/bike.jpg') }}" class="img-fluid w-100 rounded-top"
+                                <img src="{{ asset('img/bike.webp') }}" class="img-fluid w-100 rounded-top"
                                     alt="">
                             </div>
                             <div class="text-white bg-primary px-3 py-1 rounded position-absolute"

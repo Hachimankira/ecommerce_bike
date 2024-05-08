@@ -14,7 +14,7 @@
                 @if ($product->banner_img)
                     <img src="{{ asset($product->banner_img) }}" class="img-fluid w-100 rounded-top" alt="">
                 @else
-                    <img src="{{ asset('img/bike.jpg') }}" class="img-fluid w-100 rounded-top" alt="">
+                    <img src="{{ asset('img/bike.webp') }}" class="img-fluid w-100 rounded-top" alt="">
                 @endif
             </a>
         </div>

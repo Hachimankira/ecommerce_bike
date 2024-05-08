@@ -247,12 +247,13 @@
 
 .page-header {
     position: relative;
+    /* background-color: #81C408; */
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url(../img/bike-hero.jpg);
+        url(../img/bikehero.webp);
     background-position: center 25%;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 300px;
+    /* height: 300px; */
 }
 
 @media (min-width: 992px) {

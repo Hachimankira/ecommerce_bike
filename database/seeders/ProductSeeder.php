@@ -49,7 +49,7 @@ class ProductSeeder extends Seeder
             'address' => $product['Location']['City'],
             'deliveryOption' => 'Home Delivery',
             'banner_img' => '/img/cover.jpg',
-            'other_img' => '/img/bike.jpg',
+            'other_img' => '/img/bike.webp',
             'description' => $product['Description'],
             // Add other fields as necessary...
         ]);

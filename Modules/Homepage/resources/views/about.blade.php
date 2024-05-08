@@ -35,7 +35,7 @@
                 <h1 class="display-5 mb-5 text-dark text-center">Our Team</h1>
                 <div class="col-sm-6 col-lg-4 mb-3 mb-sm-0">
                     <div class="card" style="width: 25rem">
-                        <img src="{{ asset('/img/profile.png') }}" alt="">
+                        <img src="{{ asset('/img/profile.png') }}" alt="" loading="lazy">
                         <div class="card-body">
                             <h3 class="text-center">
                                 Kiran Shreshta
@@ -79,5 +79,9 @@
     {{-- Testimonial --}}
     <x-testimonial />
     {{-- Testimonial end --}}
+
+    {{-- faq starts --}}
+    <x-faq />
+    {{-- faq ends --}}
 
 </x-app-layout>

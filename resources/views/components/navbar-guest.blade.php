@@ -9,9 +9,12 @@
                         class="text-white">Email@Example.com</a></small>
             </div>
             <div class="top-link pe-2">
-                <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
-                <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
-                <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                <a href="{{ route('about') }}" class="text-white"><small class="text-white mx-2">Privacy
+                        Policy</small>/</a>
+                <a href="{{ route('about') }}" class="text-white"><small class="text-white mx-2">Terms of
+                        Use</small>/</a>
+                <a href="{{ route('about') }}" class="text-white"><small class="text-white ms-2">Sales and
+                        Refunds</small></a>
             </div>
         </div>
     </div>
@@ -29,7 +32,7 @@
                     <a href="{{ route('home.index') }}" class="nav-item nav-link ">Home</a>
 
                     <a href="{{ route('store.index') }}" class="nav-item nav-link">Shop</a>
-                    <a href="{{route ("about")}}" class="nav-item nav-link">About</a>
+                    <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
                     <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
                 </div>
                 <div class="d-flex m-3 me-0">
