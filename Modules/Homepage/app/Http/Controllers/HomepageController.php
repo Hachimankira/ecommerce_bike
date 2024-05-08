@@ -18,7 +18,7 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        $products = Product::all()->where('rating', '5');
+        $products = Product::where('rating', '5')->paginate(6);
         $sports = Product::where('body_type', 'sport')
                             ->whereIn('rating',[3,4,5])
                             ->get();

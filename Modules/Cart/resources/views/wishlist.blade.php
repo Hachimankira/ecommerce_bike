@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                     {{-- <h5>{{ Str::limit(" $wishlist->product->year $wishlist->product->brand $wishlist->product->model", 18) }}</h5> --}}
-                                    <h5>{{ $wishlist->product->year }} {{ $wishlist->product->brand }}
+                                    <h5>{{ $wishlist->product->year }} {{ $wishlist->product->brand->name }}
                                         {{ $wishlist->product->model }}</h5>
                                     <p class="text-dark fs-8 mb-0">{{ $wishlist->product->distance }}km &bull;
                                         {{ $wishlist->product->body_type }} &bull;
