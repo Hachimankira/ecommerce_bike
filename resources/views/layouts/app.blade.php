@@ -37,8 +37,8 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {{-- alert --}}
-    <link href="{{ asset('node_modules/toastr/toastr.min.css') }}" rel="stylesheet">
     <!-- Custom Styles -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @stack('styles')
     @livewireStyles
 </head>

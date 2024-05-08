@@ -65,7 +65,7 @@ class ProductController extends Controller
         // Create product using the modified input array
         $product = Product::create($input);
 
-        return redirect()->route('product.index')
+        return redirect()->route('home.index')
             ->with('success', 'Product added successfully.');
     }
 
