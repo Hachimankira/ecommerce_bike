@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Http;
 use Modules\Cart\Models\Cart;
 use Illuminate\Support\Facades\Session;
 use Modules\Checkout\Models\Order;
+use App\Models\User;
 
 
 class CheckoutController extends Controller
@@ -20,38 +21,40 @@ class CheckoutController extends Controller
     public function index()
     {
         $cartItems = Cart::where('user_id', auth()->user()->id)->get();
-        return view('checkout::index' , compact('cartItems'));
+        return view('checkout::index', compact('cartItems'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $item = new Order();
-        $item->first_name = request('first_name');
-        $item->last_name = request('last_name');
-        $item->email = request('email');
-        $item->phone = request('phone');
-        $item->address = request('address');
-        $item->city = request('city');
-        $item->status = 'pending';
-        $item->total = request('total');
-        $item->save();
+        $user = auth()->user(); // Ensure the user is authenticated
+        $cartItems = $user->carts()->with('product')->get(); // Load cart items with product info
 
-        return redirect()->route('home.index')->with('success', 'Order has been placed successfully');
+        $totalPrice = 0;
+        foreach ($cartItems as $item) {
+            $totalPrice += $item->quantity * $item->product->price;
+        }
+
+        $order = new Order();
+        $order->user_id = $user->id;
+        $order->total_price = $totalPrice;
+        $order->save();
+
+
+        foreach ($cartItems as $item) {
+            $order->products()->attach($item->product_id, ['quantity' => $item->quantity]);
+        }
+        // dd($order);
+
+        // Clear the cart
+        $user->carts()->delete();
+
+        return redirect()->route('home.index')->with('success', 'Order has been placed successfully!');
     }
-    // public function payment()
-    // {
-    //     $total = 0;
-    //     $cartItems = Cart::where('user_id', auth()->user()->id)->get();
-    //     foreach ($cartItems as $cartItem) {
-    //         $total += $cartItem->product->price * $cartItem->quantity;
-    //     }
-    //     return view('checkout::payment' , compact('total'));
-    // }
     public function show()
     {
         $total = 600;
-        
-        return view('checkout::checkout' , compact('total'));
+
+        return view('checkout::checkout', compact('total'));
     }
 
     // public function store()
@@ -80,5 +83,8 @@ class CheckoutController extends Controller
     //     Session::flash('success', 'Order has been placed successfully');
     //     return redirect()->route('home');
     // }
-    
+    // public function getOrder(){
+
+    // }
+
 }

@@ -38,8 +38,8 @@ return new class extends Migration
             $table->string('other_img');
             $table->string('description');
             $table->integer('stock')->default(1);
-            $table->string('status')->default('pending');
-            $table->float('rating')->default(0);
+            $table->string('status')->default('approved');
+            $table->float('rating')->default(5);
             $table->timestamps();
         });
     }
