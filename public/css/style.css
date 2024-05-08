@@ -302,6 +302,20 @@
 
 /*** service End ***/
 
+/* vertical text */
+.vertical{
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-size: 3.5rem;
+    color: var(--bs-white);
+    background: #D86124;
+    padding: 1.5rem 1.5rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    transform: rotate(180deg);
+}
+/* vertical text end */
+
 /*** Fruits Start ***/
 .fruite .tab-class .nav-item a.active {
     background: var(--bs-secondary) !important;

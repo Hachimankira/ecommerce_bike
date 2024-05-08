@@ -17,10 +17,10 @@
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-3">
-                        <div class="text-start">
+                        <div class="d-flex align-items-center">
                             <!-- Make sure to use the singular `$brand` since it's a single brand instance -->
-                            <h1>{{ $brand->name }} Bikes</h1>
-                            <img src="{{ $brand->image }}" alt="brand img">
+                            <h1 class="vertical me-3"> {{ $brand->name }} Bikes</h1>
+                            <img src="{{ $brand->image }}" alt="brand img" width="50%">
                         </div>
                     </div>
                     <div class="col-lg-9">
