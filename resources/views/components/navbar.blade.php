@@ -22,7 +22,7 @@
                 <img src="{{ asset('img/logo1.png') }}" alt="logo" class="img-fluid" style="width: 35%;">
             </a>
             <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse">
+                data-bs-target="#navbarCollapse" aria-label="menu">
                 <span class="fa fa-bars text-primary"></span>
             </button>
             <div class="collapse navbar-collapse bg-white" id="navbarCollapse">

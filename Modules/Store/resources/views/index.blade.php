@@ -101,22 +101,22 @@
                                         <div class="mb-3">
                                             <h4>Owner</h4>
                                             <div class="mb-2">
-                                                <input type="radio" class="me-2" id="Categories-1" name="owner" value="first" onchange="this.form.submit()"
+                                                <input type="radio" class="me-2" id="first_owner" name="owner" value="first" onchange="this.form.submit()"
                                                 {{ request()->get('owner') == 'first' ? 'checked' : '' }}
                                                 >
-                                                <label for="Categories-1"> First</label>
+                                                <label for="first_owner"> First</label>
                                             </div>
                                             <div class="mb-2">
-                                                <input type="radio" class="me-2" id="Categories-2" name="owner" value="second" onchange="this.form.submit()"
+                                                <input type="radio" class="me-2" id="second_owner" name="owner" value="second" onchange="this.form.submit()"
                                                 {{ request()->get('owner') == 'second' ? 'checked' : '' }}
                                                 >
-                                                <label for="Categories-2"> Second</label>
+                                                <label for="second_owner"> Second</label>
                                             </div>
                                             <div class="mb-2">
-                                                <input type="radio" class="me-2" id="Categories-3" name="owner" value="third" onchange="this.form.submit()"
+                                                <input type="radio" class="me-2" id="third_owner" name="owner" value="third" onchange="this.form.submit()"
                                                 {{ request()->get('owner') == 'third' ? 'checked' : '' }}
                                                 >
-                                                <label for="Categories-3"> Third</label>
+                                                <label for="third_owner"> Third</label>
                                             </div>
                                         </div>
                                     </form>
@@ -127,22 +127,22 @@
                                         <div class="mb-3">
                                             <h4>Engine</h4>
                                             <div class="mb-2">
-                                                <input type="radio" class="me-2" id="Categories-1" name="engine" value="upto_150cc" onchange="this.form.submit()"
+                                                <input type="radio" class="me-2" id="150cc" name="engine" value="upto_150cc" onchange="this.form.submit()"
                                                 {{ request()->get('engine') == 'upto_150cc' ? 'checked' : '' }}
                                                 >
-                                                <label for="Categories-1"> Up to 150CC</label>
+                                                <label for="150cc"> Up to 150CC</label>
                                             </div>
                                             <div class="mb-2">
-                                                <input type="radio" class="me-2" id="Categories-2" name="engine" value="150_to_250cc" onchange="this.form.submit()"
+                                                <input type="radio" class="me-2" id="150to250cc" name="engine" value="150_to_250cc" onchange="this.form.submit()"
                                                 {{ request()->get('engine') == '150_to_250cc' ? 'checked' : '' }}
                                                 >
-                                                <label for="Categories-2"> 150 to 250CC</label>
+                                                <label for="150to250cc"> 150 to 250CC</label>
                                             </div>
                                             <div class="mb-2">
-                                                <input type="radio" class="me-2" id="Categories-3" name="engine" value="250cc_and_above" onchange="this.form.submit()"
+                                                <input type="radio" class="me-2" id="250cc_above" name="engine" value="250cc_and_above" onchange="this.form.submit()"
                                                 {{ request()->get('engine') == '250cc_and_above' ? 'checked' : '' }}
                                                 >
-                                                <label for="Categories-3"> 250CC and above</label>
+                                                <label for="250cc_above"> 250CC and above</label>
                                             </div>
                                         </div>
                                     </form>
