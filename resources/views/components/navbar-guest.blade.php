@@ -18,7 +18,6 @@
     <div class="container px-0">
         <nav class="navbar navbar-light bg-white navbar-expand-xl">
             <a href="{{ url('/home') }}" class="navbar-brand">
-                {{-- <h1 class="text-primary display-6">Bike Hub</h1> --}}
                 <img src="{{ asset('img/logo1.png') }}" alt="logo" class="img-fluid" style="width: 35%;">
             </a>
             <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
@@ -30,16 +29,7 @@
                     <a href="{{ route('home.index') }}" class="nav-item nav-link ">Home</a>
 
                     <a href="{{ route('store.index') }}" class="nav-item nav-link">Shop</a>
-                    {{-- <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a> --}}
-                    {{-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                            <a href="cart.html" class="dropdown-item">Cart</a>
-                            <a href="chackout.html" class="dropdown-item">Chackout</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
-                        </div>
-                    </div> --}}
+                    <a href="{{route ("about")}}" class="nav-item nav-link">About</a>
                     <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
                 </div>
                 <div class="d-flex m-3 me-0">

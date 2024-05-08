@@ -66,6 +66,7 @@
                                     @foreach ($products as $product)
                                         <x-card-shop :product="$product" />
                                     @endforeach
+                                    {{ $products->links() }}
                                 </div>
 
                             </div>
@@ -76,7 +77,7 @@
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach ($sports as $product)
-                                        <x-card-product :product="$product" gridClasses="col-md-6 col-lg-6 col-xl-3" />
+                                        <x-card-shop :product="$product" />
                                     @endforeach
                                 </div>
                             </div>
@@ -87,7 +88,7 @@
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach ($streets as $product)
-                                        <x-card-product :product="$product" gridClasses="col-md-6 col-lg-6 col-xl-3" />
+                                        <x-card-shop :product="$product" />
                                     @endforeach
                                 </div>
                             </div>
@@ -98,7 +99,7 @@
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach ($cruisers as $product)
-                                        <x-card-product :product="$product" gridClasses="col-md-6 col-lg-6 col-xl-3" />
+                                        <x-card-shop :product="$product" />
                                     @endforeach
                                 </div>
                             </div>

@@ -18,3 +18,6 @@ Route::group([], function () {
 });
 Route::get("contact", [HomepageController::class, "contact"])->name("contact");
 Route::post("contact/store", [HomepageController::class, "storeContact"])->name("contact.store");
+
+Route::get("about", [HomepageController::class, "about"])->name("about");
+
