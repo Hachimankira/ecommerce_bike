@@ -1,10 +1,14 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Product Details
-        </h2>
-    </x-slot> --}}
-    <!-- Single Page Header start -->
+    @php
+        $inCart = \Modules\Cart\Models\Cart::where('user_id', auth()->id())
+            ->where('product_id', $product->id)
+            ->exists();
+
+        $inWishlist = \Modules\Cart\Models\Wishlist::where('user_id', auth()->id())
+            ->where('product_id', $product->id)
+            ->exists();
+    @endphp
+
     <div class="container-fluid page-header py-5">
         <h1 class="text-center text-white display-6">Shop Detail</h1>
         <ol class="breadcrumb justify-content-center mb-0">
@@ -38,18 +42,18 @@
                         <div class="col-lg-6">
                             <h4 class="fw-bold mb-3">{{ $product->brand->name }} {{ $product->model }}</h4>
                             <p class="mb-3">year: {{ $product->year }}</p>
-                            <h5 class="fw-bold mb-3">{{ $product->price }}</h5>
+                            <h5 class="fw-bold mb-3">${{ $product->price }}</h5>
                             <p class="mb-4">{{ $product->description }}</p>
                             <div class="input-group quantity mb-5" style="width: 100px;">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border disabled">
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
                                 <input type="text" class="form-control form-control-sm text-center border-0"
                                     value="1">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border disabled">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
@@ -258,28 +262,49 @@
             <h1 class="fw-bold mb-0">Related products</h1>
             <div class="vesitable">
                 <div class="owl-carousel vegetable-carousel justify-content-center">
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-6.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 pb-0 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold">$4.99 / kg</p>
-                                <form action="{{ route('cart.store') }}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <input type="hidden" name="quantity" value="1">
-                                    <button type="submit" name="addToCart"
-                                        class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"><i
-                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
-                                </form>
+                    @foreach ($relatedProducts as $relatedProduct)
+                        <div class="border border-primary rounded position-relative vesitable-item">
+                            <div class="vesitable-img">
+                                <img src="{{ asset('img/bike.jpg') }}" class="img-fluid w-100 rounded-top"
+                                    alt="">
+                            </div>
+                            <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                                style="top: 10px; right: 10px;">
+                                {{ $relatedProduct->owner }}
+                            </div>
+                            <div class="p-4 pb-0 rounded-bottom text-center">
+                                <h5>{{ Str::limit($relatedProduct->year . ' ' . $relatedProduct->brand->name . ' ' . $relatedProduct->model, 18) }}
+                                </h5>
+                                <p class="text-dark fs-8 mb-0">{{ $relatedProduct->distance }}km &bull;
+                                    {{ $relatedProduct->body_type }} &bull;
+                                    {{ $relatedProduct->type }}</p>
+                                <div class="d-flex justify-content-between flex-lg-wrap">
+                                    <p class="text-dark fs-5 fw-bold mb-0">${{ $relatedProduct->price }}</p>
+                                </div>
+                                <div class="d-flex justify-content-between flex-lg-wrap mt-3 mb-3">
+                                    <form action="{{ route('cart.store') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $relatedProduct->id }}">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button type="submit" name="addToCart"
+                                            class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"
+                                            {{ $inCart ? 'disabled' : '' }}>
+                                            <i class="fa fa-shopping-bag me-2 text-primary"></i>
+                                            {{ $inCart ? 'In Cart' : 'Add to Cart' }}
+                                        </button>
+                                    </form>
+                                    <form action="{{ route('wishlist.create', ['id' => $relatedProduct->id]) }}"
+                                        method="POST">
+                                        @csrf
+                                        <button type="submit" class="" {{ $inWishlist ? 'disabled' : '' }}>
+                                            <i
+                                                class="fa fa-heart fa-2x {{ $inWishlist ? 'text-secondary' : '' }}"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
