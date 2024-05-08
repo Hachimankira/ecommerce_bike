@@ -248,10 +248,10 @@
                             <a href="#">Table</a>
                         </li>                        
                         <li>
-                            <a href="#">Customer Lists</a>
+                            <a href="{{url('/dashboard/customer-list')}}">Customer Lists</a>
                         </li>
                         <li>
-                            <a href="#">Order List</a>
+                            <a href="{{url('/dashboard/order-list')}}">Order List</a>
                         </li>
                         <li>
                             <a href="#">Billing</a>
