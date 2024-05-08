@@ -15,7 +15,8 @@ use Modules\Dashboard\Http\Controllers\DashboardController;
 */
 
 Route::group([], function () {
-    Route::resource('admin_dashboard', DashboardController::class)->names('dashboard');
+    Route::resource('admin_dashboard', DashboardController::class)->names('admin.dashboard')
+    ->middleware(['auth', 'admin']);
 });
 Route::post('/product/{id}/status/{status}', [DashboardController::class, 'changeStatus'])->name('product.status');
 Route::post('/product/{id}/rating/{rating}', [DashboardController::class, 'changeRating'])->name('product.rating');
