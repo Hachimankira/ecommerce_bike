@@ -52,19 +52,19 @@ class CartController extends Controller
         $product = Product::find($request->product_id);
 
         // Check if the product is in stock
-        if ($product->stock <= 0) {
-            return redirect()->route('cart.index')->with('error', 'Product is out of stock');
-        }
+        // if ($product->stock <= 0) {
+        //     return redirect()->route('cart.index')->with('error', 'Product is out of stock');
+        // }
 
         // Decrease the stock of the product
-        $product->stock--;
-        $product->save();
+        // $product->stock--;
+        // $product->save();
 
         $item = new Cart();
         $item->user_id = auth()->user()->id;
         $item->product_id = $request->product_id;
         $item->save();
-        return redirect()->route('cart.index')->with('success', 'Product added to cart successfully');
+        return back()->with('success', 'Product added to cart successfully');
     }
 
     /**
