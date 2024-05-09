@@ -29,7 +29,7 @@
                     <th>#</th>
                     <th>Customer Name</th>
                     <th>Products Ordered</th>
-                    <th>Total Price</th>
+                    <th>Payment Status</th>
                     <th>Delivery Status</th>
                 </tr>
             </thead>
@@ -41,10 +41,10 @@
                     <td>
                         @foreach ($order->products as $product)
                             {{ $loop->first ? '' : ', ' }}
-                            {{ $product->name }} ({{ $product->brand->name ?? 'No Brand' }})
+                            {{ $product->name }} {{ $product->brand->name ?? 'No Brand' }} {{ $product->model ?? 'No Model' }} {{ $product->year ?? 'No Year' }}
                         @endforeach
                     </td>
-                    <td>{{ $order->total_price }}</td>
+                    <td>{{ !empty($order->total_price) ? 'Paid' : 'Unpaid' }}</td>
                     <td>
                         <div class="basic-dropdown">
                             <div class="dropdown">
