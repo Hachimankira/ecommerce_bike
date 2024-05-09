@@ -11,9 +11,11 @@
     <div class="rounded position-relative fruite-item">
         <div class="fruite-img">
             <a href="{{ route('product.show', $product->id) }}">
-                {{-- <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid w-100 rounded-top"
-                    alt=""> --}}
-                <img src="img/bike.jpg" class="img-fluid w-100 rounded-top" alt="">
+                @if ($product->banner_img)
+                    <img src="{{ asset($product->banner_img) }}" class="img-fluid w-100 rounded-top" alt="card_img">
+                @else
+                    <img src="{{ asset('img/bike.webp') }}" class="img-fluid w-100 rounded-top" alt="card_img">
+                @endif
             </a>
         </div>
         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
@@ -40,8 +42,8 @@
                 </form>
                 <form action="{{ route('wishlist.create', ['id' => $product->id]) }}" method="POST">
                     @csrf
-                    <button type="submit" class="" {{ $inWishlist ? 'disabled' : '' }}>
-                        <i class="fa fa-heart fa-2x {{ $inWishlist ? 'text-secondary' : '' }}"></i>                    </button>
+                    <button type="submit" class="" {{ $inWishlist ? 'disabled' : '' }} aria-label="wishlist"> 
+                        <i class="fa fa-heart fa-2x {{ $inWishlist ? 'text-secondary' : '' }}"></i> </button>
                 </form>
             </div>
         </div>

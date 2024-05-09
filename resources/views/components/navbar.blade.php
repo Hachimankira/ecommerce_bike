@@ -22,15 +22,15 @@
                 <img src="{{ asset('img/logo1.png') }}" alt="logo" class="img-fluid" style="width: 35%;">
             </a>
             <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse">
+                data-bs-target="#navbarCollapse" aria-label="menu">
                 <span class="fa fa-bars text-primary"></span>
             </button>
             <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
-                    <a href="{{route ('home.index')}}" class="nav-item nav-link ">Home</a>
-                    <a href="{{route ('store.index')}}" class="nav-item nav-link">Shop</a>
-                    <a href="{{route ("about")}}" class="nav-item nav-link">About</a>
-                    <a href="{{route ("contact")}}" class="nav-item nav-link">Contact</a>
+                    <a href="{{route ('home.index')}}" class="nav-item nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}">Home</a>
+                    <a href="{{route ('store.index')}}" class="nav-item nav-link {{ request()->routeIs('store.index') ? 'active' : '' }}">Shop</a>
+                    <a href="{{route ("about")}}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+                    <a href="{{route ("contact")}}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
                 </div>
                 <div class="d-flex m-3 me-0">
                     <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
@@ -67,6 +67,9 @@
                                 </x-dropdown-link>
                                 <x-dropdown-link :href="route('wishlist')">
                                     {{ __('My Wishlist') }}
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('myorders')">
+                                    {{ __('My Orders') }}
                                 </x-dropdown-link>
 
                                 <!-- Authentication -->

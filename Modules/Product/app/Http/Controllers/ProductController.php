@@ -65,7 +65,7 @@ class ProductController extends Controller
         // Create product using the modified input array
         $product = Product::create($input);
 
-        return redirect()->route('product.index')
+        return redirect()->route('home.index')
             ->with('success', 'Product added successfully.');
     }
 
@@ -78,8 +78,12 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        // $product->other_img = json_decode($product->other_img, true);  // Decode JSON to an array
-        return view('product::show', compact('product'));
+        $relatedProducts = Product::where('brand_id', $product->brand_id)
+            ->orWhere('type', $product->type)
+            ->orWhere('body_type', $product->body_type)
+            ->where('id', '!=', $id)
+            ->get();
+        return view('product::show', compact('product' , 'relatedProducts'));
     }
 
     /**

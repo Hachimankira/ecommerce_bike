@@ -26,7 +26,7 @@
     <!-- Fruits Shop Start-->
     <div class="container-fluid fruite py-5">
         <div class="container py-5">
-            <h1 class="mb-4">Fresh fruits shop</h1>
+            <h1 class="mb-4">Bike Shop</h1>
             <div class="row g-4">
                 <div class="col-lg-12">
                     <div class="row g-4">
@@ -39,16 +39,19 @@
                             </div>
                         </div>
                         <div class="col-6"></div>
+                        
                         <div class="col-xl-3">
-                            <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
-                                <label for="fruits">Default Sorting:</label>
-                                <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3"
-                                    form="fruitform">
-                                    <option value="volvo">Nothing</option>
-                                    <option value="saab">Popularity</option>
-                                    <option value="opel">Organic</option>
-                                    <option value="audi">Fantastic</option>
-                                </select>
+                            <div class="bg-light  py-3 rounded d-flex justify-content-between mb-4">
+                                <form id="fruitform" method="GET">
+                                    <label for="fruits">Default Sorting:</label>
+                                    <select id="fruits" name="sort" class="border-0 form-select-sm bg-secondary text-white me-3" onchange="this.form.submit()">
+                                        <option value="" {{ request()->get('sort') == '' ? 'selected' : '' }}>Nothing</option>
+                                        <option value="popularity" {{ request()->get('sort') == 'popularity' ? 'selected' : '' }}>Popularity</option>
+                                        <option value="latest" {{ request()->get('sort') == 'latest' ? 'selected' : '' }}>Latest</option>
+                                        <option value="price_asc" {{ request()->get('sort') == 'price_asc' ? 'selected' : '' }}>Price:Low to High</option>
+                                        <option value="price_desc" {{ request()->get('sort') == 'price_desc' ? 'selected' : '' }}>Price:High to Low</option>
+                                    </select>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -92,36 +95,59 @@
                                         </ul>
                                     </div> 
                                 </div>
+                                {{-- owner --}}
                                 <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <h4 class="mb-2">Price</h4>
-                                        <input type="range" class="form-range w-100" id="rangeInput" name="rangeInput"
-                                            min="0" max="500" value="0"
-                                            oninput="amount.value=rangeInput.value">
-                                        <output id="amount" name="amount" min-velue="0" max-value="500"
-                                            for="rangeInput">0</output>
-                                    </div>
+                                    <form id="engineForm" method="GET">
+                                        <div class="mb-3">
+                                            <h4>Owner</h4>
+                                            <div class="mb-2">
+                                                <input type="radio" class="me-2" id="first_owner" name="owner" value="first" onchange="this.form.submit()"
+                                                {{ request()->get('owner') == 'first' ? 'checked' : '' }}
+                                                >
+                                                <label for="first_owner"> First</label>
+                                            </div>
+                                            <div class="mb-2">
+                                                <input type="radio" class="me-2" id="second_owner" name="owner" value="second" onchange="this.form.submit()"
+                                                {{ request()->get('owner') == 'second' ? 'checked' : '' }}
+                                                >
+                                                <label for="second_owner"> Second</label>
+                                            </div>
+                                            <div class="mb-2">
+                                                <input type="radio" class="me-2" id="third_owner" name="owner" value="third" onchange="this.form.submit()"
+                                                {{ request()->get('owner') == 'third' ? 'checked' : '' }}
+                                                >
+                                                <label for="third_owner"> Third</label>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
+                                {{-- engine --}}
                                 <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <h4>Engine</h4>
-                                        <div class="mb-2">
-                                            <input type="radio" class="me-2" id="Categories-1" name="Categories-1"
-                                                value="Beverages">
-                                            <label for="Categories-1"> Up to 150CC</label>
+                                    <form id="engineForm" method="GET">
+                                        <div class="mb-3">
+                                            <h4>Engine</h4>
+                                            <div class="mb-2">
+                                                <input type="radio" class="me-2" id="150cc" name="engine" value="upto_150cc" onchange="this.form.submit()"
+                                                {{ request()->get('engine') == 'upto_150cc' ? 'checked' : '' }}
+                                                >
+                                                <label for="150cc"> Up to 150CC</label>
+                                            </div>
+                                            <div class="mb-2">
+                                                <input type="radio" class="me-2" id="150to250cc" name="engine" value="150_to_250cc" onchange="this.form.submit()"
+                                                {{ request()->get('engine') == '150_to_250cc' ? 'checked' : '' }}
+                                                >
+                                                <label for="150to250cc"> 150 to 250CC</label>
+                                            </div>
+                                            <div class="mb-2">
+                                                <input type="radio" class="me-2" id="250cc_above" name="engine" value="250cc_and_above" onchange="this.form.submit()"
+                                                {{ request()->get('engine') == '250cc_and_above' ? 'checked' : '' }}
+                                                >
+                                                <label for="250cc_above"> 250CC and above</label>
+                                            </div>
                                         </div>
-                                        <div class="mb-2">
-                                            <input type="radio" class="me-2" id="Categories-2" name="Categories-1"
-                                                value="Beverages">
-                                            <label for="Categories-2"> 150 to 250CC</label>
-                                        </div>
-                                        <div class="mb-2">
-                                            <input type="radio" class="me-2" id="Categories-3" name="Categories-1"
-                                                value="Beverages">
-                                            <label for="Categories-3"> 250CC and above</label>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
+
                                 {{-- <div class="col-lg-12">
                                     <h4 class="mb-3">Featured products</h4>
                                     <div class="d-flex align-items-center justify-content-start">

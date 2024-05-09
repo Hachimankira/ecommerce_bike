@@ -28,7 +28,7 @@
                                     <a href="{{ route('product.show', $wishlist->product->id) }}">
                                         {{-- <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid w-100 rounded-top"
                                         alt=""> --}}
-                                        <img src="img/bike.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                        <img src="img/bike.webp" class="img-fluid w-100 rounded-top" alt="">
                                     </a>
                                 </div>
                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"

@@ -3,7 +3,7 @@
         <div class="fruite-img">
             <a href="{{ route('product.show', $product->id) }}">
                 {{-- <img src="{{ asset('storage/'.$product->image) }}" class="img-fluid w-100 rounded-top" alt="">  --}}
-                <img src="{{ asset('img/bike.jpg') }}" class="img-fluid w-100 rounded-top" alt="bike image">
+                <img src="{{ asset('img/bike.webp') }}" class="img-fluid w-100 rounded-top" alt="bike image">
             </a>
         </div>
         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
