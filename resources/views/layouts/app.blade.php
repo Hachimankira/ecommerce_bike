@@ -45,20 +45,23 @@
     <!-- Template Stylesheet -->
 
     {{-- alert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Custom Styles -->
     @stack('styles')
 </head>
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        {{-- @include('layouts.navigation') --}}
         <!-- Spinner Start -->
         <div id="spinner"
             class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
             <div class="spinner-grow text-primary" role="status"></div>
         </div>
         <!-- Spinner End -->
+
         <!-- Authenticated users see this navbar -->
+
         @auth
             <x-navbar />
         @endauth
