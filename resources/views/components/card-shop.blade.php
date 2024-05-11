@@ -30,7 +30,7 @@
                 <p class="text-dark fs-5 fw-bold mb-0">${{ $product->price }}</p>
             </div>
             <div class="d-flex justify-content-between flex-lg-wrap">
-                <form action="{{ route('cart.store') }}" method="post">
+                <form action="{{ route('cart.store') }}" method="post" id="myForm">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <input type="hidden" name="quantity" value="1">
@@ -42,10 +42,33 @@
                 </form>
                 <form action="{{ route('wishlist.create', ['id' => $product->id]) }}" method="POST">
                     @csrf
-                    <button type="submit" class="" {{ $inWishlist ? 'disabled' : '' }} aria-label="wishlist"> 
-                        <i class="fa fa-heart fa-2x {{ $inWishlist ? 'text-secondary' : '' }}"></i> </button>
+                    <button type="submit" class="" {{ $inWishlist ? 'disabled' : '' }} aria-label="wishlist">
+                        <i class="fa fa-heart fa-2x {{ $inWishlist ? 'text-secondary' : '' }}" "></i> </button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<script>
+    @if (session('success'))
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '{{ session('success') }}',
+            showConfirmButton: false,
+            timer: 1500,
+            width: '400px'
+        });
+    @endif
+    @if (session('error'))
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: '{{ session('error ') }}',
+            showConfirmButton: false,
+            timer: 1500,
+            width: '400px'
+        });
+    @endif
+
+</script>
