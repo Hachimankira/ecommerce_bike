@@ -2,7 +2,7 @@
 [
     {
       "BikeDetails": {
-        "Brand": "Trek",
+        "Brand": "Bajaj",
         "Model": "Marlin 7",
         "Year": 2018,
         "Type": "Mountain",
@@ -37,7 +37,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Giant",
+        "Brand": "Honda",
         "Model": "Escape 2",
         "Year": 2019,
         "Type": "Hybrid",
@@ -72,7 +72,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Specialized",
+        "Brand": "TVS",
         "Model": "Roubaix Comp",
         "Year": 2017,
         "Type": "Road",
@@ -107,7 +107,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Cannondale",
+        "Brand": "Hero",
         "Model": "Synapse",
         "Year": 2016,
         "Type": "Road",
@@ -142,7 +142,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Scott",
+        "Brand": "KTM",
         "Model": "Scale 970",
         "Year": 2020,
         "Type": "Mountain",
@@ -177,7 +177,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Fuji",
+        "Brand": "Yamaha",
         "Model": "Feather",
         "Year": 2015,
         "Type": "Road",
@@ -212,7 +212,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Trek",
+        "Brand": "Bajaj",
         "Model": "Marlin 7",
         "Year": 2018,
         "Type": "Mountain",
@@ -247,7 +247,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Giant",
+        "Brand": "Honda",
         "Model": "Escape 2",
         "Year": 2019,
         "Type": "Hybrid",
@@ -282,7 +282,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Specialized",
+        "Brand": "TVS",
         "Model": "Roubaix Comp",
         "Year": 2017,
         "Type": "Road",
@@ -317,7 +317,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Cannondale",
+        "Brand": "Hero",
         "Model": "Synapse",
         "Year": 2016,
         "Type": "Road",
@@ -352,7 +352,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Scott",
+        "Brand": "KTM",
         "Model": "Scale 970",
         "Year": 2020,
         "Type": "Mountain",
@@ -387,7 +387,7 @@
     },
     {
       "BikeDetails": {
-        "Brand": "Fuji",
+        "Brand": "Yamaha",
         "Model": "Feather",
         "Year": 2015,
         "Type": "Road",

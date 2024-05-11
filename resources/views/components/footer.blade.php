@@ -4,23 +4,23 @@
         <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
             <div class="row g-4">
                 <div class="col-lg-3">
-                    <a href="#">
+                    <a href="#" aria-label="logo">
                         <h1 class="text-primary mb-0">Bikes</h1>
-                        <p class="text-secondary mb-0">Buy Bikes</p>
+                        <p class="text-secondary mb-0">Buy and Sell Bikes</p>
                     </a>
                 </div>
                 <div class="col-lg-6">
-                    <div class="position-relative mx-auto">
+                    {{-- <div class="position-relative mx-auto">
                         <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number" placeholder="Your Email">
                         <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Subscribe Now</button>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-3">
                     <div class="d-flex justify-content-end pt-3">
-                        <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href="" aria-label="facebook"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="" aria-label="instagram"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="" aria-label="youtube"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-secondary btn-md-square rounded-circle" href="" aria-label="linked-in"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -33,39 +33,38 @@
                         With a wide selection, quality assurance, easy buying process, competitive prices, 
                         convenient selling options, and secure transactions, we make it simple and safe 
                         to find the perfect bike or sell yours hassle-free.</p>
-                    <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a>
+                    {{-- <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a> --}}
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="d-flex flex-column text-start footer-item">
                     <h4 class="text-light mb-3">Shop Info</h4>
-                    <a class="btn-link" href="">About Us</a>
-                    <a class="btn-link" href="">Contact Us</a>
-                    <a class="btn-link" href="">Privacy Policy</a>
-                    <a class="btn-link" href="">Terms & Condition</a>
-                    <a class="btn-link" href="">Return Policy</a>
-                    <a class="btn-link" href="">FAQs & Help</a>
+                    <a class="btn-link" href="{{route ('about')}} " aria-label="about us">About Us</a>
+                    <a class="btn-link" href="{{route ('contact')}} " aria-label="contact us">Contact Us</a>
+                    <a class="btn-link" href="{{route ('about')}} " aria-label="Privacy Policy">Privacy Policy</a>
+                    <a class="btn-link" href="{{route ('about')}} " aria-label="Terms & Condition">Terms & Condition</a>
+                    <a class="btn-link" href="{{route ('about')}} " aria-label="Return Policy">Return Policy</a>
+                    <a class="btn-link" href="{{route ('about')}} " aria-label="FAQs & Help">FAQs & Help</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="d-flex flex-column text-start footer-item">
                     <h4 class="text-light mb-3">Account</h4>
-                    <a class="btn-link" href="">My Account</a>
-                    <a class="btn-link" href="">Shop details</a>
-                    <a class="btn-link" href="">Shopping Cart</a>
-                    <a class="btn-link" href="">Wishlist</a>
-                    <a class="btn-link" href="">Order History</a>
-                    <a class="btn-link" href="">International Orders</a>
+                    <a class="btn-link" href="{{route ('profile.edit')}} " aria-label="My Account" >My Account</a>
+                    <a class="btn-link" href="{{route ('store.index')}} " aria-label="Shop details" >Shop details</a>
+                    <a class="btn-link" href="{{route ('cart.index')}} " aria-label="Shopping Cart" >Shopping Cart</a>
+                    <a class="btn-link" href="{{route ('wishlist')}} " aria-label="Wishlist" >Wishlist</a>
+                    <a class="btn-link" href="{{route ('myorders')}} " aria-label="Order History" >Order History</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <h4 class="text-light mb-3">Contact</h4>
                     <p>Address: Kathmandu, Nepal</p>
-                    <p>Email: Example@gmail.com</p>
-                    <p>Phone: +0123 4567 8910</p>
+                    <p>Email: kiran9860819025@gmail.com</p>
+                    <p>Phone: 9860819025</p>
                     <p>Payment Accepted</p>
-                    <img src="img/payment.png" class="img-fluid" alt="">
+                    <img src="img/payment.png" class="img-fluid" alt="payment">
                 </div>
             </div>
         </div>
@@ -78,7 +77,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Bikes</a>, All right reserved.</span>
+                <span class="text-light"><a href="#" aria-label="logo"><i class="fas fa-copyright text-light me-2"></i>BikeHub</a>, All right reserved.</span>
             </div>
             
         </div>
@@ -89,4 +88,4 @@
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>  
+<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top" aria-label="back to top"><i class="fa fa-arrow-up"></i></a>  

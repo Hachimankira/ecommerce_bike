@@ -2,6 +2,12 @@
     @php
         $total = 0;
     @endphp
+    @if (session('success'))
+        <script>
+            toastr.success("{{ session('success') }}");
+        </script>
+    @endif
+
     <!-- Single Page Header start -->
     <div class="container-fluid page-header py-5">
         <h1 class="text-center text-white display-6">Cart</h1>
@@ -41,7 +47,7 @@
                                 </th>
                                 <td>
                                     <p class="mb-0 mt-4">{{ $cartItem->product->year }}
-                                        {{ $cartItem->product->brand }}
+                                        {{ $cartItem->product->brand->name }}
                                         {{ $cartItem->product->model }}
                                     </p>
                                 </td>

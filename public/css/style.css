@@ -247,12 +247,13 @@
 
 .page-header {
     position: relative;
+    /* background-color: #81C408; */
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url(../img/bike-hero.jpg);
+        url(../img/bikehero.webp);
     background-position: center 25%;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 300px;
+    /* height: 300px; */
 }
 
 @media (min-width: 992px) {
@@ -301,6 +302,20 @@
 }
 
 /*** service End ***/
+
+/* vertical text */
+.vertical{
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-size: 3.5rem;
+    color: var(--bs-white);
+    background: #D86124;
+    padding: 1.5rem 1.5rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    transform: rotate(180deg);
+}
+/* vertical text end */
 
 /*** Fruits Start ***/
 .fruite .tab-class .nav-item a.active {

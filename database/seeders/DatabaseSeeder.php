@@ -25,10 +25,16 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'password' => '12345678',
         ]);
+        User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'a@a.com',
+            'user_type' => 'admin', 
+            'password' => '12345678',
+        ]);
         $brands = [
             ['name' => 'Bajaj', 'image' => '/img/icon/bajaj.png'],
             ['name' => 'KTM', 'image' => '/img/icon/ktm.png'],
-            ['name' => 'Yamaha', 'image' => '/img/icon/yamaha.png'],
+            ['name' => 'Yamaha', 'image' => '/img/icon/yamaha.webp'],
             ['name' => 'TVS', 'image' => '/img/icon/tvs.png'],
             ['name' => 'Hero', 'image' => '/img/icon/hero.png'],
             ['name' => 'Honda', 'image' => '/img/icon/honda.png'],

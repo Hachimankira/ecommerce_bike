@@ -236,7 +236,9 @@
             <nav id="sidebar">
                 <div class="flex-container">
                     <div class="sidebar-header">
-                        <h3>Bikehub</h3>
+                        <a href="{{route ('home.index')}}">
+                            <img src="{{ asset ('img/logo1.png')}}" alt="img" height="64px" width="64px">
+                        </a>
                     </div>
 
                     <ul class="list-unstyled components">
@@ -245,19 +247,32 @@
                             <a href="#">Dashboard</a>
                         </li>
                         <li>
-                            <a href="#">Table</a>
+                            <a href="{{route ('admin.dashboard.index')}}">Product List</a>
+                        </li>                        
+                        <li>
+                            <a href="{{route ('dasboard.customer')}}">Customer Lists</a>
                         </li>
                         <li>
-                            <a href="#">Billing</a>
+                            <a href="{{route ('dasboard.order')}}">Order List</a>
+                        </li>
+                        <li>
+                            <a href="{{route ('dasboard.customer')}}">Billing</a>
                         </li>
                     </ul>
 
                     <ul class="list-unstyled CTAs">
                         <li>
-                            <a href="#" class="download">Profile</a>
+                            <a href="{{ route ('profile.edit')}}" class="download">Profile</a>
                         </li>
                         <li>
-                            <a href="#" class="article">Logout</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
                         </li>
                     </ul>
                 </div>

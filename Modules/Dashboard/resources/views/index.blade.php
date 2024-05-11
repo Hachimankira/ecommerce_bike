@@ -45,7 +45,7 @@
                 @foreach ($products as $product)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $product->brand }}</td>
+                    <td>{{ $product->brand->name }}</td>
                     <td>{{ $product->model }}, {{$product->year}}</td>
                     <td>{{ $product->mileage }}</td>
                     <td>{{ $product->engine }}</td>
@@ -124,6 +124,7 @@
             </tbody>
         </table>
     </div>
+    {{ $products->links() }}
 </div>
 
 @push('scripts')
