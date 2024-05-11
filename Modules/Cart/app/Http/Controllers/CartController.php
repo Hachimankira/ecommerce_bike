@@ -103,11 +103,16 @@ class CartController extends Controller
         $item->save();
         return back()->with('success', 'Product added to wishlist successfully');
     }
-    public function removeFromWishlist($id)
+    public function removeFromWishlist($productId)
     {
-        $wishlist = Wishlist::find($id);
-        $wishlist->delete();
-        return back()->with('success', 'Product removed from wishlist successfully');
+        $userId = auth()->user()->id;
+        $wishlist = Wishlist::where('user_id', $userId)->where('product_id', $productId)->first();
+        if ($wishlist) {
+            $wishlist->delete();
+            return back()->with('success', 'Product removed from wishlist successfully');
+        } else {
+            return back()->with('error', 'Product not found in wishlist');
+        }
     }
     public function order()
     {
