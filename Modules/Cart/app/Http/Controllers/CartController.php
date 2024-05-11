@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Cart\Models\Cart;
 use Modules\Cart\Models\Wishlist;
+use Modules\Checkout\Models\Order;
 use Modules\Product\Models\Product;
 
 class CartController extends Controller
@@ -116,6 +117,7 @@ class CartController extends Controller
     }
     public function order()
     {
-        return view('cart::order');
+        $orders = Order::where('user_id', auth()->user()->id)->get();
+        return view('cart::order' , compact('orders'));
     }
 }

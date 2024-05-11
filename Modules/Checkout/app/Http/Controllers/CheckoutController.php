@@ -37,6 +37,12 @@ class CheckoutController extends Controller
         $order = new Order();
         $order->user_id = $user->id;
         $order->total_price = $totalPrice;
+        $order->first_name = $request->first_name;
+        $order->last_name = $request->last_name;
+        $order->email = $request->email;
+        $order->phone = $request->phone;
+        $order->address = $request->address;
+        $order->city = $request->city;
         $order->save();
 
 

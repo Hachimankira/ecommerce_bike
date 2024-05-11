@@ -19,9 +19,13 @@
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <input type="hidden" name="quantity" value="1">
-                    @if($product->stock > 0)
+                    @if($product->stock > 3)
                         <button type="submit" name="addToCart" class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary">
                             <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                        </button>
+                    @elseif($product->stock == 0)
+                        <button type="submit" name="addToCart" class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary" disabled>
+                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Sold
                         </button>
                     @else
                         <button type="submit" name="addToCart" class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary" disabled>

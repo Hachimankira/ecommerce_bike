@@ -97,9 +97,13 @@ class DashboardController extends Controller
     }
 
 
-    public function orderStatus($id, $status)
+    public function orderStatus($id, $status, $productId)
     {
         $order = Order::find($id);
+        // Update the product status
+        $product = Product::find($productId);
+        $product->stock = 0;
+        $product->save();
 
         if ($order) {
             $order->status = $status;
@@ -113,13 +117,13 @@ class DashboardController extends Controller
 
     public function customerList()
     {
-        $orders = Order::with('user','products.brand')->paginate(9);
+        $orders = Order::with('user', 'products.brand')->paginate(9);
         return view('dashboard::customer_list', compact('orders'));
     }
 
     public function orderList()
     {
-        $orders = Order::with('user','products.brand')->paginate(9);
+        $orders = Order::with('user', 'products.brand')->paginate(9);
         return view('dashboard::order_list', compact('orders'));
     }
 }
