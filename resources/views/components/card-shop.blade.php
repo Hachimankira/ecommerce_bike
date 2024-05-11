@@ -36,8 +36,13 @@
                     <input type="hidden" name="quantity" value="1">
                     <button type="submit" name="addToCart"
                         class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"
-                        {{ $inCart ? 'disabled' : '' }}>
-                        <i class="fa fa-shopping-bag me-2 text-primary"></i> {{ $inCart ? 'In Cart' : 'Add to Cart' }}
+                        {{ $inCart || $product->stock == 0 ? 'disabled' : '' }}>
+                        <i class="fa fa-shopping-bag me-2 text-primary"></i>
+                        @if ($product->stock == 0)
+                            Sold
+                        @else
+                            {{ $inCart ? 'In Cart' : 'Add to Cart' }}
+                        @endif
                     </button>
                 </form>
                 <form action="{{ route('wishlist.create', ['id' => $product->id]) }}" method="POST">
@@ -70,5 +75,4 @@
             width: '400px'
         });
     @endif
-
 </script>

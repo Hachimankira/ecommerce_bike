@@ -77,26 +77,13 @@
                                     <tr>
                                         <th scope="row">
                                         </th>
-                                        <td class="py-5">
-                                            <p class="mb-0 text-dark py-4">Shipping</p>
+                                        <td class="py-2">
+                                            <p class="mb-0 text-dark py-1">Shipping</p>
                                         </td>
-                                        <td colspan="3" class="py-5">
+                                        <td colspan="3" class="py-2">
                                             <div class="form-check text-start">
-                                                <input type="checkbox" class="form-check-input bg-primary border-0"
-                                                    id="Shipping-1" name="Shipping-1" value="Shipping">
-                                                <label class="form-check-label" for="Shipping-1">Free Shipping</label>
-                                            </div>
-                                            <div class="form-check text-start">
-                                                <input type="checkbox" class="form-check-input bg-primary border-0"
-                                                    id="Shipping-2" name="Shipping-1" value="Shipping">
                                                 <label class="form-check-label" for="Shipping-2">Flat rate:
                                                     $15.00</label>
-                                            </div>
-                                            <div class="form-check text-start">
-                                                <input type="checkbox" class="form-check-input bg-primary border-0"
-                                                    id="Shipping-3" name="Shipping-1" value="Shipping">
-                                                <label class="form-check-label" for="Shipping-3">Local Pickup:
-                                                    $8.00</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -110,7 +97,7 @@
                                         <td class="py-5"></td>
                                         <td class="py-5">
                                             <div class="py-3 border-bottom border-top">
-                                                <p class="mb-0 text-dark">{{ $total }}</p>
+                                                <p class="mb-0 text-dark">{{ $total +15 }}</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -205,7 +192,7 @@
                 success: "{{ route('cart.success') }}"
                 // cancel: "{{ route('cart.cancel') }}"
             };
-            total = {{ $total + 3 }};
+            total = {{ $total + 15 }};
         </script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
