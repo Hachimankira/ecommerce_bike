@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Cart\Models\Cart;
+use Modules\Checkout\Models\Order;
 use Modules\Homepage\Models\Contact;
 use Modules\Product\Models\Brand;
 use Modules\Product\Models\Product;
@@ -44,20 +45,51 @@ class HomepageController extends Controller
         return view('homepage::create');
     }
 
+    // public function addToCart($id)
+    // {
+    //     if(auth()->user()){
+    //         $data = [
+    //             'user_id' => auth()->user()->id,
+    //             'product_id' => $id,
+    //         ];
+    //         \Modules\Cart\Models\Cart::updateOrCreate($data);
+    //         session()->flash('message', 'Product added to cart successfully');
+    //     }
+    //     else{
+    //         return redirect()->route('login');
+    //     }
+    // }
+
     public function addToCart($id)
-    {
-        if(auth()->user()){
-            $data = [
-                'user_id' => auth()->user()->id,
-                'product_id' => $id,
-            ];
-            \Modules\Cart\Models\Cart::updateOrCreate($data);
-            session()->flash('message', 'Product added to cart successfully');
-        }
-        else{
+{
+    $product = Product::find($id);
+    
+    if ($product && $product->stock > 0) {
+        if (auth()->check()) {
+            // Check if the product is already in an order with status "In Progress"
+            $existingOrder = Order::where('product_id', $id)
+                                  ->where('status', 'InProcess')
+                                  ->first();
+
+            if (!$existingOrder) {
+                $data = [
+                    'user_id' => auth()->user()->id,
+                    'product_id' => $id,
+                ];
+                Cart::updateOrCreate($data);
+                session()->flash('message', 'Product added to cart successfully');
+            } else {
+                session()->flash('error', 'Product is out of stock');
+            }
+        } else {
             return redirect()->route('login');
         }
+    } else {
+        session()->flash('error', 'Product is out of stock');
     }
+
+    return redirect()->back();
+}
 
     public function contact()
     {
