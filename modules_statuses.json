@@ -2,5 +2,7 @@
     "Homepage": true,
     "Store": true,
     "Product": true,
-    "Cart": true
+    "Cart": true,
+    "Checkout": true,
+    "Dashboard": true
 }

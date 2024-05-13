@@ -1,10 +1,14 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Product Details
-        </h2>
-    </x-slot> --}}
-    <!-- Single Page Header start -->
+    @php
+        $inCart = \Modules\Cart\Models\Cart::where('user_id', auth()->id())
+            ->where('product_id', $product->id)
+            ->exists();
+
+        $inWishlist = \Modules\Cart\Models\Wishlist::where('user_id', auth()->id())
+            ->where('product_id', $product->id)
+            ->exists();
+    @endphp
+
     <div class="container-fluid page-header py-5">
         <h1 class="text-center text-white display-6">Shop Detail</h1>
         <ol class="breadcrumb justify-content-center mb-0">
@@ -13,6 +17,7 @@
             <li class="breadcrumb-item active text-white">Shop Detail</li>
         </ol>
     </div>
+
     <!-- Single Page Header End -->
 
 
@@ -24,38 +29,43 @@
                     <div class="row g-4">
                         <div class="col-lg-6">
                             <div class="border rounded">
-                                <img src="img/bajaj.jpg" class="img-fluid rounded" alt="Image">
+                                @if ($product->banner_img)
+                                    <img src="{{ asset($product->banner_img) }}" class="img-fluid w-100 rounded-top"
+                                        alt="">
+                                @else
+                                    <img src="{{ asset('img/bike.webp') }}" class="img-fluid w-100 rounded-top"
+                                        alt="">
+                                @endif
                             </div>
+
                         </div>
                         <div class="col-lg-6">
-                            <h4 class="fw-bold mb-3">{{ $product->brand }} {{ $product->model }}</h4>
+                            <h4 class="fw-bold mb-3">{{ $product->brand->name }} {{ $product->model }}</h4>
                             <p class="mb-3">year: {{ $product->year }}</p>
-                            <h5 class="fw-bold mb-3">{{ $product->price }} $</h5>
-                            {{-- <div class="d-flex mb-4">
-                                <i class="fa fa-star text-secondary"></i>
-                                <i class="fa fa-star text-secondary"></i>
-                                <i class="fa fa-star text-secondary"></i>
-                                <i class="fa fa-star text-secondary"></i>
-                                <i class="fa fa-star"></i>
-                            </div> --}}
+                            <h5 class="fw-bold mb-3">${{ $product->price }}</h5>
                             <p class="mb-4">{{ $product->description }}</p>
                             <div class="input-group quantity mb-5" style="width: 100px;">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border disabled">
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
                                 <input type="text" class="form-control form-control-sm text-center border-0"
                                     value="1">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border disabled">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
                             </div>
-                            <a href="#"
-                                class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
-                                    class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                            <form action="{{ route('cart.store') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <input type="hidden" name="quantity" value="1">
+                                <button type="submit" name="addToCart"
+                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"><i
+                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                            </form>
                         </div>
                         <div class="col-lg-12">
                             <nav>
@@ -78,49 +88,55 @@
 
                                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4 py-3">
                                             <div class="col d-flex align-items-start">
-                                                <span class="icon-[material-symbols--10k]"></span>
+                                                <img src="/img/icon/engine.png" alt="gear" width="48"
+                                                    height="48">
                                                 <div class="px-3">
                                                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Engine</h3>
                                                     <p>250 CC</p>
                                                 </div>
                                             </div>
                                             <div class="col d-flex align-items-start">
-                                                <img src="/img/icon/gear.png" alt="gear" width="48" height="48">
-                                                <div class="px-3">                                              
+                                                <img src="/img/icon/gear.png" alt="gear" width="48"
+                                                    height="48">
+                                                <div class="px-3">
                                                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Gear</h3>
                                                     <p>Upto 5 gear</p>
                                                 </div>
                                             </div>
                                             <div class="col d-flex align-items-start">
-                                                <img src="/img/icon/speed.png" alt="speed" width="48" height="48">
+                                                <img src="/img/icon/speed.png" alt="speed" width="48"
+                                                    height="48">
                                                 <div class="px-3">
                                                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Top Speed</h3>
                                                     <p>70 km/hr</p>
                                                 </div>
                                             </div>
                                             <div class="col d-flex align-items-start">
-                                                <img src="/img/icon/fuel.png" alt="fuel" width="48" height="48">
+                                                <img src="/img/icon/fuel.png" alt="fuel" width="48"
+                                                    height="48">
                                                 <div class="px-3">
                                                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Feul Capacity</h3>
                                                     <p>15 ltrs</p>
                                                 </div>
                                             </div>
                                             <div class="col d-flex align-items-start">
-                                                <img src="/img/icon/milage.png" alt="milage" width="48" height="48">
+                                                <img src="/img/icon/milage.png" alt="milage" width="48"
+                                                    height="48">
                                                 <div class="px-3">
                                                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Mileage</h3>
                                                     <p>20km/L</p>
                                                 </div>
                                             </div>
                                             <div class="col d-flex align-items-start">
-                                                <img src="/img/icon/wheel.png" alt="wheel" width="48" height="48">
+                                                <img src="/img/icon/wheel.png" alt="wheel" width="48"
+                                                    height="48">
                                                 <div class="px-3">
                                                     <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Break</h3>
                                                     <p>Disc Break</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="nav-mission" role="tabpanel"
@@ -204,214 +220,91 @@
                 <div class="col-lg-4 col-xl-3">
                     <div class="row g-4 fruite">
                         <div class="col-lg-12">
-                            <div class="input-group w-100 mx-auto d-flex mb-4">
-                                <input type="search" class="form-control p-3" placeholder="keywords"
-                                    aria-describedby="search-icon-1">
-                                <span id="search-icon-1" class="input-group-text p-3"><i
-                                        class="fa fa-search"></i></span>
-                            </div>
                             <div class="mb-4">
                                 <h4>Categories</h4>
                                 <ul class="list-unstyled fruite-categorie">
                                     <li>
                                         <div class="d-flex justify-content-between fruite-name">
-                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>Apples</a>
+                                            <a href="#">Bajaj</a>
                                             <span>(3)</span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="d-flex justify-content-between fruite-name">
-                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>Oranges</a>
+                                            <a href="#">TVS</a>
                                             <span>(5)</span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="d-flex justify-content-between fruite-name">
-                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>Strawbery</a>
+                                            <a href="#">Honda</a>
                                             <span>(2)</span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="d-flex justify-content-between fruite-name">
-                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>Banana</a>
+                                            <a href="#">Yamaha</a>
                                             <span>(8)</span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="d-flex justify-content-between fruite-name">
-                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>Pumpkin</a>
+                                            <a href="#">Royal Enfield</a>
                                             <span>(5)</span>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        {{-- <div class="col-lg-12">
-                            <h4 class="mb-4">Featured products</h4>
-                            <div class="d-flex align-items-center justify-content-start">
-                                <div class="rounded" style="width: 100px; height: 100px;">
-                                    <img src="img/featur-1.jpg" class="img-fluid rounded" alt="Image">
-                                </div>
-                                <div>
-                                    <h6 class="mb-2">Big Banana</h6>
-                                    <div class="d-flex mb-2">
-                                        <i class="fa fa-star text-secondary"></i>
-                                        <i class="fa fa-star text-secondary"></i>
-                                        <i class="fa fa-star text-secondary"></i>
-                                        <i class="fa fa-star text-secondary"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="d-flex mb-2">
-                                        <h5 class="fw-bold me-2">2.99 $</h5>
-                                        <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center my-4">
-                                <a href="#" class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100">Vew More</a>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>
             <h1 class="fw-bold mb-0">Related products</h1>
             <div class="vesitable">
                 <div class="owl-carousel vegetable-carousel justify-content-center">
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-6.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 pb-0 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold">$4.99 / kg</p>
-                                <x-cart />
+                    @foreach ($relatedProducts as $relatedProduct)
+                        <div class="border border-primary rounded position-relative vesitable-item">
+                            <div class="vesitable-img">
+                                <img src="{{ asset('img/bike.webp') }}" class="img-fluid w-100 rounded-top"
+                                    alt="">
+                            </div>
+                            <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                                style="top: 10px; right: 10px;">
+                                {{ $relatedProduct->owner }}
+                            </div>
+                            <div class="p-4 pb-0 rounded-bottom text-center">
+                                <h5>{{ Str::limit($relatedProduct->year . ' ' . $relatedProduct->brand->name . ' ' . $relatedProduct->model, 18) }}
+                                </h5>
+                                <p class="text-dark fs-8 mb-0">{{ $relatedProduct->distance }}km &bull;
+                                    {{ $relatedProduct->body_type }} &bull;
+                                    {{ $relatedProduct->type }}</p>
+                                <div class="d-flex justify-content-between flex-lg-wrap">
+                                    <p class="text-dark fs-5 fw-bold mb-0">${{ $relatedProduct->price }}</p>
+                                </div>
+                                <div class="d-flex justify-content-between flex-lg-wrap mt-3 mb-3">
+                                    <form action="{{ route('cart.store') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $relatedProduct->id }}">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button type="submit" name="addToCart"
+                                            class="btn border border-secondary rounded-pill px-3 py-1 mb-1 text-primary"
+                                            {{ $inCart ? 'disabled' : '' }}>
+                                            <i class="fa fa-shopping-bag me-2 text-primary"></i>
+                                            {{ $inCart ? 'In Cart' : 'Add to Cart' }}
+                                        </button>
+                                    </form>
+                                    <form action="{{ route('wishlist.create', ['id' => $relatedProduct->id]) }}"
+                                        method="POST">
+                                        @csrf
+                                        <button type="submit" class="" {{ $inWishlist ? 'disabled' : '' }}>
+                                            <i
+                                                class="fa fa-heart fa-2x {{ $inWishlist ? 'text-secondary' : '' }}"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-1.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 pb-0 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold">$4.99 / kg</p>
-                                <a href="#"
-                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
-                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-3.png" class="img-fluid w-100 rounded-top bg-light"
-                                alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 pb-0 rounded-bottom">
-                            <h4>Banana</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold">$7.99 / kg</p>
-                                <a href="#"
-                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
-                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-4.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 pb-0 rounded-bottom">
-                            <h4>Bell Papper</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold">$7.99 / kg</p>
-                                <a href="#"
-                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
-                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 pb-0 rounded-bottom">
-                            <h4>Potatoes</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold">$7.99 / kg</p>
-                                <a href="#"
-                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
-                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-6.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 pb-0 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold">$7.99 / kg</p>
-                                <a href="#"
-                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
-                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 pb-0 rounded-bottom">
-                            <h4>Potatoes</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold">$7.99 / kg</p>
-                                <a href="#"
-                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
-                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-6.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 pb-0 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold">$7.99 / kg</p>
-                                <a href="#"
-                                    class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i
-                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -1,12 +1,15 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot> --}}
+
+    @if (session('success'))
+        <script>
+            toastr.success("{{ session('success') }}");
+        </script>
+    @endif
+
     <!-- Hero Start -->
     <x-hero />
     <!-- Hero End -->
+
 
     <!-- Featurs Section Start -->
     <div class="container-fluid featurs py-5">
@@ -27,7 +30,7 @@
             <div class="tab-class text-center">
                 <div class="row g-4">
                     <div class="col-lg-4 text-start">
-                        <h1>Featured Bikes</h1>
+                        <h1>Recommended Bikes</h1>
                     </div>
                     <div class="col-lg-8 text-end">
                         <ul class="nav nav-pills d-inline-flex text-center mb-5">
@@ -61,10 +64,11 @@
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach ($products as $product)
-                                        <x-card-product :product="$product" />
+                                        <x-card-shop :product="$product" />
                                     @endforeach
+                                    {{ $products->links() }}
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -73,7 +77,7 @@
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach ($sports as $product)
-                                        <x-card-product :product="$product" gridClasses="col-md-6 col-lg-6 col-xl-3" />
+                                        <x-card-shop :product="$product" />
                                     @endforeach
                                 </div>
                             </div>
@@ -84,7 +88,7 @@
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach ($streets as $product)
-                                        <x-card-product :product="$product" gridClasses="col-md-6 col-lg-6 col-xl-3" />
+                                        <x-card-shop :product="$product" />
                                     @endforeach
                                 </div>
                             </div>
@@ -95,7 +99,7 @@
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach ($cruisers as $product)
-                                        <x-card-product :product="$product" gridClasses="col-md-6 col-lg-6 col-xl-3" />
+                                        <x-card-shop :product="$product" />
                                     @endforeach
                                 </div>
                             </div>
@@ -125,45 +129,18 @@
                 <div class="text-start">
                     <h1>Shop By Brand</h1>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="#">
-                        <div class="service-item bg-dark rounded border border-dark">
-                            <img src="img/bajaj.jpg" class="img-fluid rounded-top w-100" alt="">
-                            <div class="px-4 rounded-bottom">
-                                <div class="service-content bg-light text-center p-4 rounded">
-                                    <h5 class="text-primary">Bajaj</h5>
-                                    <h3 class="mb-0">2% Discount</h3>
+                @foreach ($brands as $brand)
+                    <div class="col-md-6 col-lg-2">
+                        <a href="{{ url('home/' . $brand->id) }}">
+                            <img src="{{ $brand->image }}" class="h-50 w-50" alt="img">
+                            {{-- <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 image-container">
+                                    <img src="{{ $brand->image }}" class="" alt="img">
                                 </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="#">
-                        <div class="service-item bg-dark rounded border border-dark">
-                            <img src="img/tvs.jpg" class="img-fluid rounded-top w-100" alt="">
-                            <div class="px-4 rounded-bottom">
-                                <div class="service-content bg-light text-center p-4 rounded">
-                                    <h5 class="text-primary">TVS</h5>
-                                    <h3 class="mb-0">Free Servicing</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="#">
-                        <div class="service-item bg-dark rounded border border-dark">
-                            <img src="img/honda.jpeg" class="img-fluid rounded-top w-100" alt="">
-                            <div class="px-4 rounded-bottom">
-                                <div class="service-content bg-light text-center p-4 rounded">
-                                    <h5 class="text-primary">Bajaj</h5>
-                                    <h3 class="mb-0">30$ Cashback</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                            </div> --}}
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -199,20 +176,24 @@
                         <p class="fw-normal display-3 text-dark mb-4">in Our Store</p>
                         <p class="mb-4 text-dark">The generated Lorem Ipsum is therefore always free from repetition
                             injected humour, or non-characteristic words etc.</p>
-                        <a href="#"
-                            class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">BUY</a>
+                        <form action="{{ route('cart.store') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" name="addToCart"
+                                class="btn btn-primary btn-lg border border-secondary rounded-pill px-3 py-1 mb-1 ">
+                                <i class="fa fa-shopping-bag me-2 ">Add to Cart</i>
+                                
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="position-relative">
-                        <img src="img/bike-banner.png" class="img-fluid w-100 rounded" alt="">
+                        <img src="img/bike-banner.webp" class="img-fluid w-100 rounded" alt="">
                         <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute"
-                            style="width: 150px; height: 150px; bottom: 0; right: 0;">
-                            <h3>Rs.249999</h3>
-                            {{-- <div class="d-flex flex-column">
-                                    <span class="h4 mb-0">.99</span>
-                                    <span class="h4 text-muted mb-0">.99</span>
-                                </div> --}}
+                            style="width: 140px; height: 140px; top: 0; left: 0;">
+                            <h1 style="font-size: 50px;">$600</h1>
                         </div>
                     </div>
                 </div>
@@ -223,7 +204,7 @@
 
 
     <!-- Bestsaler Product Start -->
-    <div class="container-fluid py-5">
+    {{-- <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mx-auto mb-5" style="max-width: 700px;">
                 <h1 class="display-4">Bestseller Products</h1>
@@ -237,7 +218,7 @@
                 <x-card-bestseller />
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Bestsaler Product End -->
 
 
@@ -249,28 +230,28 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="counter bg-white rounded p-5">
                             <i class="fa fa-users text-secondary"></i>
-                            <h4>satisfied customers</h4>
+                            <h5>Satisfied customers</h5>
                             <h1>1963</h1>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="counter bg-white rounded p-5">
                             <i class="fa fa-users text-secondary"></i>
-                            <h4>quality of service</h4>
+                            <h5>Quality of service</h5>
                             <h1>99%</h1>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="counter bg-white rounded p-5">
                             <i class="fa fa-users text-secondary"></i>
-                            <h4>quality certificates</h4>
+                            <h5>Quality certificates</h5>
                             <h1>33</h1>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="counter bg-white rounded p-5">
                             <i class="fa fa-users text-secondary"></i>
-                            <h4>Available Products</h4>
+                            <h5>Available Products</h5>
                             <h1>789</h1>
                         </div>
                     </div>

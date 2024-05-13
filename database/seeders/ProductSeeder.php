@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
+use Modules\Product\Models\Brand;
 use Modules\Product\Models\Product;
 
 class ProductSeeder extends Seeder
@@ -15,29 +16,41 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $data = File::get(('info.json'));
-    $products = json_decode($data, true);
+        $products = json_decode($data, true);
+
+      
 
     foreach ($products as $product) {
+        $brand = Brand::firstOrCreate(
+            ['name' => $product['BikeDetails']['Brand']]
+        );
+        $brandId = $brand->exists ? $brand->id : null;
         Product::create([
-            'brand' => $product['BikeDetails']['Brand'],
+            'brand_id' => $brandId,
             'model' => $product['BikeDetails']['Model'],
             'year' => $product['BikeDetails']['Year'],
             'type' => $product['BikeDetails']['Type'],
             'body_type' => $product['BikeDetails']['BodyType'],
             'distance' => $product['BikeDetails']['DistanceCovered'],
-            'colour' => $product['BikeDetails']['Colour'],
             'condition' => $product['BikeDetails']['Condition'],
-            'gear' => $product['AdditionalFeatures']['Gears'],
-            'suspension' => $product['AdditionalFeatures']['SuspensionType'],
-            'break' => $product['AdditionalFeatures']['BrakeType'],
             'owner' => 'first',
+            'engine' => 'first',
+            'battery' => 'first',
+            'fuel_capacity' => 'first',
+            'mileage' => 'first',
+            'gear' => $product['AdditionalFeatures']['Gears'],
+            'top_speed' => 'first',
+            // '' => 'first',
+            'break' => $product['AdditionalFeatures']['BrakeType'],
+            'suspension' => $product['AdditionalFeatures']['SuspensionType'],
+            'price' => $product['Price']['AskingPrice'],
+            'colour' => $product['BikeDetails']['Colour'],
+            'negotiable' => 'no',
             'address' => $product['Location']['City'],
             'deliveryOption' => 'Home Delivery',
-            'description' => $product['Description'],
-            'price' => $product['Price']['AskingPrice'],
-            'negotiable' => 'no',
             'banner_img' => '/img/cover.jpg',
-            'other_img' => '/img/bike.jpg',
+            'other_img' => '/img/bike.webp',
+            'description' => $product['Description'],
             // Add other fields as necessary...
         ]);
     }

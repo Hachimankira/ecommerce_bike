@@ -12,7 +12,7 @@
                         style="top: 0; right: 25%;">Submit Now</button>
                 </div>
             </div>
-            <div class="col-md-12 col-lg-5">
+            {{-- <div class="col-md-12 col-lg-5">
                 <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active rounded">
@@ -37,7 +37,7 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

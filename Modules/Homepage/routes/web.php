@@ -16,3 +16,8 @@ use Modules\Homepage\Http\Controllers\HomepageController;
 Route::group([], function () {
     Route::resource('home', HomepageController::class)->names('home');
 });
+Route::get("contact", [HomepageController::class, "contact"])->name("contact");
+Route::post("contact/store", [HomepageController::class, "storeContact"])->name("contact.store");
+
+Route::get("about", [HomepageController::class, "about"])->name("about");
+
