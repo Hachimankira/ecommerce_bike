@@ -22,7 +22,12 @@ class ProductSeeder extends Seeder
 
     foreach ($products as $product) {
         $brand = Brand::firstOrCreate(
-            ['name' => $product['BikeDetails']['Brand']]
+            [
+                'name' => $product['BikeDetails']['Brand']
+            ],
+            [
+                'image' => "/img/icon/" . strtolower($product['BikeDetails']['Brand']) . ".png"
+            ]
         );
         $brandId = $brand->exists ? $brand->id : null;
         Product::create([
@@ -33,20 +38,20 @@ class ProductSeeder extends Seeder
             'body_type' => $product['BikeDetails']['BodyType'],
             'distance' => $product['BikeDetails']['DistanceCovered'],
             'condition' => $product['BikeDetails']['Condition'],
-            'owner' => 'first',
-            'engine' => 'first',
-            'battery' => 'first',
-            'fuel_capacity' => 'first',
-            'mileage' => 'first',
+            'owner' => $product['BikeDetails']['Owner'],
+            'engine' => $product['BikeDetails']['Engine'],
+            'battery' => $product['BikeDetails']['Battery'],
+            'fuel_capacity' => $product['BikeDetails']['FuelCapaity'],
+            'mileage' => $product['BikeDetails']['Milage'],
             'gear' => $product['AdditionalFeatures']['Gears'],
-            'top_speed' => 'first',
+            'top_speed' => $product['BikeDetails']['TopSpeed'],
             // '' => 'first',
             'break' => $product['AdditionalFeatures']['BrakeType'],
             'suspension' => $product['AdditionalFeatures']['SuspensionType'],
             'price' => $product['Price']['AskingPrice'],
             'colour' => $product['BikeDetails']['Colour'],
             'negotiable' => 'no',
-            'address' => $product['Location']['City'],
+            'address' => "Kathmandu",
             'deliveryOption' => 'Home Delivery',
             'banner_img' => '/img/cover.jpg',
             'other_img' => '/img/bike.webp',
