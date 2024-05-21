@@ -101,6 +101,8 @@
     {{-- alert --}}
     <script src="{{ asset('node_modules/toastr/toastr.min.js') }}"></script>
     <script src="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+<!-- FOR RECAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
     <!-- Custom Scripts -->

@@ -33,7 +33,24 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'g-recaptcha-response' => 'required|recaptcha'
+
         ]);
+
+        // $rules = [
+        //     'name' => 'required|max: 255',
+        //     'email' => 'required|email|max: 255',
+        //     'message' => 'required',
+        //     'g-recaptcha-response' => 'required|recaptcha'
+        // ];
+
+        // $this->validate($request, $rules, [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        //     'g-recaptcha-response.recaptcha' => 'Captcha verification failed',
+        //     'g-recaptcha-response.required' => 'Please complete the captcha'
+        // ]);
 
         $user = User::create([
             'name' => $request->name,
