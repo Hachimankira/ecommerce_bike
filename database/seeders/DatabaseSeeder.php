@@ -60,6 +60,9 @@ class DatabaseSeeder extends Seeder
             // ['name' => 'Ather', 'image' => '/img/icon/ather.png'],
             // ['name' => 'Revolt', 'image' => '/img/icon/revolt.png'],
             // ['name' => 'Okinawa', 'image' => '/img/icon/okinawa.png'],
+
+            // models images
+            ['name' => 'Pulsar', 'image' => 'public/img/Pulsar N250 Nepal.png'],
             // Add more as needed...
         ];
         foreach ($brands as $brand) {
