@@ -30,5 +30,10 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    // FOR RECAPTCHA
+    'recaptcha' => [
+        'key' => env( key: 'GOOGLE_RECAPTCHA_KEY'),
+        'secret' => env( key: 'GOOGLE_RECAPTCHA_SECRET'),
+    ],
 
 ];
