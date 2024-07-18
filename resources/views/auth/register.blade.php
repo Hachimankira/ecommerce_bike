@@ -40,7 +40,7 @@
         </div>
         <!-- for recaptcha -->
         <!-- @if(config('services.recaptcha.key')) -->
-            <div class="g-recaptcha mt-5"
+            <div class="g-recaptcha mt-4"
             data-sitekey="{{config('services.recaptcha.key')}}">
             </div>
         <!-- @endif -->
