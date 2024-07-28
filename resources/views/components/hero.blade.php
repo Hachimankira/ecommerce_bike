@@ -2,15 +2,21 @@
     <div class="container py-5">
         <div class="row g-5 align-items-center">
             <div class="col-md-12 col-lg-7">
-                <h4 class="mb-3 text-secondary">100% Secure</h4>
-                <h1 class="mb-5 display-3 text-primary">Best Deals on </br> Two Wheelers</h1>
+                <h1 class="mb-5 display-3 text-primary">Turn Your Bike </br> into Cash</h1>
                 <div class="position-relative mx-auto">
+                    <!-- <button type="submit"
+                        class="btn btn-primary btn-lg border-3 border-secondary py-1 px-4 position-absolute text-white"
+                        >Sell
+                    </button> -->
+                    <a href="{{route('product.create')}}" class="btn btn-primary border-secondary py-2 px-4 rounded-pill text-white h-100 w-40" role="button" >Sell Now</a>
+                </div>
+                <!-- <div class="position-relative mx-auto">
                     <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill"
                         type="number" placeholder="Search">
                     <button type="submit"
                         class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100"
                         style="top: 0; right: 25%;">Submit Now</button>
-                </div>
+                </div> -->
             </div>
             {{-- <div class="col-md-12 col-lg-5">
                 <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">

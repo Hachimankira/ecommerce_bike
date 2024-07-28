@@ -10,7 +10,6 @@
     <x-hero />
     <!-- Hero End -->
 
-
     <!-- Featurs Section Start -->
     <div class="container-fluid featurs py-5">
         <div class="container py-5">
@@ -133,11 +132,6 @@
                     <div class="col-md-6 col-lg-2">
                         <a href="{{ url('home/' . $brand->id) }}">
                             <img src="{{ $brand->image }}" class="h-50 w-50" alt="img">
-                            {{-- <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-                                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 image-container">
-                                    <img src="{{ $brand->image }}" class="" alt="img">
-                                </div>
-                            </div> --}}
                         </a>
                     </div>
                 @endforeach
@@ -145,25 +139,6 @@
         </div>
     </div>
     <!-- Featurs End -->
-
-
-    <!-- Scooter Shop Start-->
-    {{-- <div class="container-fluid vesitable py-5">
-        <div class="container py-5">
-            <h1 class="mb-0">Featured Scooter</h1>
-            <div class="owl-carousel vegetable-carousel justify-content-center">
-                <x-card-carousel />
-                <x-card-carousel />
-                <x-card-carousel />
-                <x-card-carousel />
-                <x-card-carousel />
-                <x-card-carousel />
-                <x-card-carousel />
-                <x-card-carousel />
-            </div>
-        </div>
-    </div> --}}
-    <!-- Scooter Shop End -->
 
 
     <!-- Banner Section Start-->
@@ -201,26 +176,6 @@
         </div>
     </div>
     <!-- Banner Section End -->
-
-
-    <!-- Bestsaler Product Start -->
-    {{-- <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
-                <h1 class="display-4">Bestseller Products</h1>
-                <p>Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which
-                    looks reasonable.</p>
-            </div>
-            <div class="row g-4">
-                <x-card-bestseller />
-                <x-card-bestseller />
-                <x-card-bestseller />
-                <x-card-bestseller />
-            </div>
-        </div>
-    </div> --}}
-    <!-- Bestsaler Product End -->
-
 
     <!-- Fact Start -->
     <div class="container-fluid py-5">
@@ -261,8 +216,4 @@
     </div>
     <!-- Fact Start -->
 
-
-    <!--testimonial Start-->
-    {{-- <x-testimonial /> --}}
-    <!--testimonial End-->
 </x-app-layout>

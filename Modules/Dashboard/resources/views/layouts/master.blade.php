@@ -250,13 +250,13 @@
                             <a href="{{route ('admin.dashboard.index')}}">Product List</a>
                         </li>                        
                         <li>
-                            <a href="{{route ('dasboard.customer')}}">Customer Lists</a>
+                            <a href="{{route ('dashboard.customer')}}">Customer Lists</a>
                         </li>
                         <li>
-                            <a href="{{route ('dasboard.order')}}">Order List</a>
+                            <a href="{{route ('dashboard.order')}}">Order List</a>
                         </li>
                         <li>
-                            <a href="{{route ('dasboard.customer')}}">Billing</a>
+                            <a href="{{route ('dashboard.billing')}}">Billing</a>
                         </li>
                     </ul>
 
