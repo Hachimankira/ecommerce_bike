@@ -120,6 +120,7 @@
     </div>
     <!-- Bike Shop End-->
 
+
     <!-- Featurs Start -->
     <div class="container-fluid service py-5">
         <div class="container py-5">
@@ -138,6 +139,7 @@
         </div>
     </div>
     <!-- Featurs End -->
+
 
     <!-- Banner Section Start-->
     <div class="container-fluid banner bg-secondary my-5">
@@ -212,4 +214,6 @@
             </div>
         </div>
     </div>
+    <!-- Fact Start -->
+
 </x-app-layout>
