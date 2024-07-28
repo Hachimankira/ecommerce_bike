@@ -124,7 +124,7 @@ class DashboardController extends Controller
     public function billingInfo()
     {
         $orders = Order::with('user', 'products.brand')->paginate(9);
-        return view('dashboard::customer_list', compact('orders'));
+        return view('dashboard::billing', compact('orders'));
     }
 
     public function orderList()
