@@ -23,6 +23,7 @@ Route::post('/product/{id}/rating/{rating}', [DashboardController::class, 'chang
 Route::get('/dashboard/customer-list', [DashboardController::class, 'customerList'])->name('dasboard.customer');
 Route::get('/dashboard/order-list', [DashboardController::class, 'orderList'])->name('dasboard.order');
 Route::post('/dashboard/{id}/status/{status}/{product_id}', [DashboardController::class, 'orderStatus'])->name('order.status');
+Route::get('/dashboard/billinginfo', [DashboardController::class, 'billingInfo'])->name('dasboard.billing');
 
 // Route::get('dashboard/table', [DashboardController::class, 'table']);
 // Route::get('dashboard/pendings-product', [DashboardController::class,'pendingsRequest']);
