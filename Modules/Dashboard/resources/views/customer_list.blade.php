@@ -46,33 +46,18 @@
                     </td>
                     <td>{{ !empty($order->total_price) ? 'Paid' : 'Unpaid' }}</td>
                     <td>
-                        <div class="basic-dropdown">
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-{{ $order->status == 'delivered' ? 'success' : ($order->status == 'pending' ? 'danger' : 'primary') }}" data-bs-toggle="dropdown" aria-expanded="false" style="overflow: visible;">
-                                    {{ $order->status }}
-                                </button>
-                                <div class="dropdown-menu">
-                                    <form action="{{ route('order.status', ['id' => $order->id, 'status' => 'pending']) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item">Pending</button>
-                                    </form>
-                                    <form action="{{ route('order.status', ['id' => $order->id, 'status' => 'InProcess']) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item">InProcess</button>
-                                    </form>
-                                    <form action="{{ route('order.status', ['id' => $order->id, 'status' => 'Delivered']) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item">Delivered</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        @if($order->status == 'delivered')
+                            <span class="badge bg-success">{{ ucfirst($order->status) }}</span>
+                        @elseif($order->status == 'pending')
+                            <span class="badge bg-danger">{{ ucfirst($order->status) }}</span>
+                        @else
+                            <span class="badge bg-primary">{{ ucfirst($order->status) }}</span>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-
     </div>
     {{ $orders->links() }}
 </div>
