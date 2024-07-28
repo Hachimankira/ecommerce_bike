@@ -78,7 +78,7 @@ class CartController extends Controller
 
         // Increase the stock of the associated product
         $product = Product::find($cartItem->product_id);
-        $product->stock++;
+        // $product->stock++;
         $product->save();
 
         Cart::destroy($id);

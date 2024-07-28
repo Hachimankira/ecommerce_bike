@@ -14,14 +14,14 @@
     <div class="col-md-6">
         <label for="model" class="form-label">Model</label>
         <!-- <input type="text" class="form-control" id="model" name="model" /> -->
-        <select class="form-control" id="bikeModel" name="model">
+        <select class="form-control" id="bikeModel" name="model" required>
             <option value="">Select model</option>
             <!-- Options will be added dynamically based on the selected brand -->
         </select>
     </div>
     <div class="col-md-6">
         <label for="year" class="form-label">Year</label>
-        <select id="year" name="year" class="form-select" aria-label="Default select example">
+        <select id="year" name="year" class="form-select" aria-label="Default select example" required>
             @for ($year = date('Y'); $year >= date('Y') - 10; $year--)
             <option value="{{ $year }}" {{ $year == date('Y') ? 'selected' : '' }}>{{ $year }}
             </option>
@@ -30,7 +30,7 @@
     </div>
     <div class="col-md-6">
         <label for="type" class="form-label">Type</label>
-        <select id="type" name="type" class="form-select" aria-label="Default select example">
+        <select id="type" name="type" class="form-select" aria-label="Default select example" required>
             <option selected>Bike</option>
             <option value="1">Scooter</option>
             <option value="2">Cycle</option>
@@ -38,7 +38,7 @@
     </div>
     <div class="col-md-6">
         <label for="body_type" class="form-label">Body type</label>
-        <select id="body_type" name="body_type" class="form-select" aria-label="Default select example">
+        <select id="body_type" name="body_type" class="form-select" aria-label="Default select example" required>
             <option selected>Type</option>
             <option value="1">Street</option>
             <option value="2">Sport</option>
@@ -53,7 +53,7 @@
             Distance Covered
         </label>
         <div class="input-group mb-3">
-            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="distance" name="distance" />
+            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="distance" name="distance" required/>
             <span class="input-group-text">km</span>
 
         </div>
@@ -61,7 +61,7 @@
 
     <div class="col-md-6">
         <label for="condition" class="form-label">Condition</label>
-        <select id="condition" name="condition" class="form-select" aria-label="Default select example">
+        <select id="condition" name="condition" class="form-select" aria-label="Default select example" required>
             <option selected>Excellent</option>
             <option value="1">Good</option>
             <option value="2">Fair</option>
@@ -94,43 +94,43 @@
     <h3>Additional Feature</h3>
     <div class="col-md-6">
         <label for="break" class="form-label">Engine</label>
-        <input type="text" class="form-control" id="engine" name="engine" />
+        <input type="text" class="form-control" id="engine" name="engine" required/>
     </div>
 
     <div class="col-md-6">
         <label for="text" class="form-label">Battery Capacity</label>
-        <input type="text" class="form-control" id="battery" name="battery" />
+        <input type="text" class="form-control" id="battery" name="battery" required/>
     </div>
     <div class="col-md-6">
         <label for="text" class="form-label">Fuel Capacity</label>
-        <input type="text" class="form-control" id="fuel_capacity" name="fuel_capacity" />
+        <input type="text" class="form-control" id="fuel_capacity" name="fuel_capacity" required/>
     </div>
     <div class="col-md-6">
         <label for="text" class="form-label">Mileage</label>
-        <input type="text" class="form-control" id="mileage" name="mileage" />
+        <input type="text" class="form-control" id="mileage" name="mileage" required/>
     </div>
     <div class="col-md-6">
         <label for="gear" class="form-label">Gear</label>
-        <select id="gear" name="gear" class="form-select" aria-label="Default select example">
+        <select id="gear" name="gear" class="form-select" aria-label="Default select example" required>
             <option selected>Five</option>
             <option value="1">Six</option>
         </select>
     </div>
     <div class="col-md-6">
         <label for="break" class="form-label">Top Speed</label>
-        <input type="text" class="form-control" id="top_speed" name="top_speed" />
+        <input type="text" class="form-control" id="top_speed" name="top_speed" required/>
     </div>
     <div class="col-md-6">
         <label for="break" class="form-label">Breaks</label>
-        <input type="text" class="form-control" id="break" name="break" />
+        <input type="text" class="form-control" id="break" name="break" required/>
     </div>
     <div class="col-md-6">
         <label for="suspension" class="form-label">Suspension Type</label>
-        <input type="text" class="form-control" id="suspension" name="suspension" />
+        <input type="text" class="form-control" id="suspension" name="suspension" required/>
     </div>
     <div class="col-md-6">
         <label for="colour" class="form-label">Colour</label>
-        <input type="text" class="form-control" id="colour" name="colour" />
+        <input type="text" class="form-control" id="colour" name="colour" required/>
     </div>
 
     <h3>Price</h3>
@@ -140,7 +140,7 @@
         </label>
         <div class="input-group mb-3">
             <span class="input-group-text">Rs.</span>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="price" name="price" />
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="price" name="price" required/>
         </div>
     </div>
     <div class="col-md-6">
@@ -159,12 +159,12 @@
     <h3>Other info</h3>
     <div class="col-md-6">
         <label for="address" class="form-label">Address</label>
-        <input type="text" class="form-control" id="address" name="address" />
+        <input type="text" class="form-control" id="address" name="address" required/>
     </div>
 
     <div class="col-md-6">
         <label for="deliveryOption" class="form-label">Delivery Option</label>
-        <select id="deliveryOption" name="deliveryOption" class="form-select" aria-label="Default select example">
+        <select id="deliveryOption" name="deliveryOption" class="form-select" aria-label="Default select example" required>
             <option value="home" selected>Home Delivery</option>
             <option value="pickup">Pick Up</option>
         </select>
@@ -172,7 +172,7 @@
     <div class="col-md-6">
         <label for="banner_img" class="form-label">Banner Image</label>
         <!-- <input class="form-control" type="file" id="formFile" name="banner_img" />                                        <input type="file" class="dropify" data-default-file="" name="image"> -->
-        <input type="file" class="dropify" data-default-file="" name="banner_img" id="formFile">
+        <input type="file" class="dropify" data-default-file="" name="banner_img" id="formFile" required>
 
 
     </div>
@@ -184,7 +184,7 @@
     </div>
     <div class="col-md-12">
         <label for="description" class="form-label">Description</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="5"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="5" required></textarea>
     </div>
     <div class="col-12">
         <button type="submit" class="btn btn-primary">Add</button>
