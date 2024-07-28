@@ -54,7 +54,7 @@ class ProductSeeder extends Seeder
             'address' => "Kathmandu",
             'deliveryOption' => 'Home Delivery',
             'banner_img' => '/img/cover.jpg',
-            'other_img' => '/img/bike.webp',
+            // 'other_img' => '/img/bike.webp',
             'description' => $product['Description'],
             // Add other fields as necessary...
         ]);

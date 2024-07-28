@@ -53,7 +53,7 @@
             Distance Covered
         </label>
         <div class="input-group mb-3">
-            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="distance" name="distance" />
+            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="distance" name="distance" min="0" />
             <span class="input-group-text">km</span>
 
         </div>
@@ -139,8 +139,8 @@
             Asking Price
         </label>
         <div class="input-group mb-3">
-            <span class="input-group-text">Rs.</span>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="price" name="price" />
+            <span class="input-group-text">$</span>
+            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="price" name="price" min="0" />
         </div>
     </div>
     <div class="col-md-6">
@@ -176,12 +176,11 @@
 
 
     </div>
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
         <label for="other_img" class="form-label">Other Images</label>
-        <!-- <input class="form-control" type="file" id="formFile" name="other_img" multiple /> -->
+        <input class="form-control" type="file" id="formFile" name="other_img" multiple />
         <input type="file" class="dropify" data-default-file="" name="other_img" id="formFile" multiple>
-
-    </div>
+    </div> -->
     <div class="col-md-12">
         <label for="description" class="form-label">Description</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="5"></textarea>

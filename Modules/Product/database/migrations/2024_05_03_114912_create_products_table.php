@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('deliveryOption');
             $table->string('banner_img');
-            $table->string('other_img');
+            // $table->string('other_img');
             $table->string('description');
             $table->integer('stock')->default(1);
             $table->string('status')->default('approved');

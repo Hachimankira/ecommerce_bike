@@ -48,19 +48,7 @@ class ProductController extends Controller
             $input['banner_img'] = 'storage/images/' . $bannerImageName; // Modify the input array
         }
 
-        // Handling other images upload
-        if ($request->hasFile('other_img')) {
-            $otherImages = $request->file('other_img');
-            $otherImageNames = [];
-            foreach ($otherImages as $image) {
-                if ($image->isValid()) {
-                    $imageName = uniqid() . '_other.' . $image->getClientOriginalExtension();
-                    $image->storeAs('public/otherimages', $imageName);
-                    $otherImageNames[] = 'storage/otherimages/' . $imageName;
-                }
-            }
-            $input['other_img'] = json_encode($otherImageNames); // Storing JSON encoded array of image paths
-        }
+        
 
         // Create product using the modified input array
         $product = Product::create($input);
