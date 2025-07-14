@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row py-2">
             <div class="col-4">
-                <h4 class="card-title">Customer Lists</h4>
+                <h4 class="card-title">Billing Information</h4>
             </div>
             <div class="col-3">
                 <!-- Space reserved for potential future use -->
@@ -29,8 +29,8 @@
                     <th>#</th>
                     <th>Customer Name</th>
                     <th>Products Ordered</th>
+                    <th>Total Payment</th>
                     <th>Payment Status</th>
-                    <th>Delivery Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,16 +44,8 @@
                             {{ $product->name }} {{ $product->brand->name ?? 'No Brand' }} {{ $product->model ?? 'No Model' }} {{ $product->year ?? 'No Year' }}
                         @endforeach
                     </td>
+                    <td>{{ $order->total_price ?? 'N/A' }}</td>
                     <td>{{ !empty($order->total_price) ? 'Paid' : 'Unpaid' }}</td>
-                    <td>
-                        @if($order->status == 'delivered')
-                            <span class="badge bg-success">{{ ucfirst($order->status) }}</span>
-                        @elseif($order->status == 'pending')
-                            <span class="badge bg-danger">{{ ucfirst($order->status) }}</span>
-                        @else
-                            <span class="badge bg-primary">{{ ucfirst($order->status) }}</span>
-                        @endif
-                    </td>
                 </tr>
                 @endforeach
             </tbody>
